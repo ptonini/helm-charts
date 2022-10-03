@@ -1,0 +1,62 @@
+{{- define "library.kong.kongingress"}}
+{{- $root := deepCopy . }}
+{{- if .Values.kongingress }}
+{{- $_ := set $root "Values" (merge $root.Values .Values.kongingress) }}
+{{- end }}
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongIngress
+{{- include "library.metadata" $root }}
+route: {{ $root.Values.route | toYaml | nindent 2 }}
+{{- end }}
+
+
+{{- define "library.kong.kongplugin" }}
+{{- $root := deepCopy . }}
+{{- if .Values.kongplugin }}
+{{- $_ := set $root "Values" (merge $root.Values .Values.kongplugin) }}
+{{- end }}
+---
+apiVersion: configuration.konghq.com/v1
+{{- if eq $root.Values.scope "cluster" }}
+kind: KongClusterPlugin
+{{- else }}
+kind: KongPlugin
+{{- end }}
+{{- include "library.metadata" $root }}
+plugin: {{ $root.Values.plugin }}
+{{- if $root.Values.config }}
+config:
+{{- range $k, $v := $root.Values.config }}
+  {{- if kindIs "string" $v }}
+  {{ $k }}: {{ $v | quote }}
+  {{- else if kindIs "float64" $v }}
+  {{ $k }}: {{ $v | quote }}
+  {{- else if kindIs "bool" $v }}
+  {{ $k }}: {{ $v }}
+  {{- else if kindIs "slice" $v }}
+  {{ $k }}: {{ $v | toJson }}
+  {{- else if kindIs "map" $v }}
+  {{ $k }}: {{ $v | toJson }}
+  {{- else }}
+  {{ $k }}: {{ $v }}
+  {{- end }}
+{{- end }}
+{{- end }}
+{{- end }}
+
+
+{{- define "library.kong.kongconsumer" }}
+{{- $root := deepCopy . }}
+{{- if .Values.kongconsumer }}
+{{- $values := merge $root.Values .Values.kongconsumer }}
+{{- $_ := set $root "Values" $values }}
+{{- end }}
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongConsumer
+{{- include "library.metadata" . }}
+username: {{ $.Values.username }}
+credentials:
+  - {{ include "library.factory.metadata.name" $root }}
+{{- end }}

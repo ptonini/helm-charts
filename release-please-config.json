@@ -2,6 +2,12 @@
   "packages": {
     "charts/lib-default": {
       "release-type": "helm"
+    },
+    "charts/lib-kong": {
+      "release-type": "helm"
+    },
+    "charts/lib-bots": {
+      "release-type": "helm"
     }
   }
 }

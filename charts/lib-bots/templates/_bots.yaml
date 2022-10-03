@@ -1,0 +1,34 @@
+{{- define "library.bots.volume_mounts"}}{{- end }}
+{{- define "library.bots.environment_vars"}}{{- end }}
+
+
+{{- define "library.bots.containers" }}
+containers:
+  {{- range  $k, $v :=  .Values.bots }}
+  {{- if (get $v "enabled") }}
+  {{- $bot_path :=  printf "%s/%s.sh" $.Values.scripts_path $k }}
+  - name: {{ $k }}
+    {{- include "library.container" $.Values | indent 4 }}
+    command:
+      - {{ $bot_path }}
+    volumeMounts:
+      - name: scripts
+        mountPath: {{ $bot_path }}
+        subPath: {{ $bot_path | base }}
+        readOnly: true
+      {{- include "library.bots.volume_mounts" (dict "bot_path" $bot_path "values" $.Values) | indent 6 }}
+    env:
+      {{- include "library.bots.environment_vars"  (dict "bot_name" $k "values" $.Values) | indent 6 }}
+  {{- end }}
+  {{- end }}
+{{- end }}
+
+
+{{- define "library.bots.configmap_data"}}
+  {{- range  $path, $_ :=  .Files.Glob  "scripts/*.sh" }}
+  {{ $path | base }}: |-
+    {{- range $.Files.Lines $path }}
+    {{ . }}
+    {{- end }}
+  {{- end }}
+{{- end }}
