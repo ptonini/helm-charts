@@ -1,0 +1,5 @@
+{{- include "library.cronjob" . }}
+
+{{- if .Values.serviceaccount.enabled }}
+{{- include "library.rbac.serviceaccount" . }}
+{{- end }}

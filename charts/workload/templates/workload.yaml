@@ -1,0 +1,40 @@
+{{- if not .Values.image.repository }}
+{{- $_ := set .Values.image "repository" .Release.Name }}
+{{- end }}
+
+{{- include "library.deployment" . }}
+
+{{- if .Values.autoscaler.enabled }}
+{{- include "library.horizontalpodautoscaler" . }}
+{{- end }}
+
+{{- if .Values.serviceaccount.enabled }}
+{{- include "library.rbac.serviceaccount" . }}
+{{- end }}
+
+{{- if .Values.service.enabled }}
+{{- include "library.service" . }}
+{{- end }}
+
+{{- if .Values.kongingress.enabled }}
+  {{- if hasKey .Values.ingress.annotations "kubernetes.io/ingress.class"}}
+  {{- $_ := set .Values.kongingress.annotations "kubernetes.io/ingress.class" (index .Values.ingress.annotations "kubernetes.io/ingress.class") }}
+  {{- end }}
+{{- include "library.kong.kongingress" . }}
+{{- $_ := set .Values.ingress.annotations "konghq.com/override" .Release.Name }}
+{{ end }}
+
+{{- if .Values.ingress.enabled }}
+{{- include "library.ingress" . }}
+{{- end }}
+
+{{- define "library.container_extras" }}
+{{- if .service.liveness_probe }}
+livenessProbe:
+  {{- include "library.service.http_probe" .service | indent 2 }}
+{{- end }}
+{{- if .service.readiness_probe }}
+readinessProbe:
+  {{- include "library.service.http_probe" .service | indent 2 }}
+{{- end }}
+{{- end }}

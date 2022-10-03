@@ -1,0 +1,9 @@
+apiVersion: v2
+name: service
+description: Service
+version: 0.0.0
+type: application
+dependencies:
+  - name: lib-default
+    version: 1.0.0
+    repository: https://ptonini.github.io/helm-charts

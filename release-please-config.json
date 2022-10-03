@@ -8,6 +8,27 @@
     },
     "charts/lib-bots": {
       "release-type": "helm"
+    },
+    "charts/configmap": {
+      "release-type": "helm"
+    },
+    "charts/cronjob": {
+      "release-type": "helm"
+    },
+    "charts/ingress": {
+      "release-type": "helm"
+    },
+    "charts/secret": {
+      "release-type": "helm"
+    },
+    "charts/service": {
+      "release-type": "helm"
+    },
+    "charts/serviceaccount": {
+      "release-type": "helm"
+    },
+    "charts/workload": {
+      "release-type": "helm"
     }
   }
 }

@@ -1,0 +1,42 @@
+schedule: "0 0 * * *"
+active_deadline_seconds: ~
+concurrency_policy: Forbid
+restart_policy: Never
+completions: 1
+parallelism: 1
+
+node_selector: ~
+
+pod:
+  annotations: ~
+
+image_pull_secrets: ~
+
+image:
+  registry: ~
+  repository: ~
+  tag: ~
+  pull_policy: ~
+
+command: ~
+
+args: ~
+
+env_secrets: ~
+
+env_configmaps: ~
+
+envs: ~
+
+volumes: ~
+
+volume_mounts: ~
+
+token_volume:
+  enabled: true
+  name: token
+  expiration: 3600
+  audience: ~
+
+serviceaccount:
+  enabled: false

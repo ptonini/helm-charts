@@ -1,0 +1,19 @@
+annotations: ~
+labels: ~
+type: NodePort
+
+name: http
+protocol: TCP
+port: 8080
+ext_port: ~
+
+ports: ~
+
+# Automation annotations
+route: ""
+ingresses: ~
+domain: ~
+internal: true
+monitoring:
+  route: ~
+  method: ~

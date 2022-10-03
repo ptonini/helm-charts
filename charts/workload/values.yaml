@@ -1,0 +1,67 @@
+replicas: 1
+node_selector: ~
+
+pod:
+  annotations: ~
+
+image_pull_secrets: ~
+
+image:
+  registry: ~
+  repository: ~
+  tag: ~
+
+command: ~
+args: ~
+
+envs:
+
+env_secrets: ~
+
+env_configmaps: ~
+
+volumes: ~
+
+token_volume:
+  enabled: true
+  name: token
+  expiration: 3600
+  audience: ~
+
+volume_mounts: ~
+
+resources:
+  requests:
+    cpu: 50m
+
+init_containers: ~
+
+autoscaler:
+  enabled: false
+  max_replicas: 1
+  avr_cpu: 80
+
+serviceaccount:
+  enabled: false
+
+service:
+  enabled: true
+  port: 8080
+  liveness_probe: false
+  readiness_probe: false
+  annotations: {}
+  monitoring:
+    route: /
+    method: GET
+
+kongingress:
+  enabled: false
+  annotations: {}
+  route:
+    protocols: [ "https" ]
+    https_redirect_status_code: 302
+    strip_path: true
+    
+ingress:
+  enabled: false
+  annotations: {}

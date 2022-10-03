@@ -5,5 +5,8 @@
   "charts/configmap": "0.0.0",
   "charts/cronjob": "0.0.0",
   "charts/ingress": "0.0.0",
+  "charts/secret": "0.0.0",
+  "charts/service": "0.0.0",
+  "charts/serviceaccount": "0.0.0",
   "charts/workload": "0.0.0"
 }

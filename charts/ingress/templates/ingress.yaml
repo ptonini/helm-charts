@@ -1,0 +1,9 @@
+{{ if .Values.kongingress.enabled }}
+  {{- if hasKey .Values.annotations "kubernetes.io/ingress.class" }}
+  {{- $_ := set .Values.kongingress.annotations "kubernetes.io/ingress.class" (index .Values.annotations "kubernetes.io/ingress.class") }}
+  {{- end }}
+{{- include "library.kong.kongingress" . }}
+{{- $_ := set .Values.annotations "konghq.com/override" .Release.Name }}
+{{ end }}
+
+{{- include "library.ingress" . }}
