@@ -1,0 +1,18 @@
+{{- define "library.configmap"}}
+{{- $root := deepCopy . }}
+{{- if .Values.configmap }}
+{{- $values := merge $root.Values .Values.configmap }}
+{{- $_ := set $root "Values" $values }}
+{{- end }}
+---
+apiVersion: v1
+kind: ConfigMap
+{{- include "library.metadata" $root }}
+data:
+  {{- include "library.configmap.data" $root | indent 2}}
+{{- end }}
+
+
+{{- define "library.configmap.data" }}
+{{- include "library.factory.kv_list" .Values.data }}
+{{- end }}

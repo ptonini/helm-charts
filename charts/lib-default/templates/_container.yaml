@@ -1,0 +1,114 @@
+{{- define "library.container.extras" }}{{- end }}
+
+
+{{- define "library.container" }}
+{{- include "library.factory.container.image" .image }}
+{{- if .command }}
+command: {{ .command | toYaml | nindent 2 }}
+{{- end }}
+{{- if .args }}
+args: {{ .args | toYaml | nindent 2 }}
+{{- end }}
+{{- if and ((.resources).requests) ((.resources).limits) }}
+resources:
+  {{- if .resources.requests }}
+  requests:
+    {{- include "library.container.resource" .resources.requests | indent 4 }}
+  {{- end }}
+  {{- if .resources.limits }}
+  limits:
+    {{- include "library.container.resource" .resources.limits | indent 4 }}
+  {{- end }}
+{{- end }}
+{{- if .volumeMounts }}
+volumeMounts: {{ .volumeMounts | toYaml | nindent 2  }}
+{{- end }}
+{{- if .envs }}
+env:
+  {{- range $k, $v := .env }}
+  {{- if $v}}
+  - name: {{ $k }}
+    value: {{ if kindIs "map" $v }}{{ $v | toYaml | nindent 4 }}{{ else }}{{ $v | quote }}{{ end }}
+  {{- end }}
+  {{- end }}
+{{- end }}
+{{- if or .env_secrets .env_configmaps  }}
+envFrom:
+  {{- range .env_configmaps }}
+  - configMapRef:
+      name: {{ . }}
+  {{- end }}
+  {{- range .env_secrets }}
+  - secretRef:
+      name: {{ . }}
+  {{- end }}
+{{- end }}
+{{- if ((.service).enabled) }}
+ports:
+  {{- if .service.port }}
+  {{- include "library.container.port" .service | indent 2 }}
+  {{- end }}
+  {{- range .service.ports }}
+  {{- include "library.container.port" . | indent 2 }}
+  {{- end }}
+{{- end }}
+{{- if .readiness_http_probe }}
+readinessProbe:
+  {{- include "library.container.http_probe" .readiness_http_probe | indent 2 }}
+{{- end }}
+{{- if .liveness_http_probe }}
+livenessProbe:
+  {{- include "library.container.http_probe" .liveness_http_probe | indent 2 }}
+{{- end }}
+{{- if .readinessProbe }}
+readinessProbe: {{ .readinessProbe | toYaml | nindent 2}}
+{{- end }}
+{{- if .livenessProbe }}
+livenessProbe: {{ .livenessProbe | toYaml | nindent 2}}
+{{- end }}
+{{- include "library.container.extras" . }}
+{{- end }}
+
+
+{{- define "library.container.port" }}
+- containerPort: {{ coalesce .target_port .port }}
+  protocol: {{ include "library.factory.service.port.protocol" . }}
+{{- end }}
+
+
+{{- define "library.container.resource" }}
+  {{- if .cpu }}
+cpu: {{ .cpu }}
+  {{- end }}
+  {{- if .memory }}
+memory: {{ .memory }}
+  {{- end }}
+{{- end }}
+
+
+{{- define "library.container.probe_commons" }}
+  {{- if .initial_delay_seconds }}
+initialDelaySeconds: {{ .initial_delay_seconds }}
+  {{- end }}
+  {{- if .period_seconds }}
+periodSeconds: {{ .period_seconds }}
+  {{- end }}
+  {{- if .failure_threshold }}
+failureThreshold: {{ .failure_threshold }}
+  {{- end }}
+  {{- if .timeout_seconds }}
+timeoutSeconds: {{ .timeout_seconds }}
+  {{- end }}
+{{- end }}
+
+
+{{- define "library.container.http_probe" }}
+{{- include "library.container.probe_commons" . }}
+httpGet:
+  {{- if .path }}
+  path: {{ .path }}
+  {{- end }}
+  {{- if .port }}
+  port: {{ .port }}
+  {{- end }}
+{{- end }}

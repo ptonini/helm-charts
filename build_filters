@@ -1,0 +1,4 @@
+#!/bin/bash
+for L in $(jq -r 'keys | .[]' .release-please-manifest.json); do
+  echo "$(awk -F/ '{print $2}' <<< "${L}"): $L/*"
+done

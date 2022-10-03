@@ -1,0 +1,36 @@
+{{- define "library.service" }}
+{{ $root := deepCopy . }}
+{{- if .Values.service }}
+{{- $values := merge $root.Values .Values.service }}
+{{- $_ := set $root "Values" $values }}
+{{- end }}
+---
+apiVersion: v1
+kind: Service
+{{- include "library.metadata" $root }}
+spec:
+  type: {{ include "library.factory.service.type" $root.Values }}
+  ports:
+    {{- if $root.Values.ports }}
+    {{- range $root.Values.ports }}
+    {{- include "library.service.port" . | indent 4 }}
+    {{- end }}
+    {{- else }}
+    {{- include "library.service.port" $root.Values | indent 4 }}
+    {{- end }}
+  selector:
+    {{- include "library.factory.pod.labels" $root  | indent 4 }}
+{{- end}}
+
+
+{{- define "library.service.port" }}
+- name: {{ include "library.factory.service.port.name" . }}
+  port: {{ .port }}
+  targetPort: {{ coalesce .targetPort .port }}
+  protocol: {{ include "library.factory.service.port.protocol" . }}
+{{- end }}
+
+
+{{- define "library.service.http_probe" }}
+{{- include "library.container.http_probe" (dict "path" .monitoring.route "port" .port "timeout_seconds" "35") }}
+{{- end }}

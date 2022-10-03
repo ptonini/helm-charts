@@ -1,0 +1,7 @@
+{
+  "packages": {
+    "charts/lib-default": {
+      "release-type": "helm"
+    }
+  }
+}

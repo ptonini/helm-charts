@@ -1,0 +1,9 @@
+{
+  "charts/lib-default": "0.0.0",
+  "charts/lib-kong": "0.0.0",
+  "charts/lib-bots": "0.0.0",
+  "charts/configmap": "0.0.0",
+  "charts/cronjob": "0.0.0",
+  "charts/ingress": "0.0.0",
+  "charts/workload": "0.0.0"
+}

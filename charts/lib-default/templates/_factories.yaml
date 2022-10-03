@@ -1,0 +1,49 @@
+{{- define "library.factory.metadata.name" }}
+{{- coalesce .Values.resource_name .Release.Name }}{{ if .Values.resource_name_suffix }}-{{ .Values.resource_name_suffix }}{{ end }}
+{{- end}}
+
+
+{{- define "library.factory.service.port.name" }}
+{{- coalesce .name  "http"}}
+{{- end }}
+
+
+{{- define "library.factory.service.port.protocol" }}
+{{- coalesce .protocol  "TCP" }}
+{{- end }}
+
+
+{{- define "library.factory.service.type" }}
+{{- coalesce .type  "NodePort" }}
+{{- end }}
+
+
+{{- define "library.factory.kv_list" }}
+{{- range $k, $v := . }}
+{{ $k }}: {{ $v | quote }}
+{{- end }}
+{{- end }}
+
+
+{{- define "library.factory.pod.labels" }}
+{{- if ((.Values.pod).labels) }}
+{{- include "library.factory.kv_list" .Values.pod.labels }}
+{{- else }}
+app: {{ .Release.Name }}
+{{- end }}
+{{- end }}
+
+
+{{- define "library.factory.ingress.certificate" }}
+{{- coalesce .Values.certificate (print .Release.Name "-certificate") }}
+{{- end }}
+
+
+{{- define "library.factory.pod.serviceaccountname" }}
+{{- coalesce .Values.serviceaccount.resource_name .Release.Name }}
+{{- end }}
+
+{{- define "library.factory.container.image" }}
+image: {{ if .registry }}{{ .registry }}/{{ end }}{{ .repository }}{{ if .tag }}{{ printf ":%s" .tag }}{{ end }}{{ if .checksum }}{{ printf "@sha256:%s" .checksum }}{{ end }}
+imagePullPolicy: {{ if .pull_policy }}{{ .pull_policy }}{{ else }}IfNotPresent{{ end }}
+{{- end }}
