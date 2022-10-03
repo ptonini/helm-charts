@@ -1,5 +1,50 @@
 apiVersion: v1
 entries:
+  configmap:
+  - apiVersion: v2
+    created: "2022-10-03T22:13:48.861705043Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: ConfigMap
+    digest: e647c7122ab2c6ac16c5657bece3b1d93510914b7ae9a83014c861c11bcf269f
+    name: configmap
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/configmap-v1.0.0/configmap-1.0.0.tgz
+    version: 1.0.0
+  cronjob:
+  - apiVersion: v2
+    created: "2022-10-03T22:13:49.002996457Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Cronjob
+    digest: 267f6ad6443002042a00169bdbc023e950f5fe973474c01fe9a79b5b9fe9b348
+    name: cronjob
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/cronjob-v1.0.0/cronjob-1.0.0.tgz
+    version: 1.0.0
+  ingress:
+  - apiVersion: v2
+    created: "2022-10-03T22:13:49.131401678Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Ingress
+    digest: 8aadd9e2c1ef0c9e280e1c89be13e0eb382f65c87c4f58675f838e39da5f2c3c
+    name: ingress
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/ingress-v1.0.0/ingress-1.0.0.tgz
+    version: 1.0.0
   lib-bots:
   - apiVersion: v2
     created: "2022-10-03T21:56:48.50808847Z"
@@ -35,4 +80,63 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/lib-kong-v1.0.0/lib-kong-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-03T21:56:48.621764161Z"
+  secret:
+  - apiVersion: v2
+    created: "2022-10-03T22:13:49.270530392Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Secret
+    digest: 242085a021b193b902f9288b636fd9ac13b66fe6472479246a8e8736faad6a7d
+    name: secret
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/secret-v1.0.0/secret-1.0.0.tgz
+    version: 1.0.0
+  service:
+  - apiVersion: v2
+    created: "2022-10-03T22:13:49.406363209Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Service
+    digest: d63aae06dcba7c7c6b0a65299c0e3bf4920c3ec06b85c6bb2d40e9ae83570f9f
+    name: service
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/service-v1.0.0/service-1.0.0.tgz
+    version: 1.0.0
+  serviceaccount:
+  - apiVersion: v2
+    created: "2022-10-03T22:13:49.535752529Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: ServiceAccount
+    digest: 0e60982c1dff2b1f5afb30bffc2ffbbbe40986a4613e9d28f57e82ad263791d7
+    name: serviceaccount
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/serviceaccount-v1.0.0/serviceaccount-1.0.0.tgz
+    version: 1.0.0
+  workload:
+  - apiVersion: v2
+    created: "2022-10-03T22:13:49.666768149Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Kubernetes Generic Workload Template
+    digest: 6a0c7179e35f815629b9efa7f93483d39cebfb80b0f262b0807d25fc8a778644
+    name: workload
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
+    version: 1.0.0
+generated: "2022-10-03T22:13:49.666823849Z"
