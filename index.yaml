@@ -1,5 +1,18 @@
 apiVersion: v1
 entries:
+  lib-bots:
+  - apiVersion: v2
+    created: "2022-10-03T21:56:48.50808847Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    digest: 6ad496a4a4e9cbe8b1b43102778539aa2ad8048095f484e33196c43c7301a744
+    name: lib-bots
+    type: library
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/lib-bots-v1.0.0/lib-bots-1.0.0.tgz
+    version: 1.0.0
   lib-default:
   - apiVersion: v2
     created: "2022-10-03T21:41:09.373218785Z"
@@ -9,4 +22,17 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/lib-default-v1.0.0/lib-default-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-03T21:41:09.373223785Z"
+  lib-kong:
+  - apiVersion: v2
+    created: "2022-10-03T21:56:48.621759561Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    digest: fd1ab5e578610bc27310c55ed2048cceffa6add58de9d58051a05d65e1c1d5b8
+    name: lib-kong
+    type: library
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/lib-kong-v1.0.0/lib-kong-1.0.0.tgz
+    version: 1.0.0
+generated: "2022-10-03T21:56:48.621764161Z"
