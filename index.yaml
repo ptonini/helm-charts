@@ -1,0 +1,12 @@
+apiVersion: v1
+entries:
+  lib-default:
+  - apiVersion: v2
+    created: "2022-10-03T21:41:09.373218785Z"
+    digest: 2d3d52a5e601df8fc185fc8a631e9b87a8f346516b9ef8e51fb596d7c4e10531
+    name: lib-default
+    type: library
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/lib-default-v1.0.0/lib-default-1.0.0.tgz
+    version: 1.0.0
+generated: "2022-10-03T21:41:09.373223785Z"
