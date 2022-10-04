@@ -56,6 +56,22 @@ entries:
     version: 1.0.0
   chartmuseum:
   - apiVersion: v2
+    created: "2022-10-04T03:46:17.828916957Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Chartmuseum Helm Repository
+    digest: 581cf2790bf3e73c950575042d92aaa212a90f19ed474a24a577935b2570407b
+    name: chartmuseum
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/chartmuseum-v1.0.2/chartmuseum-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     created: "2022-10-04T03:38:04.656006337Z"
     dependencies:
     - name: lib-default
@@ -228,6 +244,22 @@ entries:
     version: 1.0.0
   psono:
   - apiVersion: v2
+    created: "2022-10-04T03:46:17.936356845Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Psono
+    digest: a7300eb02ee2524907f78300aa70f745b96d82610e04b268936b1eec647f2a6d
+    name: psono
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/psono-v1.0.2/psono-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     created: "2022-10-04T03:38:04.781943951Z"
     dependencies:
     - name: lib-default
@@ -254,6 +286,22 @@ entries:
     - https://github.com/ptonini/helm-charts/releases/download/psono-v1.0.0/psono-1.0.0.tgz
     version: 1.0.0
   pypicloud:
+  - apiVersion: v2
+    created: "2022-10-04T03:46:18.078577413Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Pypicloud Pypi Repository
+    digest: 9fb699cce622faad93cb5aa701646fbdf8b366ba197cebcc9dff4895d5a7df12
+    name: pypicloud
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/pypicloud-v1.0.2/pypicloud-1.0.2.tgz
+    version: 1.0.2
   - apiVersion: v2
     created: "2022-10-04T03:38:04.89504899Z"
     dependencies:
@@ -369,4 +417,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-04T03:38:05.001074433Z"
+generated: "2022-10-04T03:46:18.078605713Z"
