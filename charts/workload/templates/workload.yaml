@@ -2,7 +2,7 @@
 {{- $_ := set .Values.image "repository" .Release.Name }}
 {{- end }}
 
-{{- include "library.deployment" . }}
+{{- include "library.workload" . }}
 
 {{- if .Values.autoscaler.enabled }}
 {{- include "library.horizontalpodautoscaler" . }}

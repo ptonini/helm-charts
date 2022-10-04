@@ -1,4 +1,4 @@
-{{- include "library.deployment" . }}
+{{- include "library.workload" . }}
 
 {{- include "library.configmap" . }}
 

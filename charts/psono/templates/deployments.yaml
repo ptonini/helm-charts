@@ -12,7 +12,7 @@
 {{- $_ = unset $admin_root.Values "containers" }}
 
 
-{{- include "library.deployment" $server_root }}
+{{- include "library.workload" $server_root }}
 
 {{- include "library.configmap" . }}
 
@@ -29,7 +29,7 @@
 {{- include "library.ingress" . }}
 
 {{- if .Values.admin.enabled }}
-{{- include "library.deployment" $admin_root }}
+{{- include "library.workload" $admin_root }}
 {{- include "library.service" $admin_root }}
 {{- end }}
 
