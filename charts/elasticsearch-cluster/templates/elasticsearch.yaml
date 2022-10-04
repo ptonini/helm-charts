@@ -1,0 +1,58 @@
+---
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+{{- include "library.metadata" . }}
+spec:
+  version: {{ .Values.version }}
+  http:
+    {{- include "elasticsearch.http" (merge .Values.http .Values.elasticsearch.http) | indent 4}}
+  nodeSets:
+    {{- range .Values.elasticsearch.node_sets }}
+    - name: {{ .name }}
+      count: {{ .count }}
+      config: {{ merge .config $.Values.elasticsearch.config | toYaml | nindent 10 }}
+      podTemplate:
+        spec:
+          serviceAccountName: {{ $.Release.Name }}
+          {{- if .node_selector }}
+          nodeSelector: {{ .node_selector | toYaml | nindent 12 }}
+          {{- end }}
+          {{- if .tolerations }}
+          tolerations: {{ .tolerations | toYaml | nindent 12 }}
+          {{- end }}
+          {{- if gt (len $.Values.elasticsearch.plugins) 0 }}
+          initContainers:
+            - name: elasticsearch-plugins
+              command: ["sh", "-c"]
+              args:
+                - echo "Installing plugins" &&
+                  {{- range $.Values.elasticsearch.plugins }}
+                  bin/elasticsearch-plugin install --batch {{ . }} &&
+                  {{- end }}
+                  echo "Installation complete"
+          {{- end }}
+          containers:
+            - name: elasticsearch
+              {{- if .resources }}
+              resources: {{ .resources | toYaml | nindent 16 }}
+              {{- end }}
+              env:
+                - name: ES_JAVA_OPTS
+                  value: "-Xms{{ .jvm_heap_memory }} -Xmx{{ .jvm_heap_memory }} {{ .jvm_extra_options }}"
+                - name: AWS_SDK_LOAD_CONFIG
+                  value: "true"
+                - name: MALLOC_ARENA_MAX
+                  value: "2"
+      {{- if .storage }}
+      volumeClaimTemplates:
+        - metadata:
+            name: elasticsearch-data
+          spec:
+            storageClassName: {{ .storage.class }}
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: {{ .storage.size }}
+      {{- end }}
+    {{- end }}

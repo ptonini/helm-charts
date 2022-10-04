@@ -1,0 +1,23 @@
+---
+apiVersion: kibana.k8s.elastic.co/v1
+kind: Kibana
+{{- include "library.metadata" . }}
+spec:
+  version: {{ .Values.version }}
+  count: {{ .Values.kibana.count }}
+  elasticsearchRef:
+    name: {{ .Release.Name }}
+  http:
+    {{- include "elasticsearch.http" (merge .Values.http .Values.kibana.http) | indent 4}}
+  podTemplate:
+    spec:
+      serviceAccountName: {{ $.Release.Name }}
+      {{- if .Values.kibana.node_selector }}
+      nodeSelector: {{ .Values.kibana.node_selector | toYaml | nindent 8 }}
+      {{- end }}
+      {{- if .Values.kibana.tolerations }}
+      tolerations: {{ .Values.kibana.tolerations | toYaml | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: kibana
+          resources: {{ .Values.kibana.resources | toYaml | nindent 12 }}

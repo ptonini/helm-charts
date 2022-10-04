@@ -1,0 +1,23 @@
+{{- if gt .Values.apm.count 0.0 }}
+---
+apiVersion: apm.k8s.elastic.co/v1
+kind: ApmServer
+{{- include "library.metadata" . }}
+spec:
+  version: {{ .Values.version }}
+  count: {{ .Values.apm.count }}
+  config: {{ .Values.apm.config | toYaml | nindent 4 }}
+  elasticsearchRef:
+    name: {{ .Release.Name }}
+  http:
+    {{- include "elasticsearch.http" (merge .Values.http .Values.apm.http) | indent 4}}
+  podTemplate:
+    spec:
+      serviceAccountName: {{ .Release.Name }}
+      {{- if .Values.apm.node_selector }}
+      nodeSelector: {{ .Values.apm.node_selector | toYaml | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: kibana
+          resources: {{ .Values.apm.resources | toYaml | nindent 10 }}
+{{- end }}
