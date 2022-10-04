@@ -1,0 +1,6 @@
+ingress_class: kong
+scope: namespace
+plugin: ~
+
+config: {}
+annotations: {}

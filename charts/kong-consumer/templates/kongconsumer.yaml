@@ -1,0 +1,9 @@
+{{- $_ := set .Values.annotations "kubernetes.io/ingress.class" .Values.ingress_class }}
+{{- include "library.kong.kongconsumer" . }}
+
+{{- if .Values.password }}
+{{- $root := deepCopy $ }}
+{{- $_ = unset .Values.annotations "kubernetes.io/ingress.class" }}
+{{- $_ = set .Values "plain_text" (dict "kongCredType" .Values.cred_type "username" .Values.username  "password" .Values.password ) }}
+{{- include "library.secret" . }}
+{{- end }}
