@@ -1,0 +1,59 @@
+# Application #################################################################
+
+tlsSecret: ~
+tlsSecretVolume: certs
+tlsSecretMountpoint: /certs
+
+webhook:
+  kind: MutatingWebhookConfiguration
+  failurePolicy: Ignore
+  ignoredNamespaces:
+    - kube-system
+    - kube-public
+    - kube-node-lease
+  rules: ~
+  caBundle: ~
+  path: /mutate
+
+# Deployment ##################################################################
+
+create_disabled: false
+
+image:
+  registry: ~
+  repository: ~
+  tag: ~
+  
+envs:
+  POD_NAMESPACE:
+    valueFrom:
+      fieldRef:
+        fieldPath: "metadata.namespace"
+        
+livenessProbe:
+  httpGet:
+    path: /health
+    port: 8443
+    scheme: HTTPS
+  initialDelaySeconds: 3
+
+readinessProbe: ~
+
+volume_mounts: []
+volumes: []
+
+autoscaler:
+  enabled: false
+
+# Service #####################################################################
+
+service:
+  enabled: true
+  type: ClusterIP
+  port: 443
+  target_port: 8443
+
+# ServiceAccount ##############################################################
+
+serviceaccount:
+  enabled: true

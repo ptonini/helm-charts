@@ -1,0 +1,20 @@
+{{- $_ := set .Values "volumes" (append .Values.volumes (dict "name" .Values.tlsSecretVolume "secret" (dict "secretName" .Values.tlsSecret ))) }}
+{{- $_ = set .Values "volume_mounts" (append .Values.volume_mounts (dict "name" .Values.tlsSecretVolume "mountPath"  .Values.tlsSecretMountpoint "readOnly" true)) }}
+
+{{- if not (.Values.readinessProbe) }}
+{{- $_ = set .Values "readinessProbe" .Values.livenessProbe }}
+{{- end }}
+
+{{- include "library.deployment" . }}
+
+{{- if .Values.autoscaler.enabled }}
+{{- include "library.horizontalpodautoscaler" . }}
+{{- end }}
+
+{{- if .Values.serviceaccount.enabled }}
+{{- include "library.rbac.serviceaccount" . }}
+{{- end }}
+
+{{- if .Values.service.enabled }}
+{{- include "library.service" . }}
+{{- end }}

@@ -44,6 +44,9 @@
     },
     "charts/elasticsearch-cluster": {
       "release-type": "helm"
+    },
+    "charts/admission-controller": {
+      "release-type": "helm"
     }
   }
 }
