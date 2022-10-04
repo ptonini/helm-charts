@@ -13,5 +13,6 @@
   "charts/kong-ingress": "1.0.0",
   "charts/kong-plugin": "1.0.0",
   "charts/rabbitmq-cluster": "1.0.0",
-  "charts/elasticsearch-cluster": "1.0.0"
+  "charts/elasticsearch-cluster": "1.0.0",
+  "charts/admission-controller": "1.0.0"
 }
