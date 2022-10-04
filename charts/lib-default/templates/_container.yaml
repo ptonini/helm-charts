@@ -3,7 +3,7 @@
 
 {{- define "library.container" }}
 {{- include "library.factory.container.image" .image }}
-${{- if .imagePullPolicy }}
+{{- if .imagePullPolicy }}
 imagePullPolicy: {{ .imagePullPolicy }}
 {{- end }}
 {{- if .command }}
