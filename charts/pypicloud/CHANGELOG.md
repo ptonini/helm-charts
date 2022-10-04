@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/ptonini/helm-charts/compare/pypicloud-v1.0.2...pypicloud-v1.0.3) (2022-10-04)
+
+
+### Bug Fixes
+
+* normalized shared vaules to camelCase ([eca5730](https://github.com/ptonini/helm-charts/commit/eca5730cd50a1cd4b2d8226f54046b0bba4e5a86))
+
 ## [1.0.2](https://github.com/ptonini/helm-charts/compare/pypicloud-v1.0.1...pypicloud-v1.0.2) (2022-10-04)
 
 
