@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/ptonini/helm-charts/compare/psono-v1.0.3...psono-v1.0.4) (2022-10-04)
+
+
+### Bug Fixes
+
+* removed typing error from container template ([914f28a](https://github.com/ptonini/helm-charts/commit/914f28a3cedfb1ae93f65b848e97c5546e932e9c))
+
 ## [1.0.3](https://github.com/ptonini/helm-charts/compare/psono-v1.0.2...psono-v1.0.3) (2022-10-04)
 
 
