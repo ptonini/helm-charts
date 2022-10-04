@@ -14,6 +14,34 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/admission-controller-v1.0.0/admission-controller-1.0.0.tgz
     version: 1.0.0
+  cachet:
+  - apiVersion: v2
+    created: "2022-10-04T03:29:41.955518855Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: cachet
+    digest: 9ee6d558c3c6b47049c26929aae91438c851069b829f27203ede556885765a3d
+    name: cachet
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/cachet-v1.0.0/cachet-1.0.0.tgz
+    version: 1.0.0
+  chartmuseum:
+  - apiVersion: v2
+    created: "2022-10-04T03:29:42.092241236Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Chartmuseum Helm Repository
+    digest: 7889d306302326cff9308b052b4fa10e7cb1b3c169245aa0081bdb7e41da0fde
+    name: chartmuseum
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/chartmuseum-v1.0.0/chartmuseum-1.0.0.tgz
+    version: 1.0.0
   configmap:
   - apiVersion: v2
     created: "2022-10-03T22:13:48.861705043Z"
@@ -159,6 +187,34 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/lib-kong-v1.0.0/lib-kong-1.0.0.tgz
     version: 1.0.0
+  psono:
+  - apiVersion: v2
+    created: "2022-10-04T03:29:42.226349426Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Psono
+    digest: a8b411b6994d8ed81f5aea3ea1043e8eee95f1ed5307a5062b596facde429d1d
+    name: psono
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/psono-v1.0.0/psono-1.0.0.tgz
+    version: 1.0.0
+  pypicloud:
+  - apiVersion: v2
+    created: "2022-10-04T03:29:42.354238097Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Pypicloud Pypi Repository
+    digest: f5f236de96a9b664101608e8e797c8c72614b3b4a3bd52ab099bb899e6da4541
+    name: pypicloud
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/pypicloud-v1.0.0/pypicloud-1.0.0.tgz
+    version: 1.0.0
   rabbitmq-cluster:
   - apiVersion: v2
     created: "2022-10-04T01:38:11.539215394Z"
@@ -232,4 +288,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-04T02:37:36.296122705Z"
+generated: "2022-10-04T03:29:42.354251298Z"
