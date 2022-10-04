@@ -1,2 +1,4 @@
 .idea
+.vscode
 charts/*/charts/
+charts/*/*.json

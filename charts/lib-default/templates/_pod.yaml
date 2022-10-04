@@ -32,9 +32,9 @@ spec:
   {{- if ((.Values.serviceaccount).enabled) }}
   serviceAccountName: {{ include "library.factory.pod.serviceaccountname" . }}
   {{- end }}
-  {{- if .Values.init_containers }}
+  {{- if .Values.initContainers }}
   initContainers:
-    {{- range .Values.init_containers }}
+    {{- range .Values.initContainers }}
     - name: {{ .name }}
       {{- include "library.container" . | indent 6 }}
     {{- end }}
