@@ -24,7 +24,7 @@ image:
   repository: ~
   tag: ~
   
-envs:
+env:
   POD_NAMESPACE:
     valueFrom:
       fieldRef:
@@ -39,7 +39,7 @@ livenessProbe:
 
 readinessProbe: ~
 
-volume_mounts: []
+volumeMounts: []
 volumes: []
 
 autoscaler:

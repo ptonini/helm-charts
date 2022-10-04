@@ -15,12 +15,12 @@ spec:
   {{- if .Values.secretBackend }}
   secretBackend: {{ .Values.secretBackend | toYaml | nindent 4 }}
   {{- end }}
-  {{- if  .Values.node_selector }}
+  {{- if  .Values.nodeSelector }}
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
-          - matchExpressions: {{.Values.node_selector | toYaml | nindent 14 }}
+          - matchExpressions: {{.Values.nodeSelector | toYaml | nindent 14 }}
   {{- end }}
   {{- if .Values.tolerations }}
   tolerations: {{ .Values.tolerations | toYaml | nindent 4 }}

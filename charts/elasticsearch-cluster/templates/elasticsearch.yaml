@@ -14,8 +14,8 @@ spec:
       podTemplate:
         spec:
           serviceAccountName: {{ $.Release.Name }}
-          {{- if .node_selector }}
-          nodeSelector: {{ .node_selector | toYaml | nindent 12 }}
+          {{- if .nodeSelector }}
+          nodeSelector: {{ .nodeSelector | toYaml | nindent 12 }}
           {{- end }}
           {{- if .tolerations }}
           tolerations: {{ .tolerations | toYaml | nindent 12 }}

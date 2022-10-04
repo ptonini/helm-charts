@@ -15,7 +15,7 @@ elasticsearch:
   node_sets:
     - name: data0001
       count: 3
-      node_selector: ~
+      nodeSelector: ~
       config:
         node:
           roles:
@@ -40,7 +40,7 @@ elasticsearch:
 
 kibana:
   count: 1
-  node_selector: ~
+  nodeSelector: ~
   tolerations:
 #    - key: "key1"
 #      operator: "Exists"
@@ -55,7 +55,7 @@ kibana:
 
 apm:
   count: 0
-  node_selector: ~
+  nodeSelector: ~
   http: {}
   config:
     output:

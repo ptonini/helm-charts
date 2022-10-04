@@ -51,7 +51,7 @@ postgresql:
 
 ### Deployments ######################
 
-node_selector: ~
+nodeSelector: ~
 annotations: {}
 
 volumes:
@@ -82,12 +82,12 @@ server:
   readiness_http_probe:
     port: *server_port
     path: *server_health
-  volume_mounts:
+  volumeMounts:
     - name: config
       mountPath: /root/.psono_server/settings.yaml
       subPath: settings.yaml
       readOnly: true
-  envs:
+  env:
     UWSGI_PORT: *server_port
 
 client:
@@ -105,7 +105,7 @@ client:
   readiness_http_probe:
     port: *client_port
     path: *client_health
-  volume_mounts:
+  volumeMounts:
     *shared_mounts
 
 kongingress:
@@ -148,7 +148,7 @@ admin:
   readiness_http_probe:
     port: *admin_port
     path: *admin_health
-  volume_mounts:
+  volumeMounts:
     *shared_mounts
 
 configmap:

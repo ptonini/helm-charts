@@ -14,8 +14,8 @@ spec:
   podTemplate:
     spec:
       serviceAccountName: {{ .Release.Name }}
-      {{- if .Values.apm.node_selector }}
-      nodeSelector: {{ .Values.apm.node_selector | toYaml | nindent 8 }}
+      {{- if .Values.apm.nodeSelector }}
+      nodeSelector: {{ .Values.apm.nodeSelector | toYaml | nindent 8 }}
       {{- end }}
       containers:
         - name: kibana

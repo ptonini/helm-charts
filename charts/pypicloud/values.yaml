@@ -33,28 +33,28 @@ aws:
 
 ### Deployment ########################
 
-node_selector: ~
+nodeSelector: ~
 replicas: 1
 
 pod:
   annotations: ~
 
-security_context:
+securityContext:
   enabled: true
-  fs_group: 1000
-  run_as_user: 1000
+  fsGroup: 1000
+  runAsUser: 1000
 
-image_pull_secrets: []
+imagePullSecrets: []
 
 image:
   registry: ghcr.io/nodis-com-br
   repository: pypicloud
   tag: latest
-  pull_policy: IfNotPresent
+
 
 args: ~
 
-envs:
+env:
   AWS_SDK_LOAD_CONFIG: "true"
 
 resources:
@@ -74,7 +74,7 @@ volumes:
       name: *configmap
 
   
-volume_mounts:
+volumeMounts:
   - name: config
     mountPath: /etc/pypicloud/config.ini
     subPath: config.ini

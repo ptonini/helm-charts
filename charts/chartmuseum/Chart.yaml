@@ -5,7 +5,7 @@ type: application
 version: 1.0.2
 dependencies:
   - name: lib-default
-    version: 1.0.0
+    version: 1.0.1
     repository: https://ptonini.github.io/helm-charts
   - name: lib-kong
     version: 1.0.0

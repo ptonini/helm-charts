@@ -1,5 +1,5 @@
-{{- define "library.bots.volume_mounts"}}{{- end }}
-{{- define "library.bots.environment_vars"}}{{- end }}
+{{- define "library.bots.volumeMounts"}}{{- end }}
+{{- define "library.bots.env"}}{{- end }}
 
 
 {{- define "library.bots.containers" }}
@@ -16,9 +16,9 @@ containers:
         mountPath: {{ $bot_path }}
         subPath: {{ $bot_path | base }}
         readOnly: true
-      {{- include "library.bots.volume_mounts" (dict "bot_path" $bot_path "values" $.Values) | indent 6 }}
+      {{- include "library.bots.volumeMounts" (dict "bot_path" $bot_path "values" $.Values) | indent 6 }}
     env:
-      {{- include "library.bots.environment_vars"  (dict "bot_name" $k "values" $.Values) | indent 6 }}
+      {{- include "library.bots.env"  (dict "bot_name" $k "values" $.Values) | indent 6 }}
   {{- end }}
   {{- end }}
 {{- end }}

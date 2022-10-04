@@ -8,7 +8,7 @@ anchors:
 
 ### Deployment ########################
 
-node_selector: ~
+nodeSelector: ~
 replicas: 1
 
 pod:
@@ -19,7 +19,7 @@ image:
   repository: chartmuseum
   tag: latest
 
-envs:
+env:
   AWS_SDK_LOAD_CONFIG: "true"
   DEBUG: "false"
   PORT: *port

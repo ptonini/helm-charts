@@ -12,8 +12,8 @@ spec:
   podTemplate:
     spec:
       serviceAccountName: {{ $.Release.Name }}
-      {{- if .Values.kibana.node_selector }}
-      nodeSelector: {{ .Values.kibana.node_selector | toYaml | nindent 8 }}
+      {{- if .Values.kibana.nodeSelector }}
+      nodeSelector: {{ .Values.kibana.nodeSelector | toYaml | nindent 8 }}
       {{- end }}
       {{- if .Values.kibana.tolerations }}
       tolerations: {{ .Values.kibana.tolerations | toYaml | nindent 8 }}

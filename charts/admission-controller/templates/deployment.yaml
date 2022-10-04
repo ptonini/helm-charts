@@ -1,5 +1,5 @@
 {{- $_ := set .Values "volumes" (append .Values.volumes (dict "name" .Values.tlsSecretVolume "secret" (dict "secretName" .Values.tlsSecret ))) }}
-{{- $_ = set .Values "volume_mounts" (append .Values.volume_mounts (dict "name" .Values.tlsSecretVolume "mountPath"  .Values.tlsSecretMountpoint "readOnly" true)) }}
+{{- $_ = set .Values "volumeMounts" (append .Values.volumeMounts (dict "name" .Values.tlsSecretVolume "mountPath"  .Values.tlsSecretMountpoint "readOnly" true)) }}
 
 {{- if not (.Values.readinessProbe) }}
 {{- $_ = set .Values "readinessProbe" .Values.livenessProbe }}

@@ -3,4 +3,4 @@ dependencies:
   repository: https://ptonini.github.io/helm-charts
   version: 1.0.1
 digest: sha256:89e333bf63a955018795f87d3e1e99288335dab2b5eddc3e93b1eb321ba38443
-generated: "2022-10-04T14:48:26.44432333-03:00"
+generated: "2022-10-04T14:57:08.432028656-03:00"

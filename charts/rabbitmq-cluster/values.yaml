@@ -1,6 +1,6 @@
 replicas: 1
 
-node_selector:
+nodeSelector:
   - key: nodePoolClass
     operator: In
     values:

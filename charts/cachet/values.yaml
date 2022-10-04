@@ -7,7 +7,7 @@ anchors:
 
 ### Deployment ########################
 
-node_selector: ~
+nodeSelector: ~
 replicas: 1
 
 pod:
@@ -17,7 +17,7 @@ image:
   repository: cachethq/docker
   tag: latest
 
-envs:
+env:
   DEBUG: "false"
   APP_DEBUG: "false"
   APP_LOG: errorlor
