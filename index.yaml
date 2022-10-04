@@ -45,6 +45,57 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/ingress-v1.0.0/ingress-1.0.0.tgz
     version: 1.0.0
+  kong-consumer:
+  - apiVersion: v2
+    created: "2022-10-04T01:14:13.4860948Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Kong Consumer
+    digest: 5e0ee15897e3088e8d0946e4907e73850dc06f81985a5963f5126abf5b75df92
+    name: kong-consumer
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/kong-consumer-v1.0.0/kong-consumer-1.0.0.tgz
+    version: 1.0.0
+  kong-ingress:
+  - apiVersion: v2
+    created: "2022-10-04T01:14:13.740268025Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: KongIngress
+    digest: 4dd273008c91ba95be66ec9b9016a536e87f0933930d94e42b776563bb31ba72
+    name: kong-ingress
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/kong-ingress-v1.0.0/kong-ingress-1.0.0.tgz
+    version: 1.0.0
+  kong-plugin:
+  - apiVersion: v2
+    created: "2022-10-04T01:14:14.089868413Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Kong Plugin
+    digest: 348331450bfa1ff58af958dc6684859df78217d237415826f96c36d3f09f0144
+    name: kong-plugin
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/kong-plugin-v1.0.0/kong-plugin-1.0.0.tgz
+    version: 1.0.0
   lib-bots:
   - apiVersion: v2
     created: "2022-10-03T21:56:48.50808847Z"
@@ -139,4 +190,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-03T22:13:49.666823849Z"
+generated: "2022-10-04T01:14:14.089879613Z"
