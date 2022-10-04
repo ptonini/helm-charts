@@ -14,5 +14,9 @@
   "charts/kong-plugin": "1.0.0",
   "charts/rabbitmq-cluster": "1.0.0",
   "charts/elasticsearch-cluster": "1.0.0",
-  "charts/admission-controller": "1.0.0"
+  "charts/admission-controller": "1.0.0",
+  "charts/cachet": "1.0.0",
+  "charts/chartmuseum": "1.0.0",
+  "charts/psono": "1.0.0",
+  "charts/pypicloud": "1.0.0"
 }
