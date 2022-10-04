@@ -2,6 +2,19 @@ apiVersion: v1
 entries:
   admission-controller:
   - apiVersion: v2
+    created: "2022-10-04T18:04:24.195923464Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.1
+    description: Kubernetes Admission Controller
+    digest: 3036f7a78d81160eb92211c9cfe8147098619a097923cd0a4b16ae48622d8349
+    name: admission-controller
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/admission-controller-v1.0.2/admission-controller-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     created: "2022-10-04T03:38:04.418507304Z"
     dependencies:
     - name: lib-default
@@ -29,6 +42,19 @@ entries:
     version: 1.0.0
   cachet:
   - apiVersion: v2
+    created: "2022-10-04T18:04:24.455792651Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.1
+    description: cachet
+    digest: d71fc802e762812ea7e07bbb3d8acb9bcac76692d21ccc2d367d7928f904ea23
+    name: cachet
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/cachet-v1.0.2/cachet-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     created: "2022-10-04T03:38:04.533658572Z"
     dependencies:
     - name: lib-default
@@ -55,6 +81,22 @@ entries:
     - https://github.com/ptonini/helm-charts/releases/download/cachet-v1.0.0/cachet-1.0.0.tgz
     version: 1.0.0
   chartmuseum:
+  - apiVersion: v2
+    created: "2022-10-04T18:04:24.801923733Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.1
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Chartmuseum Helm Repository
+    digest: 8592868434aff582415b864953b0a6c33c64f730c181a93161b79f0f54d794c9
+    name: chartmuseum
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/chartmuseum-v1.0.3/chartmuseum-1.0.3.tgz
+    version: 1.0.3
   - apiVersion: v2
     created: "2022-10-04T03:46:17.828916957Z"
     dependencies:
@@ -113,6 +155,19 @@ entries:
     version: 1.0.0
   cronjob:
   - apiVersion: v2
+    created: "2022-10-04T18:04:25.088290142Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.1
+    description: Cronjob
+    digest: dd299c2f9e0074e3177e9061475912afdbfc8f43c285fd5b18067ee37396b55c
+    name: cronjob
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/cronjob-v1.0.1/cronjob-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
     created: "2022-10-03T22:13:49.002996457Z"
     dependencies:
     - name: lib-default
@@ -126,6 +181,19 @@ entries:
     - https://github.com/ptonini/helm-charts/releases/download/cronjob-v1.0.0/cronjob-1.0.0.tgz
     version: 1.0.0
   elasticsearch-cluster:
+  - apiVersion: v2
+    created: "2022-10-04T18:04:25.369831529Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.1
+    description: Elasticsearch Cluster
+    digest: 4e942b73cfd6f8d27cfa1f8fcd9eb31b9e0e1245ebd57efee961520998765c00
+    name: elasticsearch-cluster
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/elasticsearch-cluster-v1.0.1/elasticsearch-cluster-1.0.1.tgz
+    version: 1.0.1
   - apiVersion: v2
     created: "2022-10-04T02:03:58.644435123Z"
     dependencies:
@@ -209,6 +277,18 @@ entries:
     version: 1.0.0
   lib-bots:
   - apiVersion: v2
+    created: "2022-10-04T18:04:25.606003008Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.1
+    digest: d6d6bfd6dda955c0bb66027920e8ffb51f6d66d6c34e4f0d9751e1b01f9c72b6
+    name: lib-bots
+    type: library
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/lib-bots-v1.0.1/lib-bots-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
     created: "2022-10-03T21:56:48.50808847Z"
     dependencies:
     - name: lib-default
@@ -251,6 +331,22 @@ entries:
     - https://github.com/ptonini/helm-charts/releases/download/lib-kong-v1.0.0/lib-kong-1.0.0.tgz
     version: 1.0.0
   psono:
+  - apiVersion: v2
+    created: "2022-10-04T18:04:25.907408085Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.1
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Psono
+    digest: b37836e29a1b06e556739a1c1c00ef83de0a7451a477fcc8a4016a4b39f59a9f
+    name: psono
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/psono-v1.0.3/psono-1.0.3.tgz
+    version: 1.0.3
   - apiVersion: v2
     created: "2022-10-04T03:46:17.936356845Z"
     dependencies:
@@ -295,6 +391,22 @@ entries:
     version: 1.0.0
   pypicloud:
   - apiVersion: v2
+    created: "2022-10-04T18:04:26.17550161Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.1
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Pypicloud Pypi Repository
+    digest: 14008bf603a62fdb9a5aaab0a980a6409c882a038a5008a54040e328b5a2c187
+    name: pypicloud
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/pypicloud-v1.0.3/pypicloud-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
     created: "2022-10-04T03:46:18.078577413Z"
     dependencies:
     - name: lib-default
@@ -338,6 +450,19 @@ entries:
     version: 1.0.0
   rabbitmq-cluster:
   - apiVersion: v2
+    created: "2022-10-04T18:04:26.444900141Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.1
+    description: RabbitMQ Cluster
+    digest: e6bc0b2640d7fe2985c197b53e80f34aa3e00b5d7e52d97799080422f915aaa7
+    name: rabbitmq-cluster
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/rabbitmq-cluster-v1.0.1/rabbitmq-cluster-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
     created: "2022-10-04T01:38:11.539215394Z"
     dependencies:
     - name: lib-default
@@ -366,6 +491,19 @@ entries:
     version: 1.0.0
   service:
   - apiVersion: v2
+    created: "2022-10-04T18:04:26.720944866Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Service
+    digest: fe5b58229d4be8b69dded82d429f2546364feb8c927e116fff5bcc0325d3f95d
+    name: service
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/service-v1.0.1/service-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
     created: "2022-10-03T22:13:49.406363209Z"
     dependencies:
     - name: lib-default
@@ -393,6 +531,22 @@ entries:
     - https://github.com/ptonini/helm-charts/releases/download/serviceaccount-v1.0.0/serviceaccount-1.0.0.tgz
     version: 1.0.0
   workload:
+  - apiVersion: v2
+    created: "2022-10-04T18:04:27.008474245Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.1
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Kubernetes Generic Workload Template
+    digest: a8f9f139010e51d1964dd83ddd5f70783e348d133f1deef253929afc89e29cd8
+    name: workload
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.2/workload-1.0.2.tgz
+    version: 1.0.2
   - apiVersion: v2
     created: "2022-10-04T03:38:05.001047132Z"
     dependencies:
@@ -425,4 +579,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-04T17:25:37.141890834Z"
+generated: "2022-10-04T18:04:27.008555145Z"
