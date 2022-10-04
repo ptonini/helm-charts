@@ -38,6 +38,9 @@
     },
     "charts/kong-plugin": {
       "release-type": "helm"
+    },
+    "charts/rabbitmq-cluster": {
+      "release-type": "helm"
     }
   }
 }

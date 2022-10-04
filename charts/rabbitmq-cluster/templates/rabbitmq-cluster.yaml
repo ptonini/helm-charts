@@ -1,0 +1,30 @@
+apiVersion: rabbitmq.com/v1beta1
+kind: RabbitmqCluster
+{{- include "library.metadata" . }}
+spec:
+  replicas: {{ .Values.replicas }}
+  service: {{ .Values.service | toYaml | nindent 4 }}
+  persistence: {{ .Values.persistence | toYaml | nindent 4 }}
+  resources: {{ .Values.resources | toYaml | nindent 4 }}
+  rabbitmq:
+    additionalPlugins: {{ .Values.additionalPlugins | toYaml | nindent 6 }}
+    additionalConfig: {{ .Values.additionalConfig }}
+  {{- if .Values.tls }}
+  tls: {{ .Values.tls | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if .Values.secretBackend }}
+  secretBackend: {{ .Values.secretBackend | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if  .Values.node_selector }}
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions: {{.Values.node_selector | toYaml | nindent 14 }}
+  {{- end }}
+  {{- if .Values.tolerations }}
+  tolerations: {{ .Values.tolerations | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if .Values.override }}
+  override: {{ .Values.override | toYaml | nindent 4 }}
+  {{- end }}
