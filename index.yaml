@@ -28,6 +28,20 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/cronjob-v1.0.0/cronjob-1.0.0.tgz
     version: 1.0.0
+  elasticsearch-cluster:
+  - apiVersion: v2
+    created: "2022-10-04T02:03:58.644435123Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Elasticsearch Cluster
+    digest: a3649f1aabdfafba5d9cf6fd407b30290633d58c9fe27e034a042bc72a43ca02
+    name: elasticsearch-cluster
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/elasticsearch-cluster-v1.0.0/elasticsearch-cluster-1.0.0.tgz
+    version: 1.0.0
   ingress:
   - apiVersion: v2
     created: "2022-10-03T22:13:49.131401678Z"
@@ -204,4 +218,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-04T01:38:11.539226694Z"
+generated: "2022-10-04T02:03:58.644447123Z"
