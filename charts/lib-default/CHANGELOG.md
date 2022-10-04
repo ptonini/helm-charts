@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.0.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.0.2...lib-default-v2.0.0) (2022-10-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* added default library
+
+### Bug Fixes
+
+* normalized shared vaules to camelCase ([b413f6e](https://github.com/ptonini/helm-charts/commit/b413f6e91f82ed1178e56c5f8ba33f5f465c6c09))
+* removed typing error from _container.yaml ([1594aa1](https://github.com/ptonini/helm-charts/commit/1594aa19f8ae37d64a720719d2f1c88e143edaeb))
+* removed typing error from container template ([dc3c72f](https://github.com/ptonini/helm-charts/commit/dc3c72f1db1d68e1d987e165f9fdd4c7a15f8e30))
+
+
+### Miscellaneous Chores
+
+* added default library ([4dbbac7](https://github.com/ptonini/helm-charts/commit/4dbbac73bfe95e625cf3a5928d93ec209d6466ce))
+
 ## [1.0.2](https://github.com/ptonini/helm-charts/compare/lib-default-v1.0.1...lib-default-v1.0.2) (2022-10-04)
 
 
