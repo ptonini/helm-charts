@@ -131,6 +131,20 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/lib-kong-v1.0.0/lib-kong-1.0.0.tgz
     version: 1.0.0
+  rabbitmq-cluster:
+  - apiVersion: v2
+    created: "2022-10-04T01:38:11.539215394Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: RabbitMQ Cluster
+    digest: d0cb002662f9a5b143ea7dc5b023ca0667786d10c82c1e1e3c22589103f27522
+    name: rabbitmq-cluster
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/rabbitmq-cluster-v1.0.0/rabbitmq-cluster-1.0.0.tgz
+    version: 1.0.0
   secret:
   - apiVersion: v2
     created: "2022-10-03T22:13:49.270530392Z"
@@ -190,4 +204,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-04T01:14:14.089879613Z"
+generated: "2022-10-04T01:38:11.539226694Z"
