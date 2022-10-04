@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/ptonini/helm-charts/compare/workload-v1.0.2...workload-v1.0.3) (2022-10-04)
+
+
+### Bug Fixes
+
+* removed typing error from container template ([ff35313](https://github.com/ptonini/helm-charts/commit/ff35313339bd46d2c90e7a18b2e07bd886e48e9f))
+
 ## [1.0.2](https://github.com/ptonini/helm-charts/compare/workload-v1.0.1...workload-v1.0.2) (2022-10-04)
 
 
