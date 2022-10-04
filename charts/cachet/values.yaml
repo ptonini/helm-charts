@@ -1,0 +1,79 @@
+### Anchors ###########################
+
+anchors:
+  port: &port "8000"
+  health_path: &health_path /api/v1/ping
+
+
+### Deployment ########################
+
+node_selector: ~
+replicas: 1
+
+pod:
+  annotations: ~
+
+image:
+  repository: cachethq/docker
+  tag: latest
+
+envs:
+  DEBUG: "false"
+  APP_DEBUG: "false"
+  APP_LOG: errorlor
+  DB_DRIVER: pgsql
+  DB_HOST: localhost
+  DB_PORT: "5432"
+  DB_DATABASE: cachet
+  DB_USERNAME: cachet
+  DB_PASSWORD: cachet
+  DB_PREFIX: chq_
+  CACHE_DRIVER: redis
+  SESSION_DRIVER: redis
+  QUEUE_DRIVER: redis
+  REDIS_HOST: localhost
+  REDIS_DATABASE: 6
+  REDIS_PORT: 6379
+  MAIL_HOST: localhost
+  MAIL_PORT: 587
+  MAIL_USERNAME: cachet
+  MAIL_PASSWORD: cachet
+  MAIL_ADDRESS: cachet@example.com
+  MAIL_NAME: Cachet
+  MAIL_DRIVER: smtp
+  MAIL_ENCRYPTION: tls
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 100m
+    memory: 128Mi
+
+token_volume:
+  enabled: false
+
+readiness_http_probe:
+  path: *health_path
+  port: *port
+  
+liveness_http_probe: ~
+
+
+### Dependencies ######################
+
+service:
+  enabled: true
+  port: *port
+  monitoring:
+    route: *health_path
+    method: GET
+  
+ingress:
+  enabled: true
+  domain: cachet.example.com
+  monitoring:
+    route: *health_path
+
+
+

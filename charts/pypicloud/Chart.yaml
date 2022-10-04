@@ -1,0 +1,9 @@
+apiVersion: v2
+name: pypicloud
+description: Pypicloud Pypi Repository
+type: application
+version: 0.0.0
+dependencies:
+  - name: lib-default
+    version: 1.0.0
+    repository: https://ptonini.github.io/helm-charts

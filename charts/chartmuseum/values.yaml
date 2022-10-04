@@ -1,0 +1,81 @@
+### Anchors ###########################
+
+anchors:
+  port: &port "8080"
+  health_path: &health_path /health
+  aws_region: &aws_region us-east-1
+
+
+### Deployment ########################
+
+node_selector: ~
+replicas: 1
+
+pod:
+  annotations: ~
+
+image:
+  registry: ghcr.io/nodis-com-br
+  repository: chartmuseum
+  tag: latest
+
+envs:
+  AWS_SDK_LOAD_CONFIG: "true"
+  DEBUG: "false"
+  PORT: *port
+  STORAGE: "amazon"
+  AWS_REGION: *aws_region
+  STORAGE_AMAZON_REGION: *aws_region
+  AUTH_ANONYMOUS_GET: "true"
+  DISABLE_FORCE_OVERWRITE: "true"
+  DISABLE_METRICS: "true"
+  LOG_HEALTH: "false"
+
+resources:
+  requests:
+    memory: 256Mi
+  limits: ~
+
+token_volume:
+  enabled: true
+  name: token
+  expiration: 3600
+  audience: ~
+
+volumes: ~
+
+readiness_http_probe:
+  path: *health_path
+  port: *port
+  
+liveness_http_probe: ~
+
+
+### Dependencies ######################
+
+service:
+  enabled: true
+  port: *port
+  monitoring:
+    route: *health_path
+    method: GET
+  
+kongingress:
+  enabled: true
+  route:
+    protocols: [ "https" ]
+    https_redirect_status_code: 302
+    strip_path: true
+
+ingress:
+  enabled: true
+  annotations: {}
+  domain: charts.example.com
+  monitoring:
+    route: *health_path
+
+
+serviceaccount:
+  enabled: true
+
+

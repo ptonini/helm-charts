@@ -1,0 +1,118 @@
+### Anchors ###########################
+
+anchors:
+  port: &port 8080
+  health_path: &health_path /simple
+  configmap: &configmap pypicloud-config
+
+
+### Application #######################
+
+default_read: everyone
+default_write: everyone
+session:
+  encrypt_key: ""
+  validate_key: ""
+  secure: false
+auth:
+  admin_hash: ~
+  database: ~
+  address: ~
+storage:
+  type: s3
+  bucket: ~
+  dir: ~
+cache:
+  database: ~
+  address: ~
+aws:
+  role_arn: ~
+  access_key: ~
+  secret_key: ~
+  
+
+### Deployment ########################
+
+node_selector: ~
+replicas: 1
+
+pod:
+  annotations: ~
+
+security_context:
+  enabled: true
+  fs_group: 1000
+  run_as_user: 1000
+
+image_pull_secrets: []
+
+image:
+  registry: ghcr.io/nodis-com-br
+  repository: pypicloud
+  tag: latest
+  pull_policy: IfNotPresent
+
+args: ~
+
+envs:
+  AWS_SDK_LOAD_CONFIG: "true"
+
+resources:
+  requests:
+    memory: 512Mi
+
+token_volume:
+  enabled: true
+  name: token
+  expiration: 3600
+  audience: ~
+
+volumes:
+  - name: config
+    configMap:
+      defaultMode: 0600
+      name: *configmap
+
+  
+volume_mounts:
+  - name: config
+    mountPath: /etc/pypicloud/config.ini
+    subPath: config.ini
+    readOnly: true
+
+readiness_http_probe:
+  path: *health_path
+  port: *port
+
+liveness_http_probe: ~
+
+
+### Dependencies ######################
+
+configmap:
+  resource_name: *configmap
+
+service:
+  enabled: true
+  port: *port
+  monitoring:
+    route: *health_path
+    method: GET
+
+kongingress:
+  enabled: true
+  route:
+    protocols: [ "https" ]
+    https_redirect_status_code: 302
+    strip_path: true
+
+ingress:
+  enabled: true
+  domain: pypi.example.com
+  annotations: {}
+  monitoring:
+    route: *health_path
+
+serviceaccount:
+  enabled: true
+

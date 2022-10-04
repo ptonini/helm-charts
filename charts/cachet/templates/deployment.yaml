@@ -1,0 +1,9 @@
+{{- include "library.deployment" . }}
+
+{{- if .Values.service.enabled }}
+{{- include "library.service" . }}
+{{- end }}
+
+{{- if .Values.ingress.enabled }}
+{{- include "library.ingress" . }}
+{{- end }}

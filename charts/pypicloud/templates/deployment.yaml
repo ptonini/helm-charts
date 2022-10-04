@@ -1,0 +1,123 @@
+{{- include "library.deployment" . }}
+
+{{- include "library.configmap" . }}
+
+{{- if .Values.serviceaccount.enabled }}
+{{- include "library.rbac.serviceaccount" . }}
+{{- end }}
+
+{{- if .Values.service.enabled }}
+{{- include "library.service" . }}
+{{- end }}
+
+{{ if .Values.kongingress.enabled }}
+{{- $_ := set .Values.kongingress "annotations" .Values.ingress.annotations }}
+{{- include "library.kong.kongingress" . }}
+{{- $_ = set .Values.ingress.annotations "konghq.com/override" .Release.Name }}
+{{ end }}
+
+{{- if .Values.ingress.enabled }}
+{{- include "library.ingress" . }}
+{{- end }}
+
+
+{{- define "library.configmap.data" }}
+config.ini: |
+  [app:main]
+  use = egg:pypicloud
+
+  pyramid.reload_templates = False
+  pyramid.debug_authorization = false
+  pyramid.debug_notfound = false
+  pyramid.debug_routematch = false
+  pyramid.default_locale_name = en
+
+  pypi.default_read = {{ .Values.default_read }}
+  pypi.default_write = {{.Values.default_write }}
+
+  pypi.storage = {{ .Values.storage.type }}
+  {{- if .Values.storage.bucket }}
+  storage.bucket = {{ .Values.storage.bucket }}
+  {{- end }}
+  {{- if .Values.storage.dir }}
+  storage.dir = {{ .Values.storage.dir }}
+  {{- end }}
+  storage.prefix = packages/
+  storage.prepend_hash = false
+  {{- if .Values.auth.database }}
+  pypi.auth = {{ .Values.auth.database }}
+  {{- end }}
+  {{- if .Values.auth.address }}
+  auth.db.url = {{ .Values.auth.address }}
+  {{- end }}
+  {{- if .Values.auth.admin_hash }}
+  auth.admins = admin
+  user.admin = {{ .Values.auth.admin_hash }}
+  {{- end }}
+  {{- if .Values.cache.database }}
+  pypi.db = {{ .Values.cache.database }}
+  {{- end }}
+  {{- if .Values.cache.address }}
+  db.url = {{ .Values.cache.address }}
+  {{- end }}
+
+  # For beaker
+  session.encrypt_key = {{ .Values.session.encrypt_key }}
+  session.validate_key = {{ .Values.session.validate_key }}
+  session.secure = {{ .Values.session.secure }}
+  session.invalidate_corrupt = true
+
+  ###
+  # wsgi server configuration
+  ###
+
+  [uwsgi]
+  paste = config:%p
+  paste-logger = %p
+  master = true
+  processes = 20
+  reload-mercy = 15
+  worker-reload-mercy = 15
+  max-requests = 1000
+  enable-threads = true
+  http = 0.0.0.0:{{ .Values.service.port }}
+  uid = pypicloud
+  gid = pypicloud
+
+  ###
+  # logging configuration
+  # http://docs.pylonsproject.org/projects/pyramid/en/latest/narr/logging.html
+  ###
+
+  [loggers]
+  keys = root, botocore, pypicloud
+
+  [handlers]
+  keys = console
+
+  [formatters]
+  keys = generic
+
+  [logger_root]
+  level = INFO
+  handlers = console
+
+  [logger_pypicloud]
+  level = DEBUG
+  qualname = pypicloud
+  handlers = console
+
+  [logger_botocore]
+  level = WARN
+  qualname = botocore
+  handlers =
+
+  [handler_console]
+  class = StreamHandler
+  args = (sys.stderr,)
+  level = NOTSET
+  formatter = generic
+
+  [formatter_generic]
+  format = %(levelname)s %(asctime)s [%(name)s] %(message)s
+{{- end }}
