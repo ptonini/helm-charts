@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/ptonini/helm-charts/compare/lib-default-v1.0.1...lib-default-v1.0.2) (2022-10-04)
+
+
+### Bug Fixes
+
+* removed tiping error from _container.yaml ([2fb129e](https://github.com/ptonini/helm-charts/commit/2fb129e0d2d2745a4f0dd064660f3387c48ca6f9))
+
 ## [1.0.1](https://github.com/ptonini/helm-charts/compare/lib-default-v1.0.0...lib-default-v1.0.1) (2022-10-04)
 
 
