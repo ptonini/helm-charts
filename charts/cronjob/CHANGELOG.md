@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/ptonini/helm-charts/compare/cronjob-v1.0.3...cronjob-v1.0.4) (2022-10-05)
+
+
+### Bug Fixes
+
+* added restartPolicy default value to cronjob ([c098389](https://github.com/ptonini/helm-charts/commit/c0983896f496417e87f8807c221080115b90a681))
+
 ## [1.0.3](https://github.com/ptonini/helm-charts/compare/cronjob-v1.0.2...cronjob-v1.0.3) (2022-10-05)
 
 

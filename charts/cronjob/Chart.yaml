@@ -2,7 +2,7 @@ apiVersion: v2
 name: cronjob
 description: Cronjob
 type: application
-version: 1.0.3
+version: 1.0.4
 dependencies:
   - name: lib-default
     version: 1.0.3
