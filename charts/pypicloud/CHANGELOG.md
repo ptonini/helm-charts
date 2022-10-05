@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/ptonini/helm-charts/compare/pypicloud-v1.0.4...pypicloud-v1.0.5) (2022-10-05)
+
+
+### Bug Fixes
+
+* updated values.yaml ([2a1211e](https://github.com/ptonini/helm-charts/commit/2a1211eb535e94f20191e2307fc76e0cb659f437))
+
 ## [1.0.4](https://github.com/ptonini/helm-charts/compare/pypicloud-v1.0.4...pypicloud-v1.0.4) (2022-10-05)
 
 
