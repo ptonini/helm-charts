@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/ptonini/helm-charts/compare/cronjob-v1.0.2...cronjob-v1.0.3) (2022-10-05)
+
+
+### Bug Fixes
+
+* corrected imagePullSecrets generator on _pod.yaml ([500d3ad](https://github.com/ptonini/helm-charts/commit/500d3ad3d1ce56a42b94bc70283c901d37082b38))
+
 ## [1.0.2](https://github.com/ptonini/helm-charts/compare/cronjob-v1.0.1...cronjob-v1.0.2) (2022-10-04)
 
 
