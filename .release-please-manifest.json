@@ -1,5 +1,5 @@
 {
-  "charts/lib-default": "1.0.2",
+  "charts/lib-default": "1.0.3",
   "charts/lib-kong": "1.0.0",
   "charts/lib-bots": "1.0.1",
   "charts/configmap": "1.0.0",
