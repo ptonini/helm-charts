@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/ptonini/helm-charts/compare/workload-v1.0.4...workload-v1.0.5) (2022-10-05)
+
+
+### Bug Fixes
+
+* updated values.yaml ([7e92c32](https://github.com/ptonini/helm-charts/commit/7e92c32a2b6edc06f9ce5fdd709377354ef06134))
+
 ## [1.0.4](https://github.com/ptonini/helm-charts/compare/workload-v1.0.3...workload-v1.0.4) (2022-10-05)
 
 
