@@ -491,6 +491,22 @@ entries:
     version: 1.0.0
   pypicloud:
   - apiVersion: v2
+    created: "2022-10-05T22:23:48.892686159Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.2
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Pypicloud Pypi Repository
+    digest: 589a8958fdd51e6ba6348d506a0a1eb7e820599334aeeb982d8928e31ee68a3b
+    name: pypicloud
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/pypicloud-v1.0.4/pypicloud-1.0.4.tgz
+    version: 1.0.4
+  - apiVersion: v2
     created: "2022-10-04T18:04:26.17550161Z"
     dependencies:
     - name: lib-default
@@ -711,4 +727,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-05T21:57:17.923846405Z"
+generated: "2022-10-05T22:23:48.89275106Z"
