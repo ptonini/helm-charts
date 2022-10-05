@@ -1,9 +1,0 @@
-dependencies:
-- name: lib-default
-  repository: https://ptonini.github.io/helm-charts
-  version: 1.0.2
-- name: lib-kong
-  repository: https://ptonini.github.io/helm-charts
-  version: 1.0.0
-digest: sha256:069e98660931e551dde6c72baf0a2fe36c8b1f167841d444942003ebe6347eab
-generated: "2022-10-04T20:16:49.836971003-03:00"
