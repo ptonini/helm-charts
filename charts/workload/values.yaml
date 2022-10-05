@@ -1,49 +1,34 @@
 replicas: 1
 nodeSelector: ~
-
 pod:
   annotations: ~
-
 imagePullSecrets: ~
-
 image:
   registry: ~
   repository: ~
   tag: ~
-
 command: ~
 args: ~
-
 env:
-
 env_secrets: ~
-
 env_configmaps: ~
-
 volumes: ~
-
+volumeMounts: ~
 token_volume:
   enabled: true
   name: token
   expiration: 3600
   audience: ~
-
-volumeMounts: ~
-
 resources:
   requests:
     cpu: 50m
-
 initContainers: ~
-
 autoscaler:
   enabled: false
   max_replicas: 1
   avr_cpu: 80
-
 serviceaccount:
   enabled: false
-
 service:
   enabled: true
   port: 8080
@@ -53,7 +38,6 @@ service:
   monitoring:
     route: /
     method: GET
-
 kongingress:
   enabled: false
   annotations: {}
@@ -61,7 +45,6 @@ kongingress:
     protocols: [ "https" ]
     https_redirect_status_code: 302
     strip_path: true
-    
 ingress:
   enabled: false
   annotations: {}
