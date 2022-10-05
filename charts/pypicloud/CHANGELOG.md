@@ -7,6 +7,22 @@
 
 * force build pypicloud chart
 
+### Bug Fixes
+
+* removed securityContext.enabled key from value.yaml ([c6d58fb](https://github.com/ptonini/helm-charts/commit/c6d58fbb21e9d41a5af7b444a66547268cdd54b2))
+
+
+### Miscellaneous Chores
+
+* force build pypicloud chart ([69c7839](https://github.com/ptonini/helm-charts/commit/69c7839bba0aca632206c4fd45b1dc759c9f72c9))
+
+## [1.0.4](https://github.com/ptonini/helm-charts/compare/pypicloud-v1.0.4...pypicloud-v1.0.4) (2022-10-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* force build pypicloud chart
+
 ### Miscellaneous Chores
 
 * force build pypicloud chart ([69c7839](https://github.com/ptonini/helm-charts/commit/69c7839bba0aca632206c4fd45b1dc759c9f72c9))
