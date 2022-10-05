@@ -14,7 +14,10 @@ spec:
   nodeSelector: {{ .Values.nodeSelector | toYaml | nindent 4 }}
   {{- end }}
   {{- if .Values.imagePullSecrets }}
-  imagePullSecrets: {{- .Values.imagePullSecrets | toYaml | nindent 4}}
+  imagePullSecrets:
+    {{- range .Values.imagePullSecrets }}
+    - name: {{ . }}
+    {{- end }}
   {{- end }}
   {{- if .Values.restartPolicy }}
   restartPolicy: {{ .Values.restartPolicy }}
