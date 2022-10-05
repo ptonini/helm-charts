@@ -3,6 +3,7 @@ activeDeadlineSeconds: ~
 concurrencyPolicy: Forbid
 completions: 1
 parallelism: 1
+restartPolicy: OnFailure
 
 nodeSelector: ~
 
