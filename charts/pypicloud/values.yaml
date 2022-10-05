@@ -31,60 +31,45 @@ aws:
   secret_key: ~
   
 
-### Deployment ########################
+### Workload ########################
 
 nodeSelector: ~
 replicas: 1
-
 pod:
   annotations: ~
-
 securityContext:
   fsGroup: 1000
   runAsUser: 1000
-
 imagePullSecrets: []
-
 image:
   registry: ghcr.io/nodis-com-br
   repository: pypicloud
   tag: latest
-
-
 args: ~
-
 env:
   AWS_SDK_LOAD_CONFIG: "true"
-
 resources:
   requests:
     memory: 512Mi
-
 token_volume:
   enabled: true
   name: token
   expiration: 3600
   audience: ~
-
 volumes:
   - name: config
     configMap:
       defaultMode: 0600
       name: *configmap
-
-  
 volumeMounts:
   - name: config
     mountPath: /etc/pypicloud/config.ini
     subPath: config.ini
     readOnly: true
-
 readiness_http_probe:
   path: *health_path
   port: *port
-
 liveness_http_probe: ~
-
 
 ### Dependencies ######################
 
