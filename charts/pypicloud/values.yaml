@@ -40,7 +40,6 @@ pod:
   annotations: ~
 
 securityContext:
-  enabled: true
   fsGroup: 1000
   runAsUser: 1000
 
