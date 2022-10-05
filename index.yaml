@@ -2,6 +2,19 @@ apiVersion: v1
 entries:
   admission-controller:
   - apiVersion: v2
+    created: "2022-10-05T00:39:08.096556209Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.3
+    description: Kubernetes Admission Controller
+    digest: 2334e4fcfbad2435136491a274825b424c866b3085fdf186bd95b256d166dfe6
+    name: admission-controller
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/admission-controller-v1.0.4/admission-controller-1.0.4.tgz
+    version: 1.0.4
+  - apiVersion: v2
     created: "2022-10-04T18:04:24.195923464Z"
     dependencies:
     - name: lib-default
@@ -170,6 +183,19 @@ entries:
     - https://github.com/ptonini/helm-charts/releases/download/configmap-v1.0.0/configmap-1.0.0.tgz
     version: 1.0.0
   cronjob:
+  - apiVersion: v2
+    created: "2022-10-05T00:39:08.371365589Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.3
+    description: Cronjob
+    digest: a9ec93f539cecbf31e75ee968212f495ae2b17b5c996b3fed6818f2bfaec50a8
+    name: cronjob
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/cronjob-v1.0.3/cronjob-1.0.3.tgz
+    version: 1.0.3
   - apiVersion: v2
     created: "2022-10-05T00:08:14.550267875Z"
     dependencies:
@@ -577,6 +603,22 @@ entries:
     version: 1.0.0
   workload:
   - apiVersion: v2
+    created: "2022-10-05T00:39:08.627839177Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.3
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Kubernetes Generic Workload Template
+    digest: e6da448438284a37d3c3fa94a4b8564c28b1956523d7e34f0eb52042c39b0261
+    name: workload
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.4/workload-1.0.4.tgz
+    version: 1.0.4
+  - apiVersion: v2
     created: "2022-10-05T00:08:15.092887874Z"
     dependencies:
     - name: lib-default
@@ -640,4 +682,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-05T00:28:41.307302182Z"
+generated: "2022-10-05T00:39:08.627918077Z"
