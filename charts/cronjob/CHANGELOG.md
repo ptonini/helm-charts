@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/ptonini/helm-charts/compare/cronjob-v1.0.1...cronjob-v1.0.2) (2022-10-04)
+
+
+### Bug Fixes
+
+* removed typing error from container template ([d273761](https://github.com/ptonini/helm-charts/commit/d2737611de5010e9c4da27c326e7672f7509ec8c))
+
 ## [1.0.1](https://github.com/ptonini/helm-charts/compare/cronjob-v1.0.0...cronjob-v1.0.1) (2022-10-04)
 
 

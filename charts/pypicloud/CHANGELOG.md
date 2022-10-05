@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/ptonini/helm-charts/compare/pypicloud-v1.0.3...pypicloud-v1.0.4) (2022-10-04)
+
+
+### Bug Fixes
+
+* removed typing error from container template ([d273761](https://github.com/ptonini/helm-charts/commit/d2737611de5010e9c4da27c326e7672f7509ec8c))
+
 ## [1.0.3](https://github.com/ptonini/helm-charts/compare/pypicloud-v1.0.2...pypicloud-v1.0.3) (2022-10-04)
 
 
