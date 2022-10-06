@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.0.3...lib-default-v1.1.0) (2022-10-06)
+
+
+### Features
+
+* added lifecycle to _container.yaml ([b04ea4a](https://github.com/ptonini/helm-charts/commit/b04ea4a08e6f3337929b7adfac5e0bc81d16c18c))
+
 ## [1.0.3](https://github.com/ptonini/helm-charts/compare/lib-default-v1.0.2...lib-default-v1.0.3) (2022-10-05)
 
 
