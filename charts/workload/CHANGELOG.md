@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ptonini/helm-charts/compare/workload-v1.0.4...workload-v1.1.0) (2022-10-06)
+
+
+### Features
+
+* added lifecycle field to container template ([d950fc8](https://github.com/ptonini/helm-charts/commit/d950fc8e6f784e515b3a86a2cc3f2028e6185f4d))
+
 ## [1.0.4](https://github.com/ptonini/helm-charts/compare/workload-v1.0.3...workload-v1.0.4) (2022-10-05)
 
 
