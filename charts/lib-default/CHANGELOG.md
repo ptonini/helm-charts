@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.1.0...lib-default-v1.2.0) (2022-10-07)
+
+
+### Features
+
+* added extraContainers to pode template ([78c975a](https://github.com/ptonini/helm-charts/commit/78c975acbf972e3180d4a6307c706576b2825fc0))
+
 ## [1.1.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.0.3...lib-default-v1.1.0) (2022-10-06)
 
 
