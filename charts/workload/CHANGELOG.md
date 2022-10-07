@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/ptonini/helm-charts/compare/workload-v1.1.0...workload-v1.2.0) (2022-10-07)
+
+
+### Features
+
+* added sidecar containers support ([1283a94](https://github.com/ptonini/helm-charts/commit/1283a949ca7e679b11cdf8090610e8c63e6c805b))
+
 ## [1.1.0](https://github.com/ptonini/helm-charts/compare/workload-v1.0.4...workload-v1.1.0) (2022-10-06)
 
 
