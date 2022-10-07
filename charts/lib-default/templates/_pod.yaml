@@ -52,6 +52,10 @@ spec:
     - name: {{ .Release.Name }}
       {{- include "library.container" .Values | indent 6 }}
   {{- end }}
+  {{- range .Values.extraContainers }}
+    - name: {{ $.Release.Name }}-{{ .name }}
+      {{- include "library.container" . | indent 6 }}
+  {{- end }}
   {{- end }}
 
 
