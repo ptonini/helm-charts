@@ -44,5 +44,9 @@ app: {{ .Release.Name }}
 {{- end }}
 
 {{- define "library.factory.container.image" }}
-image: {{ if .registry }}{{ .registry }}/{{ end }}{{ .repository }}{{ if .tag }}{{ printf ":%s" .tag }}{{ end }}{{ if .checksum }}{{ printf "@sha256:%s" .checksum }}{{ end }}
+{{- if kindIs "string" . }}
+image: {{ . }}
+{{- else }}
+image: {{ if .registry }}{{ print .registry "/"}}{{ end }}{{ .repository }}{{ if .tag }}{{ print ":" .tag }}{{ else if .checksum }}{{ print "@sha256:" .checksum }}{{ end }}
+{{- end }}
 {{- end }}
