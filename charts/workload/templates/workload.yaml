@@ -1,5 +1,5 @@
-{{- if not .Values.image.repository }}
-{{- $_ := set .Values.image "repository" .Release.Name }}
+{{- if not .Values.image }}
+{{- $_ := set .Values "image" .Release.Name }}
 {{- end }}
 
 {{- include "library.workload" . }}
