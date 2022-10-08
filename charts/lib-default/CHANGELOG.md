@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.2.0...lib-default-v1.3.0) (2022-10-08)
+
+
+### Features
+
+* **lib-default:** added containerSecurityContext to container template ([0ce1a92](https://github.com/ptonini/helm-charts/commit/0ce1a920c9c1efd81ccbfd4c56771374c0e98963))
+
 ## [1.2.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.1.0...lib-default-v1.2.0) (2022-10-07)
 
 
