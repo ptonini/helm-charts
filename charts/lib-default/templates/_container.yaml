@@ -3,6 +3,9 @@
 
 {{- define "library.container" }}
 {{- include "library.factory.container.image" .image }}
+{{- if .containerSecurityContext }}
+securityContext:{{ .containerSecurityContext | toYaml | nindent 4 }}
+{{- end }}
 {{- if .imagePullPolicy }}
 imagePullPolicy: {{ .imagePullPolicy }}
 {{- end }}
