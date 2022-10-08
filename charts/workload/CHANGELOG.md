@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/ptonini/helm-charts/compare/workload-v1.2.0...workload-v1.3.0) (2022-10-08)
+
+
+### Features
+
+* **workflow:** added containerSecurityContext to container template ([b73a9a8](https://github.com/ptonini/helm-charts/commit/b73a9a85486eb713d1872b51b9896a472fce5eba))
+
 ## [1.2.0](https://github.com/ptonini/helm-charts/compare/workload-v1.1.0...workload-v1.2.0) (2022-10-07)
 
 
