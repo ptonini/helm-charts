@@ -1,28 +1,11 @@
 replicas: 1
-nodeSelector: ~
-pod:
-  annotations: ~
-imagePullSecrets: ~
-image:
-  registry: ~
-  repository: ~
-  tag: ~
-command: ~
-args: ~
-env:
-env_secrets: ~
-env_configmaps: ~
-volumes: ~
-volumeMounts: ~
 token_volume:
   enabled: true
   name: token
   expiration: 3600
-  audience: ~
 resources:
   requests:
     cpu: 50m
-initContainers: ~
 autoscaler:
   enabled: false
   max_replicas: 1
