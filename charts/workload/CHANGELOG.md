@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/ptonini/helm-charts/compare/workload-v1.2.0...workload-v1.3.0) (2022-10-08)
+
+
+### Features
+
+* **workflow:** updated lib-default to 1.4.0, refactored values.yaml ([3cd985e](https://github.com/ptonini/helm-charts/commit/3cd985e176b861e94f37a81e06515864c743c7ad))
+
 ## [1.2.0](https://github.com/ptonini/helm-charts/compare/workload-v1.1.0...workload-v1.2.0) (2022-10-07)
 
 
