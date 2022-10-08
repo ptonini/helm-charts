@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.3.0...lib-default-v1.4.0) (2022-10-08)
+
+
+### Features
+
+* **lib-default:** added support for image name in string format ([1618584](https://github.com/ptonini/helm-charts/commit/16185848dfd1448e4671c78591dce4c391c5f35a))
+
 ## [1.3.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.2.0...lib-default-v1.3.0) (2022-10-08)
 
 
