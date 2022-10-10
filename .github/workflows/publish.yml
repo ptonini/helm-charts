@@ -45,7 +45,6 @@ jobs:
           fetch-depth: 0
       - uses: actions/download-artifact@v3
         with:
-          name: builds
           path: ${{ github.workspace}}/builds
       - uses: dawidd6/action-git-user-config@v1
       - uses: helm/chart-releaser-action@v1.4.1

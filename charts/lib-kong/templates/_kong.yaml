@@ -3,6 +3,9 @@
 {{- if .Values.kongingress }}
 {{- $_ := set $root "Values" (merge $root.Values .Values.kongingress) }}
 {{- end }}
+{{- if hasKey .Values.ingress.annotations "kubernetes.io/ingress.class" }}
+{{- $_ := set $root.Values.kongingress.annotations "kubernetes.io/ingress.class" (index .Values.ingress.annotations "kubernetes.io/ingress.class") }}
+{{- end }}
 ---
 apiVersion: configuration.konghq.com/v1
 kind: KongIngress
