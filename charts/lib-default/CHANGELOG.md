@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/ptonini/helm-charts/compare/lib-default-v1.5.0...lib-default-v1.5.1) (2022-10-10)
+
+
+### Bug Fixes
+
+* **lib-default:** added missing end block to pod template ([4aedcc5](https://github.com/ptonini/helm-charts/commit/4aedcc5e9deae7a2e9d27cbb3e62069a122e34ba))
+
 ## [1.5.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.4.0...lib-default-v1.5.0) (2022-10-10)
 
 
