@@ -7,7 +7,13 @@
 apiVersion: configuration.konghq.com/v1
 kind: KongIngress
 {{- include "library.metadata" $root }}
+{{- if $root.Values.route }}
 route: {{ $root.Values.route | toYaml | nindent 2 }}
+{{- else }}
+route:
+  protocols: ["https"]
+  https_redirect_status_code: 302
+  strip_path: true
 {{- end }}
 
 
