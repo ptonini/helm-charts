@@ -15,7 +15,7 @@ route:
   https_redirect_status_code: 302
   strip_path: true
 {{- end }}
-
+{{- end }}
 
 {{- define "library.kong.kongplugin" }}
 {{- $root := deepCopy . }}
