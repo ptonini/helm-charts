@@ -49,6 +49,7 @@ spec:
     - name: {{ .name }}
       {{- include "library.container" . | indent 6 }}
     {{- end }}
+{{- end }}
 
 {{- define "library.volume.token_projection" }}
 - name: {{ .name }}
