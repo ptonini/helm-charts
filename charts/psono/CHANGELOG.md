@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.1.0](https://github.com/ptonini/helm-charts/compare/psono-v1.0.4...psono-v1.1.0) (2022-10-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* force build psono chart
+
+### Miscellaneous Chores
+
+* force build psono chart ([85f2979](https://github.com/ptonini/helm-charts/commit/85f2979df8313cd3d499fdea6fab8b394b084939))
+
+
+### Code Refactoring
+
+* **lib-kong:** reorganized values file and created separated configmap template ([7c4d8bb](https://github.com/ptonini/helm-charts/commit/7c4d8bb14240c5519ad74d72247135fc5836b521))
+
 ## [1.0.4](https://github.com/ptonini/helm-charts/compare/psono-v1.0.4...psono-v1.0.4) (2022-10-05)
 
 
