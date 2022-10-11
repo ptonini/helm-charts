@@ -45,9 +45,16 @@ spec:
   containers:
     - name: {{ coalesce .Values.containerName .Release.Name }}
       {{- include "library.container" .Values | indent 6 }}
+    {{- if kindIs "slice" .Values.extraContainers }}
     {{- range .Values.extraContainers }}
     - name: {{ .name }}
       {{- include "library.container" . | indent 6 }}
+    {{- end }}
+    {{- else if kindIs "map" .Values.extraContainers }}
+    {{- range $k, $v := .Values.extraContainers }}
+    - name: {{ $k }}
+      {{- include "library.container" $v | indent 6 }}
+    {{- end }}
     {{- end }}
 {{- end }}
 
