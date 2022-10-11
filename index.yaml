@@ -448,6 +448,22 @@ entries:
     version: 1.0.0
   psono:
   - apiVersion: v2
+    created: "2022-10-11T16:42:08.92728007Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.4.0
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Psono
+    digest: e0f44a342427463f6bd536ff7d1d2635e0c750afd46e5c741e73307057d1fe21
+    name: psono
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/psono-v1.1.0/psono-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
     created: "2022-10-05T21:57:17.923776305Z"
     dependencies:
     - name: lib-default
@@ -823,4 +839,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-08T16:16:33.844558552Z"
+generated: "2022-10-11T16:42:08.92747107Z"
