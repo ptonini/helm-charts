@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/ptonini/helm-charts/compare/psono-v1.1.0...psono-v1.1.1) (2022-10-11)
+
+
+### Bug Fixes
+
+* **psono:** added volume declaration to admin block nin values.yaml ([4dfb7e3](https://github.com/ptonini/helm-charts/commit/4dfb7e358ddd86dbdd5ebeaa86274d54b064e69d))
+
 ## [1.1.0](https://github.com/ptonini/helm-charts/compare/psono-v1.0.4...psono-v1.1.0) (2022-10-11)
 
 
