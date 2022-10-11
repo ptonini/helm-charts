@@ -38,13 +38,13 @@ env:
   {{- end }}
   {{- end }}
 {{- end }}
-{{- if or .env_secrets .env_configmaps  }}
+{{- if or .envSecrets .envConfigmaps  }}
 envFrom:
-  {{- range .env_configmaps }}
+  {{- range .envConfigmaps }}
   - configMapRef:
       name: {{ . }}
   {{- end }}
-  {{- range .env_secrets }}
+  {{- range .envSecrets }}
   - secretRef:
       name: {{ . }}
   {{- end }}
