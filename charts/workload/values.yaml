@@ -23,11 +23,6 @@ service:
     method: GET
 kongingress:
   enabled: false
-  annotations: {}
-  route:
-    protocols: [ "https" ]
-    https_redirect_status_code: 302
-    strip_path: true
 ingress:
   enabled: false
   annotations: {}
