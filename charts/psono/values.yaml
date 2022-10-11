@@ -34,18 +34,18 @@ postgresql:
 nodeSelector: ~
 annotations: {}
 replicas: 3
-volumes:
-  - name: config
-    configMap:
-      defaultMode: 0644
-      name: &configmap psono-config
 image: psono/psono-server:latest
 resources:
   requests:
     memory: 384Mi
 readiness_http_probe:
   port: &server_port 8080
-  path: &server_health /healthcheck/
+  path: /healthcheck/
+volumes: &config_volume
+  - name: config
+    configMap:
+      defaultMode: 0644
+      name: &configmap psono-config
 volumeMounts:
   - name: config
     mountPath: /root/.psono_server/settings.yaml
@@ -62,8 +62,8 @@ extraContainers:
         memory: 128Mi
     readiness_http_probe:
       port: &client_port 80
-      path: &client_health /
-    volumeMounts: &shared_mounts
+      path: /
+    volumeMounts: &config.json_mount
       - name: config
         mountPath: /usr/share/nginx/html/config.json
         subPath: config.json
@@ -109,6 +109,8 @@ admin:
     port: &admin_port 80
   readiness_http_probe:
     port: *admin_port
-    path: &admin_health /portal/login
+    path: /portal/login
+  volumes:
+    *config_volume
   volumeMounts:
-    *shared_mounts
+    *config.json_mount
