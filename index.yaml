@@ -370,6 +370,14 @@ entries:
     version: 1.0.0
   lib-default:
   - apiVersion: v2
+    created: "2022-10-11T16:52:59.767413908Z"
+    digest: 95a08f3c23eff3b062c6055c1ef1554cfcce1a37436a72cc29a43204618fc630
+    name: lib-default
+    type: library
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/lib-default-v1.4.1/lib-default-1.4.1.tgz
+    version: 1.4.1
+  - apiVersion: v2
     created: "2022-10-08T15:47:03.481394658Z"
     digest: f531a1d2386d919cf3d46118089cd32f5655d8bc7a2e47a363da2100f7865a2d
     name: lib-default
@@ -851,4 +859,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-11T16:46:57.012020708Z"
+generated: "2022-10-11T16:52:59.767530413Z"
