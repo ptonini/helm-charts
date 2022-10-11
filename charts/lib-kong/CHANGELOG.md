@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ptonini/helm-charts/compare/lib-kong-v1.0.0...lib-kong-v1.1.0) (2022-10-11)
+
+
+### Features
+
+* **lib-kong:** added default route values to kongingress template ([4f88466](https://github.com/ptonini/helm-charts/commit/4f88466c46eb132b51496d70673a50db3274958d))
+
 ## 1.0.0 (2022-10-03)
 
 
