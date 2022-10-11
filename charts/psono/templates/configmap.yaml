@@ -1,38 +1,4 @@
-{{- $server_root := deepCopy . }}
-{{- $server_values := merge $server_root.Values .Values.server }}
-{{- $_ := set $server_root "Values" $server_values }}
-
-{{- $client_root := deepCopy . }}
-{{- $client_values := merge $client_root.Values .Values.client }}
-{{- $_ = set $client_root "Values" $client_values }}
-
-{{- $admin_root := deepCopy . }}
-{{- $admin_values := merge $admin_root.Values .Values.admin }}
-{{- $_ = set $admin_root "Values" $admin_values }}
-{{- $_ = unset $admin_root.Values "containers" }}
-
-
-{{- include "library.workload" $server_root }}
-
 {{- include "library.configmap" . }}
-
-{{- include "library.service" $server_root }}
-
-{{- include "library.service" $client_root }}
-
-{{ if .Values.kongingress.enabled }}
-{{- $_ := set .Values.kongingress "annotations" .Values.ingress.annotations }}
-{{- include "library.kong.kongingress" . }}
-{{- $_ = set .Values.ingress.annotations "konghq.com/override" .Release.Name }}
-{{ end }}
-
-{{- include "library.ingress" . }}
-
-{{- if .Values.admin.enabled }}
-{{- include "library.workload" $admin_root }}
-{{- include "library.service" $admin_root }}
-{{- end }}
-
 
 {{- define "library.configmap.data" }}
 settings.yaml: |
