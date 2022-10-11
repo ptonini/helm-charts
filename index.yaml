@@ -435,6 +435,18 @@ entries:
     version: 1.0.0
   lib-kong:
   - apiVersion: v2
+    created: "2022-10-11T16:46:57.011957408Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.4.0
+    digest: 8a2a7bfa3826ebefbab6e4da37d4b9a50c53002046bbcadbd4751973141cec06
+    name: lib-kong
+    type: library
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/lib-kong-v1.1.0/lib-kong-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
     created: "2022-10-03T21:56:48.621759561Z"
     dependencies:
     - name: lib-default
@@ -839,4 +851,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-11T16:42:08.92747107Z"
+generated: "2022-10-11T16:46:57.012020708Z"
