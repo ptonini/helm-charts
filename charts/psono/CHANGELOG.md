@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/ptonini/helm-charts/compare/psono-v1.1.0...psono-v1.1.1) (2022-10-11)
+
+
+### dep
+
+* **psono:** updated lib-default to 1.4.0 ([eb14110](https://github.com/ptonini/helm-charts/commit/eb14110df72f0970f670e91cfeae28b1031dd6b6))
+
 ## [1.1.0](https://github.com/ptonini/helm-charts/compare/psono-v1.0.4...psono-v1.1.0) (2022-10-11)
 
 
