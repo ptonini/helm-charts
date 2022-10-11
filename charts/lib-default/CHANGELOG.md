@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.4.1...lib-default-v1.5.0) (2022-10-11)
+
+
+### Features
+
+* **lib-default:** added map type support for extraContainers value ([8aa9e26](https://github.com/ptonini/helm-charts/commit/8aa9e26d8a32da347db4ae6ec7d6479b36697b8d))
+
 ## [1.4.1](https://github.com/ptonini/helm-charts/compare/lib-default-v1.4.0...lib-default-v1.4.1) (2022-10-11)
 
 
