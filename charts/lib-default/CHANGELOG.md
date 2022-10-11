@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/ptonini/helm-charts/compare/lib-default-v1.4.0...lib-default-v1.4.1) (2022-10-11)
+
+
+### Miscellaneous Chores
+
+* **lib-default:** removed support for 'containers' key in pod template ([78e52f0](https://github.com/ptonini/helm-charts/commit/78e52f0408615d9672c46797d4882b4d67e2ba94))
+
 ## [1.4.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.3.0...lib-default-v1.4.0) (2022-10-08)
 
 
