@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.4](https://github.com/ptonini/helm-charts/compare/psono-v1.0.4...psono-v1.0.4) (2022-10-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* force build psono chart
+
+### Miscellaneous Chores
+
+* force build psono chart ([85f2979](https://github.com/ptonini/helm-charts/commit/85f2979df8313cd3d499fdea6fab8b394b084939))
+
 ## [1.0.4](https://github.com/ptonini/helm-charts/compare/psono-v1.0.4...psono-v1.0.4) (2022-10-05)
 
 
