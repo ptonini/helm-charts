@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.1.0](https://github.com/ptonini/helm-charts/compare/psono-v1.1.0...psono-v1.1.0) (2022-10-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* force build psono chart
+* added application charts
+
+### Bug Fixes
+
+* added lib-kong dependency ([b22e6d3](https://github.com/ptonini/helm-charts/commit/b22e6d3c3f384a0216a920257cedf8e95c0873ed))
+* normalized shared vaules to camelCase ([eca5730](https://github.com/ptonini/helm-charts/commit/eca5730cd50a1cd4b2d8226f54046b0bba4e5a86))
+* removed typing error from container template ([d273761](https://github.com/ptonini/helm-charts/commit/d2737611de5010e9c4da27c326e7672f7509ec8c))
+* renamed library.workload template ([5552b34](https://github.com/ptonini/helm-charts/commit/5552b34e36cb8dc2f2d52d8b54a08249bcc72fe4))
+
+
+### Miscellaneous Chores
+
+* added application charts ([8682642](https://github.com/ptonini/helm-charts/commit/86826429ed0828423670eab75efff25ef7e31924))
+* force build psono chart ([85f2979](https://github.com/ptonini/helm-charts/commit/85f2979df8313cd3d499fdea6fab8b394b084939))
+
+
+### Code Refactoring
+
+* **psono:** reorganized values file and created separated configmap template ([f4dd7f7](https://github.com/ptonini/helm-charts/commit/f4dd7f7ddbb9c25df879ca8933cd06833d8debe4))
+
 ## [1.1.0](https://github.com/ptonini/helm-charts/compare/psono-v1.0.4...psono-v1.1.0) (2022-10-11)
 
 
