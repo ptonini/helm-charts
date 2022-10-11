@@ -47,7 +47,7 @@ jobs:
         with:
           name: builds
           path: ${{ github.workspace}}/builds
-      - uses: ptonini/config-git-user@main
+      - uses: ptonini/gha-config-git-user@main
       - uses: helm/chart-releaser-action@v1.4.1
         with:
           install_only: true
