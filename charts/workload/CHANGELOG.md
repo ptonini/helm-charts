@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/ptonini/helm-charts/compare/workload-v1.3.0...workload-v1.3.1) (2022-10-11)
+
+
+### dep
+
+* **workflow:** updated lib-kong to 1.1.0 ([772c080](https://github.com/ptonini/helm-charts/commit/772c08077989f66b2744ecab03993cae08f8bee8))
+
 ## [1.3.0](https://github.com/ptonini/helm-charts/compare/workload-v1.2.0...workload-v1.3.0) (2022-10-08)
 
 
