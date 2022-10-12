@@ -11,10 +11,10 @@ kind: Ingress
 spec:
   tls:
     - hosts:
-        - {{ $root.Values.domain }}
+        - {{ coalesce $root.Values.host $root.Values.domain }}
       secretName: {{ include "library.factory.ingress.certificate" $root }}
   rules:
-    - host: {{ $root.Values.domain }}
+    - host: {{ coalesce $root.Values.host $root.Values.domain }}
       {{- include "library.ingress.http_paths" $root | indent 6 }}
 {{- end }}
 
