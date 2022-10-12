@@ -1,9 +1,5 @@
 {{- define "library.configmap"}}
-{{- $root := deepCopy . }}
-{{- if .Values.configmap }}
-{{- $values := merge $root.Values .Values.configmap }}
-{{- $_ := set $root "Values" $values }}
-{{- end }}
+{{ $root := dict "Chart" .Chart "Release" .Release "Values" (mergeOverwrite .Values (coalesce .Values.configmap dict)) }}
 ---
 apiVersion: v1
 kind: ConfigMap

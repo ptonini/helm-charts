@@ -1,9 +1,5 @@
 {{- define "library.ingress" }}
-{{- $root := deepCopy . }}
-{{- if .Values.ingress }}
-{{- $values := merge $root.Values .Values.ingress }}
-{{- $_ := set $root "Values" $values }}
-{{- end }}
+{{ $root := dict "Chart" .Chart "Release" .Release "Values" (mergeOverwrite .Values (coalesce .Values.ingress dict)) }}
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress

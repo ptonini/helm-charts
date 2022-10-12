@@ -7,7 +7,7 @@ metadata:
   labels:
     {{- include "library.factory.pod.labels" . | indent 4 }}
 spec:
-  {{- include "library.pod.spec" .Values | indent 2}}
+  {{- include "library.pod.spec" (mergeOverwrite .Values (coalesce .Values.spec dict)) | indent 2 }}
   {{- if ((.Values.serviceaccount).enabled) }}
   serviceAccountName: {{ coalesce .Values.serviceaccount.resource_name .Release.Name }}
   {{- end }}
@@ -58,6 +58,7 @@ initContainers:
   {{- end }}
 {{- end }}
 {{- end }}
+
 
 {{- define "library.volume.token_projection" }}
   - name: {{ .name }}

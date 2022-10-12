@@ -1,9 +1,5 @@
 {{- define "library.service" }}
-{{ $root := deepCopy . }}
-{{- if .Values.service }}
-{{- $values := merge $root.Values .Values.service }}
-{{- $_ := set $root "Values" $values }}
-{{- end }}
+{{ $root := dict "Chart" .Chart "Release" .Release "Values" (mergeOverwrite .Values (coalesce .Values.service dict)) }}
 ---
 apiVersion: v1
 kind: Service
