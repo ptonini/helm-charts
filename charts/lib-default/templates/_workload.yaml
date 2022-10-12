@@ -9,7 +9,7 @@ spec:
     matchLabels:
       {{- include "library.factory.pod.labels" . | indent 6 }}
   template:
-    {{- include "library.pod.template" . | indent 4 }}
+    {{- include "library.pod" . | indent 4 }}
 {{- end }}
 
 

@@ -1,4 +1,4 @@
-{{- define "library.pod.template" }}
+{{- define "library.pod" }}
 metadata:
   {{- if ((.Values.pod).annotations) }}
   annotations:

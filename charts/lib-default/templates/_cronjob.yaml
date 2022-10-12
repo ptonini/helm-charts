@@ -18,5 +18,5 @@ spec:
       activeDeadlineSeconds: {{ .Values.activeDeadlineSeconds }}
       {{- end }}
       template:
-        {{- include "library.pod.template" . | indent 8 }}
+        {{- include "library.pod" . | indent 8 }}
 {{- end }}
