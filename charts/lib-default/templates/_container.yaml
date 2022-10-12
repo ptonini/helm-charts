@@ -15,16 +15,8 @@ command: {{ .command | toYaml | nindent 2 }}
 {{- if .args }}
 args: {{ .args | toYaml | nindent 2 }}
 {{- end }}
-{{- if or ((.resources).requests) ((.resources).limits) }}
-resources:
-  {{- if .resources.requests }}
-  requests:
-    {{- include "library.container.resource" .resources.requests | indent 4 }}
-  {{- end }}
-  {{- if .resources.limits }}
-  limits:
-    {{- include "library.container.resource" .resources.limits | indent 4 }}
-  {{- end }}
+{{- if .resources }}
+resources: {{ .resources | toYaml | nindent 2 }}
 {{- end }}
 {{- if .volumeMounts }}
 volumeMounts: {{ .volumeMounts | toYaml | nindent 2  }}
@@ -76,16 +68,6 @@ lifecycle: {{ .lifecycle | toYaml | nindent 2}}
 {{- define "library.container.port" }}
 - containerPort: {{ coalesce .targetPort .port }}
   protocol: {{ include "library.factory.service.port.protocol" . }}
-{{- end }}
-
-
-{{- define "library.container.resource" }}
-  {{- if .cpu }}
-cpu: {{ .cpu }}
-  {{- end }}
-  {{- if .memory }}
-memory: {{ .memory }}
-  {{- end }}
 {{- end }}
 
 
