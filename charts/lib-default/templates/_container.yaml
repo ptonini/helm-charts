@@ -30,13 +30,7 @@ resources:
 volumeMounts: {{ .volumeMounts | toYaml | nindent 2  }}
 {{- end }}
 {{- if .env }}
-env:
-  {{- range $k, $v := .env }}
-  {{- if $v}}
-  - name: {{ $k }}
-    value: {{ if kindIs "map" $v }}{{ $v | toYaml | nindent 4 }}{{ else }}{{ $v | quote }}{{ end }}
-  {{- end }}
-  {{- end }}
+{{- include "library.factory.env" .env | indent 2 }}
 {{- end }}
 {{- if or .envSecrets .envConfigmaps  }}
 envFrom:

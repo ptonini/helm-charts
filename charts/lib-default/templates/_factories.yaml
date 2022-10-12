@@ -50,3 +50,13 @@ image: {{ . }}
 image: {{ if .registry }}{{ print .registry "/"}}{{ end }}{{ .repository }}{{ if .tag }}{{ print ":" .tag }}{{ else if .checksum }}{{ print "@sha256:" .checksum }}{{ end }}
 {{- end }}
 {{- end }}
+
+{{- define "library.factory.env" }}
+env:
+{{- range $k, $v := . }}
+  {{- if $v}}
+  - name: {{ $k }}
+    value: {{ if kindIs "map" $v }}{{ $v | toYaml | nindent 4 }}{{ else }}{{ $v | quote }}{{ end }}
+  {{- end }}
+{{- end }}
+{{- end }}
