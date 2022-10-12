@@ -4,7 +4,7 @@
 {{- define "library.container" }}
 {{- if kindIs "string" .image }}
 image: {{ . }}
-{{- else }}
+{{- else if kindIs "string" .map }}
 image: {{ if .image.registry }}{{ print .image.registry "/"}}{{ end }}{{ .image.repository }}{{ if .image.tag }}{{ print ":" .tag }}{{ else if .image.checksum }}{{ print "@sha256:" .image.checksum }}{{ end }}
 {{- end }}
 {{- if .containerSecurityContext }}
@@ -27,10 +27,10 @@ volumeMounts: {{ .volumeMounts | toYaml | nindent 2  }}
 {{- end }}
 {{- if .env }}
 env:
-{{- range $k, $v := . }}
+{{- range $k, $v := .env }}
   {{- if $v}}
   - name: {{ $k }}
-    value: {{ if kindIs "map" $v }}{{ $v | toYaml | nindent 4 }}{{ else }}{{ $v | quote }}{{ end }}
+    value: {{ if kindIs "map" $v }}{{ $v | toYaml | nindent 6 }}{{ else }}{{ $v | quote }}{{ end }}
   {{- end }}
 {{- end }}
 {{- end }}
