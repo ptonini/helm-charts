@@ -13,11 +13,6 @@
 {{- end }}
 
 
-{{- define "library.factory.service.type" }}
-{{- coalesce .type  "NodePort" }}
-{{- end }}
-
-
 {{- define "library.factory.kv_list" }}
 {{- range $k, $v := . }}
 {{ $k }}: {{ $v | quote }}
@@ -30,33 +25,5 @@
 {{- include "library.factory.kv_list" .Values.pod.labels }}
 {{- else }}
 app: {{ .Release.Name }}
-{{- end }}
-{{- end }}
-
-
-{{- define "library.factory.ingress.certificate" }}
-{{- coalesce .Values.certificate (print .Release.Name "-certificate") }}
-{{- end }}
-
-
-{{- define "library.factory.pod.serviceaccountname" }}
-{{- coalesce .Values.serviceaccount.resource_name .Release.Name }}
-{{- end }}
-
-{{- define "library.factory.container.image" }}
-{{- if kindIs "string" . }}
-image: {{ . }}
-{{- else }}
-image: {{ if .registry }}{{ print .registry "/"}}{{ end }}{{ .repository }}{{ if .tag }}{{ print ":" .tag }}{{ else if .checksum }}{{ print "@sha256:" .checksum }}{{ end }}
-{{- end }}
-{{- end }}
-
-{{- define "library.factory.env" }}
-env:
-{{- range $k, $v := . }}
-  {{- if $v}}
-  - name: {{ $k }}
-    value: {{ if kindIs "map" $v }}{{ $v | toYaml | nindent 4 }}{{ else }}{{ $v | quote }}{{ end }}
-  {{- end }}
 {{- end }}
 {{- end }}

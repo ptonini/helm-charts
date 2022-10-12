@@ -2,7 +2,11 @@
 
 
 {{- define "library.container" }}
-{{- include "library.factory.container.image" .image }}
+{{- if kindIs "string" .image }}
+image: {{ . }}
+{{- else }}
+image: {{ if .image.registry }}{{ print .image.registry "/"}}{{ end }}{{ .image.repository }}{{ if .image.tag }}{{ print ":" .tag }}{{ else if .image.checksum }}{{ print "@sha256:" .image.checksum }}{{ end }}
+{{- end }}
 {{- if .containerSecurityContext }}
 securityContext:{{ .containerSecurityContext | toYaml | nindent 4 }}
 {{- end }}
@@ -22,7 +26,13 @@ resources: {{ .resources | toYaml | nindent 2 }}
 volumeMounts: {{ .volumeMounts | toYaml | nindent 2  }}
 {{- end }}
 {{- if .env }}
-{{- include "library.factory.env" .env | indent 2 }}
+env:
+{{- range $k, $v := . }}
+  {{- if $v}}
+  - name: {{ $k }}
+    value: {{ if kindIs "map" $v }}{{ $v | toYaml | nindent 4 }}{{ else }}{{ $v | quote }}{{ end }}
+  {{- end }}
+{{- end }}
 {{- end }}
 {{- if or .envSecrets .envConfigmaps  }}
 envFrom:

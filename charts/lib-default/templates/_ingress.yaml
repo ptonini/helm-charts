@@ -12,7 +12,7 @@ spec:
   tls:
     - hosts:
         - {{ coalesce $root.Values.host $root.Values.domain }}
-      secretName: {{ include "library.factory.ingress.certificate" $root }}
+      secretName: {{ coalesce .Values.certificate (printf "%s-certificate" .Release.Name) }}
   rules:
     - host: {{ coalesce $root.Values.host $root.Values.domain }}
       {{- include "library.ingress.http_paths" $root | indent 6 }}
