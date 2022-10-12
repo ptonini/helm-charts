@@ -25,7 +25,7 @@ http:
     - pathType: ImplementationSpecific
       backend:
         service:
-          name: {{ include "library.factory.metadata.name" . }}
+          name: {{ include "library.factory.resource_name" . }}
           port:
             name: {{ include "library.factory.service.port.name" . }}
     {{- else }}

@@ -1,4 +1,4 @@
-{{- define "library.factory.metadata.name" }}
+{{- define "library.factory.resource_name" }}
 {{- coalesce .Values.resource_name .Release.Name }}{{ if .Values.resource_name_suffix }}-{{ .Values.resource_name_suffix }}{{ end }}
 {{- end}}
 

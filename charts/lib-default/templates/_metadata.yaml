@@ -1,6 +1,6 @@
 {{- define "library.metadata" }}
 metadata:
-  name: {{ include "library.factory.metadata.name" . }}
+  name: {{ include "library.factory.resource_name" . }}
   {{- if ne (.Values.scope | toString) "cluster" }}
   namespace: {{ .Release.Namespace }}
   {{- end }}
