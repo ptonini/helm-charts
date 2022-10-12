@@ -1,6 +1,6 @@
 {{- define "library.cronjob" }}
 ---
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 {{- include "library.metadata" . }}
 spec:
