@@ -49,7 +49,7 @@ restartPolicy: {{ .restartPolicy }}
 {{- end }}
 {{- if or .volumes .token_volume }}
 volumes: {{if .volumes }}{{ .volumes | toYaml | nindent 2 }}{{ end }}
-  {{- if .token_volume.enabled }}
+  {{- if ((.token_volume).enabled) }}
   {{- include "library.volume.token_projection" .token_volume }}
   {{- end }}
 {{- end }}
