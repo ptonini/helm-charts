@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/ptonini/helm-charts/compare/chartmuseum-v1.0.4...chartmuseum-v1.6.0) (2022-10-13)
+
+
+### Miscellaneous Chores
+
+* **lib-default:** release improvements ([945c80e](https://github.com/ptonini/helm-charts/commit/945c80ea6026bc9bce7e221c97c343e26793f69f))
+
 ## [1.0.4](https://github.com/ptonini/helm-charts/compare/chartmuseum-v1.0.3...chartmuseum-v1.0.4) (2022-10-04)
 
 

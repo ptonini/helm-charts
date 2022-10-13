@@ -1,7 +1,7 @@
 apiVersion: v2
 name: service
 description: Service
-version: 1.0.1
+version: 1.6.0
 type: application
 dependencies:
   - name: lib-default

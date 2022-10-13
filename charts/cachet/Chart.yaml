@@ -2,7 +2,7 @@ apiVersion: v2
 name: cachet
 description: cachet
 type: application
-version: 1.0.3
+version: 1.6.0
 dependencies:
   - name: lib-default
     version: 1.0.2

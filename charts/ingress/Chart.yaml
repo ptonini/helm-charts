@@ -2,7 +2,7 @@ apiVersion: v2
 name: ingress
 description: Ingress
 type: application
-version: 1.0.0
+version: 1.6.0
 dependencies:
   - name: lib-default
     version: 1.0.0
