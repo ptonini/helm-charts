@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/ptonini/helm-charts/compare/lib-default-v1.6.0...lib-default-v1.6.1) (2022-10-13)
+
+
+### Bug Fixes
+
+* **lib-default:** fixed token projected volume flag in _pod.yaml ([ae11d65](https://github.com/ptonini/helm-charts/commit/ae11d65e910401a9538be10b09cf6441351c10d5))
+
 ## [1.6.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.5.0...lib-default-v1.6.0) (2022-10-13)
 
 
