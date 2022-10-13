@@ -12,18 +12,21 @@ spec:
   serviceAccountName: {{ coalesce .Values.serviceaccount.resource_name .Release.Name }}
   {{- end }}
   containers:
-    - name: {{ coalesce .Values.containerName .Release.Name }}
-      {{- include "library.container" .Values | indent 6 }}
-    {{- if kindIs "slice" .extraContainers }}
-      {{- range .Values.extraContainers }}
-    - name: {{ .name }}
+    {{- $containers := list }}
+    {{- if hasKey .Values "image" }}{{ $containers = append $containers .Values }}{{ end }}
+    {{- range (list .Values.containers .Values.extraContainers) }}
+      {{- if kindIs "slice" . }}
+        {{- $containers = concat $containers . }}
+      {{- else if kindIs "map" . }}
+        {{- range $k, $v := . }}
+          {{- $containers = append $containers (set $v "name" $k) }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
+    {{- $release_name := .Release.Name }}
+    {{- range $containers }}
+    - name: {{ coalesce .name $release_name }}
       {{- include "library.container" . | indent 6 }}
-      {{- end }}
-    {{- else if kindIs "map" .Values.extraContainers }}
-      {{- range $k, $v := .Values.extraContainers }}
-    - name: {{ $k }}
-      {{- include "library.container" $v | indent 6 }}
-      {{- end }}
     {{- end }}
 {{- end }}
 
