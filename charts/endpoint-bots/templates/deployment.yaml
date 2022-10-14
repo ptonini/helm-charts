@@ -1,0 +1,19 @@
+{{- $root := deepCopy . }}
+{{- $_ := set $root.Values.configmap "data" dict }}
+{{- $_ = set $root.Values "containers" dict }}
+
+{{- range  $path, $_ := .Files.Glob "scripts/*.sh" }}
+{{ $_ = set $root.Values.configmap.data ($path | base) ($.Files.Get $path) }}
+{{- end }}
+
+{{- range  $k, $v := .Values.bots }}
+{{- if (get $v "enabled") }}
+{{ $_ = set $root.Values.containers $k (mergeOverwrite $.Values (get $.Values.bots $k))}}
+{{- end }}
+{{- end }}
+
+{{- include "library.workload" $root }}
+
+{{- include "library.rbac.serviceaccount" $root }}
+
+{{- include "library.configmap" $root }}

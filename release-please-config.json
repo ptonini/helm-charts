@@ -59,6 +59,9 @@
     },
     "charts/admission-controller": {
       "release-type": "helm"
+    },
+    "charts/endpoint-bots": {
+      "release-type": "helm"
     }
   }
 }
