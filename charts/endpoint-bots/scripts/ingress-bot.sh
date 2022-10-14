@@ -19,7 +19,7 @@ while true; do
         SERVICES=$(kubectl get -n "${NAMESPACE}" services -l ingress="${INGRESS}" -o json)
         PATH_STRING=$(jq -r '.items[] | [.metadata.annotations."nodis.com.br/service-route",.metadata.name,.spec.ports[0].port] | @csv' <<< "${SERVICES}" | sort)
 
-        ${DEBUG} && echo "found ingress ${INGRESS}"
+        ${DEBUG} && echo "found ingress ${NAMESPACE}/${INGRESS}"
 
         unset CURRENT_CONFIG_STRING CURRENT_PATHS
 
@@ -38,7 +38,7 @@ while true; do
             ${DEBUG} && echo "desired paths:  ${PATH_STRING//[$'\n']/ }"
             ${DEBUG} && echo "current paths:  ${CURRENT_PATH_STRING//[$'\n']/ }"
         else
-            ${DEBUG} && echo "ingress ${INGRESS} is not installed"
+            ${DEBUG} && echo "ingress ${NAMESPACE}/${INGRESS} is not installed"
         fi
 
         if [[ -z ${PATH_STRING} ]]; then
@@ -50,14 +50,14 @@ while true; do
                 ${DEBUG} && echo "ingress ${NAMESPACE}/${INGRESS} has no helm resource"
             fi
         elif [[ ${CURRENT_CONFIG_STRING} != "${CONFIG_STRING}" ]] || [[ ${CURRENT_PATH_STRING} != "${PATH_STRING}" ]]; then
-            echo "updating: ${INGRESS}"
+            echo "updating: ${NAMESPACE}/${INGRESS}"
             PATHS_JSON=$(echo "${SERVICES}" | jq '.items | map({path:.metadata.annotations."nodis.com.br/service-route",service:.metadata.name,port:.spec.ports[0].port})')
             VALUES='{"domain": "'${DOMAIN}'", "paths": '${PATHS_JSON}', "kongingress": {"enabled": true}}'
             [[ -n ${INGRESS_CLASS//null/} ]] && VALUES=$(jq --arg A "${INGRESS_CLASS}" '.annotations += {"kubernetes.io/ingress.class": $A}' <<< "${VALUES}")
             [[ -n ${MONITORING_ROUTE//null/} ]] && VALUES=$(jq --arg A "${MONITORING_ROUTE}" '.annotations += {"nodis.com.br/monitoring-route": $A}' <<< "${VALUES}")
             [[ -n ${KONG_PLUGINS//null/} ]] && VALUES=$(jq --arg A "${KONG_PLUGINS}" '.annotations += {"konghq.com/plugins": $A}' <<< "${VALUES}")
             [[ -n ${CERTIFICATE_ISSUER//null/} ]] && VALUES=$(jq --arg A "${CERTIFICATE_ISSUER}" '.annotations += {"cert-manager.io/cluster-issuer": $A}' <<< "${VALUES}")
-            ${DEBUG} && echo "${VALUES}" | jq
+            ${DEBUG} && echo "${VALUES}"
             ${DRY_RUN} && EXTRA_ARGS="--dry-run"
             helm upgrade --install -f <(echo "${VALUES}") -n "${NAMESPACE}" --repo "${CHARTS_REPOSITORY}" "${INGRESS}" "${INGRESS_CHART}" ${EXTRA_ARGS}
         fi
