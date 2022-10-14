@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/ptonini/helm-charts/compare/endpoint-bots-v1.0.3...endpoint-bots-v1.0.4) (2022-10-14)
+
+
+### Bug Fixes
+
+* **endpoint-bots:** added kongingress permissions to ClusterRole template ([7fd68e6](https://github.com/ptonini/helm-charts/commit/7fd68e6e78f7849b4fefcaa2f068e04cc565501e))
+
 ## [1.0.3](https://github.com/ptonini/helm-charts/compare/endpoint-bots-v1.0.2...endpoint-bots-v1.0.3) (2022-10-14)
 
 
