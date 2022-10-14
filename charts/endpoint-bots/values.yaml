@@ -53,7 +53,6 @@ serviceaccount:
             - configmaps
             - services
             - secrets
-            - ingresses
           verbs:
             - list
             - get
@@ -64,8 +63,10 @@ serviceaccount:
         - apiGroups:
             - extensions
             - networking.k8s.io
+            - configuration.konghq.com
           resources:
             - ingresses
+            - kongingresses
           verbs:
             - list
             - get
