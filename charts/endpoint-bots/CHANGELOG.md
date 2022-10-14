@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/ptonini/helm-charts/compare/endpoint-bots-v1.0.1...endpoint-bots-v1.0.2) (2022-10-14)
+
+
+### Bug Fixes
+
+* **endpoint-bots:** corrected container list generator ([025f131](https://github.com/ptonini/helm-charts/commit/025f131537d2422276ed192cb1edfd9e9ca7a1a3))
+
 ## [1.0.1](https://github.com/ptonini/helm-charts/compare/endpoint-bots-v1.0.0...endpoint-bots-v1.0.1) (2022-10-14)
 
 
