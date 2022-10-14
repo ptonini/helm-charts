@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/ptonini/helm-charts/compare/endpoint-bots-v1.0.2...endpoint-bots-v1.0.3) (2022-10-14)
+
+
+### Code Refactoring
+
+* **endpoint-bots:** added namespace to ingress-bot.sh debug output ([01798bd](https://github.com/ptonini/helm-charts/commit/01798bd950ef03cf1e9f254a6a50dc00e6e1e6af))
+
 ## [1.0.2](https://github.com/ptonini/helm-charts/compare/endpoint-bots-v1.0.1...endpoint-bots-v1.0.2) (2022-10-14)
 
 
