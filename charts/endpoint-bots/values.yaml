@@ -3,20 +3,23 @@
 bots:
   ingress:
     enabled: true
-    image: &image ghcr.io/ptonini/botman:latest
     command: ['/scripts/ingress-bot.sh']
   certificate:
     enabled: true
-    image: *image
     command: ['/scripts/certificate-bot.sh']
   dns:
     enabled: true
-    image: *image
     command: ['/scripts/dns-bot.sh']
 
 ### Deployment
 
-nodeSelector: ~
+volumes:
+  - name: scripts
+    configMap:
+      name: &configmap endpoint-scripts
+      defaultMode: 0744
+
+image: ghcr.io/ptonini/botman:latest
 env:
   DRY_RUN: "false"
   DEBUG: "false"
@@ -28,11 +31,6 @@ env:
   CERTBOT_ACCOUNT: admin@example.com
   CERTBOT_MIN_LIFETIME: "30"
   CERTBOT_TEST_MODE: "false"
-volumes:
-  - name: scripts
-    configMap:
-      name: &configmap endpoint-scripts
-      defaultMode: 0744
 volumeMounts:
   - name: scripts
     mountPath: "/scripts"

@@ -3,14 +3,16 @@
 {{- $_ = set $root.Values "containers" dict }}
 
 {{- range  $path, $_ := .Files.Glob "scripts/*.sh" }}
-{{ $_ = set $root.Values.configmap.data ($path | base) ($.Files.Get $path) }}
+{{- $_ = set $root.Values.configmap.data ($path | base) ($.Files.Get $path) }}
 {{- end }}
 
-{{- range  $k, $v := .Values.bots }}
-{{- if (get $v "enabled") }}
-{{ $_ = set $root.Values.containers $k (mergeOverwrite (deepCopy $.Values) $v)}}
+{{- range  $name, $values := .Values.bots }}
+{{- if (get $values "enabled") }}
+{{- $common := pick $.Values "image" "env" "volumeMounts" }}
+{{- $_ = set $root.Values.containers $name (mergeOverwrite $common $values)}}
 {{- end }}
 {{- end }}
+{{- $_ = unset $root.Values "image" }}
 
 {{- include "library.workload" $root }}
 
