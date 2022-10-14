@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/ptonini/helm-charts/compare/endpoint-bots-v1.0.0...endpoint-bots-v1.0.1) (2022-10-14)
+
+
+### Code Refactoring
+
+* **endpoint-bots:** removed vault related values from template ([ebc22e6](https://github.com/ptonini/helm-charts/commit/ebc22e68cbb07e03ea3fef3157b931bf670f29d2))
+
 ## 1.0.0 (2022-10-14)
 
 
