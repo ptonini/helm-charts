@@ -277,6 +277,19 @@ entries:
     version: 1.0.0
   endpoint-bots:
   - apiVersion: v2
+    created: "2022-10-14T16:43:49.170023387Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.6.1
+    description: Endpoint Manager Bots
+    digest: 501123c089f43e31eadb36f524361666f97ccb16924efe512a614f2c7ee7a2ad
+    name: endpoint-bots
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/endpoint-bots-v1.0.3/endpoint-bots-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
     created: "2022-10-14T06:11:11.15566069Z"
     dependencies:
     - name: lib-default
@@ -955,4 +968,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-14T06:11:11.156432052Z"
+generated: "2022-10-14T16:43:49.170127788Z"
