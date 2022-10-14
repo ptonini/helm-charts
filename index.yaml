@@ -275,6 +275,20 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/elasticsearch-cluster-v1.0.0/elasticsearch-cluster-1.0.0.tgz
     version: 1.0.0
+  endpoint-bots:
+  - apiVersion: v2
+    created: "2022-10-14T01:58:24.398253302Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.6.1
+    description: Endpoint Manager Bots
+    digest: f7f2aa0a067fdb14d3b3a0246f575cdf2254d5de60a3ec4e9d4448e292c52aaa
+    name: endpoint-bots
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/endpoint-bots-v1.0.0/endpoint-bots-1.0.0.tgz
+    version: 1.0.0
   ingress:
   - apiVersion: v2
     created: "2022-10-03T22:13:49.131401678Z"
@@ -915,4 +929,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-13T01:13:19.018438027Z"
+generated: "2022-10-14T01:58:24.39839721Z"
