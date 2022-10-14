@@ -22,33 +22,12 @@ env:
   DEBUG: "false"
   INTERVAL: 1m
   AWS_REGION: us-east-1
-  AWS_SHARED_CREDENTIALS_FILE: /vault/secrets/credentials
   DNS_PROVIDER: aws
   CHARTS_REPOSITORY: https://example.com/helm-charts
   INGRESS_CHART: ingress
   CERTBOT_ACCOUNT: admin@example.com
   CERTBOT_MIN_LIFETIME: "30"
   CERTBOT_TEST_MODE: "false"
-pod:
-  annotations:
-    vault.hashicorp.com/agent-inject: 'true'
-    vault.hashicorp.com/role: endpoint-bots
-    vault.hashicorp.com/agent-pre-populate: "false"
-    vault.hashicorp.com/agent-requests-cpu: '25m'
-    vault.hashicorp.com/agent-service-account-token-volume-name: token
-    vault.hashicorp.com/agent-inject-secret-credentials: aws/sts/certbot
-    vault.hashicorp.com/agent-inject-template-credentials: |
-      {{- with secret "aws/sts/certbot" -}}
-      [default]
-      aws_access_key_id={{ .Data.access_key }}
-      aws_secret_access_key={{ .Data.secret_key }}
-      aws_session_token={{ .Data.security_token }}
-      {{- end -}}
-token_volume:
-  enabled: true
-  name: token
-  expiration_seconds: 3600
-  audience: vault
 volumes:
   - name: scripts
     configMap:
