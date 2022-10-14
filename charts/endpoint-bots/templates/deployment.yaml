@@ -8,7 +8,7 @@
 
 {{- range  $k, $v := .Values.bots }}
 {{- if (get $v "enabled") }}
-{{ $_ = set $root.Values.containers $k (mergeOverwrite $.Values (get $.Values.bots $k))}}
+{{ $_ = set $root.Values.containers $k (mergeOverwrite (deepCopy $.Values) $v)}}
 {{- end }}
 {{- end }}
 
