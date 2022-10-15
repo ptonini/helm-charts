@@ -1,5 +1,5 @@
 {
-  "charts/lib-default": "1.6.1",
+  "charts/lib-default": "1.7.0",
   "charts/lib-kong": "1.1.0",
   "charts/lib-bots": "1.0.1",
   "charts/configmap": "1.0.0",
@@ -14,7 +14,7 @@
   "charts/kong-plugin": "1.0.0",
   "charts/rabbitmq-cluster": "1.0.1",
   "charts/elasticsearch-cluster": "1.0.1",
-  "charts/admission-controller": "1.0.4",
+  "charts/admission-controller": "1.1.0",
   "charts/cachet": "1.0.3",
   "charts/chartmuseum": "1.0.4",
   "charts/psono": "1.1.1",

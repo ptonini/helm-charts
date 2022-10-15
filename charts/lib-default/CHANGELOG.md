@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.6.1...lib-default-v1.7.0) (2022-10-15)
+
+
+### Features
+
+* **lib-default:** added admission webhook template ([c488a39](https://github.com/ptonini/helm-charts/commit/c488a3921979aa1bbbb7af42f67b9825db1bed26))
+
 ## [1.6.1](https://github.com/ptonini/helm-charts/compare/lib-default-v1.6.0...lib-default-v1.6.1) (2022-10-13)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ptonini/helm-charts/compare/admission-controller-v1.0.4...admission-controller-v1.1.0) (2022-10-15)
+
+
+### Features
+
+* **lib-default:** added admission webhook template ([c488a39](https://github.com/ptonini/helm-charts/commit/c488a3921979aa1bbbb7af42f67b9825db1bed26))
+
 ## [1.0.4](https://github.com/ptonini/helm-charts/compare/admission-controller-v1.0.3...admission-controller-v1.0.4) (2022-10-05)
 
 
