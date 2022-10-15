@@ -1,0 +1,35 @@
+{{- define "library.webhook" }}
+{{ $root := dict "Chart" .Chart "Release" .Release "Values" (mergeOverwrite .Values (coalesce .Values.webhook dict)) }}
+{{ $_ := set $root.Values "scope" "cluster" }}
+---
+kind: {{ .Values.webhook.kind }}
+apiVersion: admissionregistration.k8s.io/v1
+{{- include "library.metadata" $root }}
+webhooks:
+  - name: {{ $root.Release.Name }}.{{ $root.Release.Namespace }}.svc
+    matchPolicy: Equivalent
+    failurePolicy: {{ $root.Values.webhook.failurePolicy }}
+    objectSelector:
+      matchExpressions:
+        - key: app
+          operator: NotIn
+          values:
+            - {{ $root.Release.Name }}
+    namespaceSelector:
+      matchExpressions:
+        - key: kubernetes.io/metadata.name
+          operator: NotIn
+          values: {{ $root.Values.webhook.ignoredNamespaces | toYaml | nindent 12 }}
+    rules: {{ $root.Values.webhook.rules | toYaml | nindent 6 }}
+    clientConfig:
+      {{- if $root.Values.webhook.caBundle }}
+      caBundle: {{ $root.Values.webhook.caBundle }}
+      {{- end }}
+      service:
+        namespace: {{ $root.Release.Namespace }}
+        name: {{ $root.Release.Name }}
+        path: {{ $root.Values.webhook.path }}
+    admissionReviewVersions:
+      - v1
+    sideEffects: None
+  {{- end }}
