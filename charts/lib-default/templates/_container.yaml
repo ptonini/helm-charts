@@ -30,7 +30,11 @@ env:
 {{- range $k, $v := .env }}
   {{- if $v}}
   - name: {{ $k }}
-    value: {{ if kindIs "map" $v }}{{ $v | toYaml | nindent 6 }}{{ else }}{{ $v | quote }}{{ end }}
+    {{- if kindIs "map" $v }}
+    {{- $v | toYaml | nindent 4 }}
+    {{- else }}
+    value: {{ $v | quote }}
+    {{- end }}
   {{- end }}
 {{- end }}
 {{- end }}
