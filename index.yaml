@@ -2,6 +2,19 @@ apiVersion: v1
 entries:
   admission-controller:
   - apiVersion: v2
+    created: "2022-10-19T02:14:59.035453664Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.7.0
+    description: Kubernetes Admission Controller
+    digest: c3f96b722d7f9aefc502fea1b4a296defd5143d1e2b00db89bff97abf9254db7
+    name: admission-controller
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/admission-controller-v1.1.0/admission-controller-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
     created: "2022-10-05T00:39:08.096556209Z"
     dependencies:
     - name: lib-default
@@ -989,4 +1002,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-15T21:49:01.954698666Z"
+generated: "2022-10-19T02:14:59.036277309Z"
