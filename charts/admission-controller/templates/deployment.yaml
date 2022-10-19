@@ -1,20 +1,12 @@
-{{- $_ := set .Values "volumes" (append .Values.volumes (dict "name" .Values.tlsSecretVolume "secret" (dict "secretName" .Values.tlsSecret ))) }}
-{{- $_ = set .Values "volumeMounts" (append .Values.volumeMounts (dict "name" .Values.tlsSecretVolume "mountPath"  .Values.tlsSecretMountpoint "readOnly" true)) }}
+{{- $_ := set .Values "volumes" (append .Values.volumes (dict "name" .Values.certificates.volume "secret" (dict "secretName" .Values.certificates.secret ))) }}
+{{- $_ = set .Values "volumeMounts" (append .Values.volumeMounts (dict "name" .Values.certificates.volume "mountPath" .Values.certificates.mountPoint "readOnly" true)) }}
 
-{{- if not (.Values.readinessProbe) }}
-{{- $_ = set .Values "readinessProbe" .Values.livenessProbe }}
-{{- end }}
+{{- include "library.webhook" . }}
 
 {{- include "library.workload" . }}
 
-{{- if .Values.autoscaler.enabled }}
-{{- include "library.horizontalpodautoscaler" . }}
-{{- end }}
+{{ include "library.service" . }}
 
-{{- if .Values.serviceaccount.enabled }}
-{{- include "library.rbac.serviceaccount" . }}
-{{- end }}
+{{- if ((.Values.autoscaler).enabled) }}{{ include "library.horizontalpodautoscaler" . }}{{ end }}
 
-{{- if .Values.service.enabled }}
-{{- include "library.service" . }}
-{{- end }}
+{{- if .Values.serviceaccount.enabled }}{{ include "library.rbac.serviceaccount" . }}{{ end }}

@@ -1,8 +1,22 @@
-# Application #################################################################
+certificates:
+  secret: ~
+  volume: certs
+  mountPoint: /certs
 
-tlsSecret: ~
-tlsSecretVolume: certs
-tlsSecretMountpoint: /certs
+env:
+  POD_NAMESPACE:
+    valueFrom:
+      fieldRef:
+        fieldPath: "metadata.namespace"
+livenessProbe: &livenessProbe
+  httpGet:
+    path: /health
+    port: 8443
+    scheme: HTTPS
+  initialDelaySeconds: 3
+readinessProbe: *livenessProbe
+volumeMounts: []
+volumes: []
 
 webhook:
   kind: MutatingWebhookConfiguration
@@ -14,46 +28,12 @@ webhook:
   rules: ~
   caBundle: ~
   path: /mutate
-
-# Deployment ##################################################################
-
-create_disabled: false
-
-image:
-  registry: ~
-  repository: ~
-  tag: ~
-  
-env:
-  POD_NAMESPACE:
-    valueFrom:
-      fieldRef:
-        fieldPath: "metadata.namespace"
-        
-livenessProbe:
-  httpGet:
-    path: /health
-    port: 8443
-    scheme: HTTPS
-  initialDelaySeconds: 3
-
-readinessProbe: ~
-
-volumeMounts: []
-volumes: []
-
-autoscaler:
-  enabled: false
-
-# Service #####################################################################
-
 service:
   enabled: true
   type: ClusterIP
-  port: 443
-  target_port: 8443
-
-# ServiceAccount ##############################################################
+  ports:
+    - port: 443
+      targetPort: 8443
 
 serviceaccount:
   enabled: true
