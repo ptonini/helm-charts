@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/ptonini/helm-charts/compare/admission-controller-v1.1.1...admission-controller-v1.1.2) (2022-10-19)
+
+
+### Bug Fixes
+
+* **admission-controller:** updated lib-default to 1.7.2 ([c7f2db2](https://github.com/ptonini/helm-charts/commit/c7f2db210152613b569489eb2be89f7936a0d790))
+
 ## [1.1.1](https://github.com/ptonini/helm-charts/compare/admission-controller-v1.1.0...admission-controller-v1.1.1) (2022-10-19)
 
 
