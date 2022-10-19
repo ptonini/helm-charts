@@ -1,5 +1,5 @@
 {{- define "library.webhook" }}
-{{ $root := dict "Chart" .Chart "Release" .Release "Values" (mergeOverwrite .Values (coalesce .Values.webhook dict)) }}
+{{ $root := dict "Chart" .Chart "Release" .Release "Values" (mergeOverwrite (deepCopy .Values) (coalesce .Values.webhook dict)) }}
 {{ $_ := set $root.Values "scope" "cluster" }}
 ---
 kind: {{ .Values.webhook.kind }}
