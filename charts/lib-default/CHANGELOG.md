@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.1](https://github.com/ptonini/helm-charts/compare/lib-default-v1.7.0...lib-default-v1.7.1) (2022-10-19)
+
+
+### Bug Fixes
+
+* **endpoint-bots:** added 'deepCopy .Values' to root context build in collective templates ([9909439](https://github.com/ptonini/helm-charts/commit/990943913b3c03f7904ae777521082fa39b53ab5))
+
 ## [1.7.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.6.1...lib-default-v1.7.0) (2022-10-15)
 
 
