@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.2](https://github.com/ptonini/helm-charts/compare/lib-default-v1.7.1...lib-default-v1.7.2) (2022-10-19)
+
+
+### Bug Fixes
+
+* **lib-default:** fixed env builder in _container.yaml ([a7e778b](https://github.com/ptonini/helm-charts/commit/a7e778b1f291570cdbf6cfa28cc5db9a44bf4df0))
+
 ## [1.7.1](https://github.com/ptonini/helm-charts/compare/lib-default-v1.7.0...lib-default-v1.7.1) (2022-10-19)
 
 
