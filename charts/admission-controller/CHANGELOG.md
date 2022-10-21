@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/ptonini/helm-charts/compare/admission-controller-v1.2.0...admission-controller-v1.2.1) (2022-10-21)
+
+
+### Bug Fixes
+
+* **admission-controller:** added svc extension to dns name for the bundled certificate ([ead0f6a](https://github.com/ptonini/helm-charts/commit/ead0f6a3b5116db1f519a080a362510e5b955582))
+
 ## [1.2.0](https://github.com/ptonini/helm-charts/compare/admission-controller-v1.1.2...admission-controller-v1.2.0) (2022-10-21)
 
 
