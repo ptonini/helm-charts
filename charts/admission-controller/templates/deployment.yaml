@@ -3,7 +3,7 @@
 {{- $_ = set .Values.certificate "secretName" .Release.Name  }}
 {{- $_ = set .Values.certificate "issuer" .Values.certificate.certManager.issuer  }}
 {{- $_ = set .Values.certificate "issuerKind" .Values.certificate.certManager.issuerKind  }}
-{{- $_ = set .Values.certificate "dnsNames" (list (printf "%s.%s" .Release.Name .Release.Namespace))  }}
+{{- $_ = set .Values.certificate "dnsNames" (list (printf "%s.%s.svc" .Release.Name .Release.Namespace))  }}
 {{- include "library.cert-manager.certificate" . }}
 {{- end }}
 
