@@ -1,8 +1,8 @@
 apiVersion: v2
-name: lib-bots
-version: 1.0.1
+name: lib-cert-manager
+version: 0.0.0
 type: library
 dependencies:
   - name: lib-default
-    version: 1.0.1
+    version: 1.7.2
     repository: https://ptonini.github.io/helm-charts

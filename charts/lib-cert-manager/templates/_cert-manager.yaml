@@ -1,0 +1,28 @@
+{{- define "library.cert-manager.issuer"}}
+{{ $root := dict "Chart" .Chart "Release" .Release "Values" (mergeOverwrite (deepCopy .Values) (coalesce .Values.certIssuer dict)) }}
+---
+apiVersion: cert-manager.io/v1
+{{- if eq $root.Values.scope "cluster" }}
+kind: ClusterIssuer
+{{- else }}
+kind: Issuer
+{{- end }}
+{{- include "library.metadata" $root }}
+spec: {{- $root.Values.spec | toYaml | nindent 2 }}
+{{- end }}
+
+
+{{- define "library.cert-manager.certificate" }}
+{{ $root := dict "Chart" .Chart "Release" .Release "Values" (mergeOverwrite (deepCopy .Values) (coalesce .Values.certificate dict)) }}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+{{- include "library.metadata" $root }}
+spec:
+  secretName: {{ $root.Values.secretName }}
+  dnsNames: {{ $root.Values.dnsNames | toYaml | nindent 4 }}
+  issuerRef:
+    name: {{ $root.Values.issuer }}
+    kind: {{ coalesce $root.Values.issuerKind "Issuer" }}
+    group: cert-manager.io
+{{- end }}
