@@ -20,9 +20,33 @@ kind: Certificate
 {{- include "library.metadata" $root }}
 spec:
   secretName: {{ $root.Values.secretName }}
+  {{- if $root.Values.secretTemplate }}
+  secretTemplate: {{ $root.Values.secretTemplate | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if $root.Values.usages }}
+  usages: {{ $root.Values.usages | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if $root.Values.dnsNames }}
   dnsNames: {{ $root.Values.dnsNames | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if $root.Values.uris }}
+  uris: {{ $root.Values.uris | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if $root.Values.ipAddresses }}
+  ipAddresses: {{ $root.Values.ipAddresses | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if $root.Values.subject }}
+  subject: {{ $root.Values.subject | toYaml | nindent 4 }}
+  {{- end }}
+  isCA: {{ default false $root.Values.isCA }}
+  {{- if $root.Values.duration }}
+  duration: {{ $root.values.duration }}
+  {{- end }}
+  {{- if $root.Values.renewBefore }}
+  renewBefore: {{ $root.Values.renewBefore }}
+  {{- end }}
   issuerRef:
     name: {{ $root.Values.issuer }}
-    kind: {{ coalesce $root.Values.issuerKind "Issuer" }}
+    kind: {{ default "ClusterIssuer" $root.Values.issuerKind }}
     group: cert-manager.io
 {{- end }}
