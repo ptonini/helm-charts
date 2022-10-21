@@ -473,6 +473,19 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/lib-bots-v1.0.0/lib-bots-1.0.0.tgz
     version: 1.0.0
+  lib-cert-manager:
+  - apiVersion: v2
+    created: "2022-10-21T03:31:27.186709995Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.7.2
+    digest: 836f54d4b911261cad67c367b763dae78f28f14cf8446316f0ac6c23e88e0e86
+    name: lib-cert-manager
+    type: library
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/lib-cert-manager-v1.0.0/lib-cert-manager-1.0.0.tgz
+    version: 1.0.0
   lib-default:
   - apiVersion: v2
     created: "2022-10-21T03:29:54.632593117Z"
@@ -1052,4 +1065,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-21T03:29:54.632785718Z"
+generated: "2022-10-21T03:31:27.187170897Z"
