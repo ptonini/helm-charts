@@ -1,13 +1,3 @@
-### Anchors ###########################
-
-anchors:
-  port: &port 8080
-  health_path: &health_path /simple
-  configmap: &configmap pypicloud-config
-
-
-### Application #######################
-
 default_read: everyone
 default_write: everyone
 session:
@@ -31,8 +21,6 @@ aws:
   secret_key: ~
   
 
-### Workload ########################
-
 nodeSelector: ~
 replicas: 1
 pod:
@@ -41,10 +29,7 @@ securityContext:
   fsGroup: 1000
   runAsUser: 1000
 imagePullSecrets: []
-image:
-  registry: ghcr.io/nodis-com-br
-  repository: pypicloud
-  tag: latest
+image: ghcr.io/ptonini/pypicloud:latest
 args: ~
 env:
   AWS_SDK_LOAD_CONFIG: "true"
@@ -60,18 +45,16 @@ volumes:
   - name: config
     configMap:
       defaultMode: 0600
-      name: *configmap
+      name: &configmap pypicloud-config
 volumeMounts:
   - name: config
     mountPath: /etc/pypicloud/config.ini
     subPath: config.ini
     readOnly: true
 readiness_http_probe:
-  path: *health_path
-  port: *port
+  path: &health_path /simple
+  port: &port 8080
 liveness_http_probe: ~
-
-### Dependencies ######################
 
 configmap:
   resource_name: *configmap
