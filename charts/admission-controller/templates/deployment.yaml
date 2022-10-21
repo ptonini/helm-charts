@@ -1,8 +1,16 @@
-{{- $_ := set .Values "volumes" (append .Values.volumes (dict "name" .Values.certificates.volume "secret" (dict "secretName" .Values.certificates.secret ))) }}
-{{- $_ = set .Values "volumeMounts" (append .Values.volumeMounts (dict "name" .Values.certificates.volume "mountPath" .Values.certificates.mountPoint "readOnly" true)) }}
+{{- if .Values.certificate.certManager.enable }}
+{{- $_ := set .Values.webhook.annotations "cert-manager.io/inject-ca-from" (printf "%s/%s" .Release.Namespace .Release.Name) }}
+{{- $_ = set .Values.certificate "secretName" .Release.Name  }}
+{{- $_ = set .Values.certificate "issuer" .Values.certificate.certManager.issuer  }}
+{{- $_ = set .Values.certificate "issuerKind" .Values.certificate.certManager.issuerKind  }}
+{{- $_ = set .Values.certificate "dnsNames" (list (printf "%s.%s" .Release.Name .Release.Namespace))  }}
+{{- include "library.cert-manager.certificate" . }}
+{{- end }}
 
 {{- include "library.webhook" . }}
 
+{{- $_ := set .Values "volumes" (append .Values.volumes (dict "name" .Values.certificate.volume "secret" (dict "secretName" .Values.certificate.secretName ))) }}
+{{- $_ = set .Values "volumeMounts" (append .Values.volumeMounts (dict "name" .Values.certificate.volume "mountPath" .Values.certificate.mountPoint)) }}
 {{- include "library.workload" . }}
 
 {{ include "library.service" . }}
