@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.3](https://github.com/ptonini/helm-charts/compare/lib-default-v1.7.2...lib-default-v1.7.3) (2022-10-21)
+
+
+### Miscellaneous Chores
+
+* **lib-default:** edite webhook name in _webhook.yaml ([a0f151b](https://github.com/ptonini/helm-charts/commit/a0f151b7decb8d65b375715c41712668bb9aef93))
+
 ## [1.7.2](https://github.com/ptonini/helm-charts/compare/lib-default-v1.7.1...lib-default-v1.7.2) (2022-10-19)
 
 
