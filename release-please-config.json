@@ -1,13 +1,16 @@
 {
   "packages": {
     "charts/lib-default": {
-      "release-type": "helm"
+      "release-type": "helm",
+      "separate-pull-requests": true
     },
     "charts/lib-kong": {
-      "release-type": "helm"
+      "release-type": "helm",
+      "separate-pull-requests": true
     },
-    "charts/lib-bots": {
-      "release-type": "helm"
+    "charts/lib-cert-manager": {
+      "release-type": "helm",
+      "separate-pull-requests": true
     },
     "charts/configmap": {
       "release-type": "helm"
