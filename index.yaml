@@ -2,6 +2,22 @@ apiVersion: v1
 entries:
   admission-controller:
   - apiVersion: v2
+    created: "2022-10-21T16:51:42.267087706Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.7.2
+    - name: lib-cert-manager
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.1.0
+    description: Kubernetes Admission Controller
+    digest: d5622bbad3f26ca21cd4389f697b903320d04d9bdc8fe80487be4628d36b5977
+    name: admission-controller
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/admission-controller-v1.2.0/admission-controller-1.2.0.tgz
+    version: 1.2.0
+  - apiVersion: v2
     created: "2022-10-19T14:14:10.360331214Z"
     dependencies:
     - name: lib-default
@@ -761,6 +777,22 @@ entries:
     version: 1.0.0
   pypicloud:
   - apiVersion: v2
+    created: "2022-10-21T16:51:42.407936501Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.7.3
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.1.0
+    description: Pypicloud Pypi Repository
+    digest: 634aad27b7ba9f884c2087f35661f27c9562778c532ec7e0008c5094b9256358
+    name: pypicloud
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/pypicloud-v1.1.0/pypicloud-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
     created: "2022-10-05T22:59:15.802021052Z"
     dependencies:
     - name: lib-default
@@ -1077,4 +1109,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-21T16:24:17.281831513Z"
+generated: "2022-10-21T16:51:42.408384909Z"
