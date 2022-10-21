@@ -20,5 +20,5 @@
   "charts/psono": "1.1.1",
   "charts/pypicloud": "1.0.5",
   "charts/endpoint-bots": "1.0.4",
-  "charts/lib-cert-manager": "1.0.0"
+  "charts/lib-cert-manager": "1.1.0"
 }
