@@ -14,7 +14,7 @@
   "charts/kong-plugin": "1.0.0",
   "charts/rabbitmq-cluster": "1.0.1",
   "charts/elasticsearch-cluster": "1.0.1",
-  "charts/admission-controller": "1.2.0",
+  "charts/admission-controller": "1.2.1",
   "charts/cachet": "1.0.3",
   "charts/chartmuseum": "1.0.4",
   "charts/psono": "1.1.1",
