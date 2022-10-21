@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/ptonini/helm-charts/compare/admission-controller-v1.1.2...admission-controller-v1.2.0) (2022-10-21)
+
+
+### Features
+
+* **admission-controller:** added support for built-in certificates from cert-manager ([635e25a](https://github.com/ptonini/helm-charts/commit/635e25af0b156bc8da458c5dddd71e4bf08b0741))
+
 ## [1.1.2](https://github.com/ptonini/helm-charts/compare/admission-controller-v1.1.1...admission-controller-v1.1.2) (2022-10-19)
 
 
