@@ -43,8 +43,8 @@ verify_and_update_record () {
 
     local NAME RECORD ZONE_ID RECORD_TYPE CURRENT_RECORD
 
-    NAME=$(echo "${1}" | csvcut -c 1) && (${DEBUG} && echo "found ${NAME}" || exit 0)
-    RECORD=$(echo "${1}" | csvcut -c 2) && (${DEBUG} && echo "desired record: ${RECORD}" || exit 0)
+    NAME=$(echo "${1}" | awk -F, '{ print $1}') && (${DEBUG} && echo "found ${NAME}" || exit 0)
+    RECORD=$(echo "${1}" | awk -F, '{ print $2}') && (${DEBUG} && echo "desired record: ${RECORD}" || exit 0)
 
     [[ ${RECORD} == '""' ]] && (echo "could not find address for $NAME loadbalancer"; exit 1)
 

@@ -15,14 +15,9 @@ serviceaccount:
 service:
   enabled: true
   port: 8080
-  liveness_probe: false
-  readiness_probe: false
-  annotations: {}
-  monitoring:
-    route: /
-    method: GET
 kongingress:
   enabled: false
 ingress:
   enabled: false
+  host: example.com
   annotations: {}

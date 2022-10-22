@@ -48,9 +48,6 @@
     "charts/elasticsearch-cluster": {
       "release-type": "helm"
     },
-    "charts/cachet": {
-      "release-type": "helm"
-    },
     "charts/chartmuseum": {
       "release-type": "helm"
     },

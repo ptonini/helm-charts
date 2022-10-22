@@ -1,29 +1,17 @@
-{{- if not .Values.image }}
-{{- $_ := set .Values "image" .Release.Name }}
-{{- end }}
-
 {{- include "library.workload" . }}
 
-{{- if .Values.autoscaler.enabled }}
-{{- include "library.horizontalpodautoscaler" . }}
-{{- end }}
+{{- if .Values.autoscaler.enabled }}{{ include "library.horizontalpodautoscaler" . }}{{- end }}
 
-{{- if .Values.serviceaccount.enabled }}
-{{- include "library.rbac.serviceaccount" . }}
-{{- end }}
+{{- if .Values.serviceaccount.enabled }}{{ include "library.rbac.serviceaccount" . }}{{ end }}
 
-{{- if .Values.service.enabled }}
-{{- include "library.service" . }}
-{{- end }}
+{{- if .Values.service.enabled }}{{ include "library.service" . }}{{ end }}
 
 {{- if .Values.kongingress.enabled }}
 {{- include "library.kong.kongingress" . }}
 {{- $_ := set .Values.ingress.annotations "konghq.com/override" .Release.Name }}
 {{ end }}
 
-{{- if .Values.ingress.enabled }}
-{{- include "library.ingress" . }}
-{{- end }}
+{{- if .Values.ingress.enabled }}{{ include "library.ingress" . }}{{ end }}
 
 {{- define "library.container_extras" }}
 {{- if .service.liveness_probe }}
