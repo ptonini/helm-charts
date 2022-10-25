@@ -26,10 +26,6 @@ jobs:
           name: release-please-outputs
       - run: echo "TAG_NAME=$(jq -r --arg A "${{ matrix.path }}--tag_name" '.[$A]' outputs)" >> $GITHUB_ENV
       - run: helm package --dependency-update ${{ matrix.path }}
-      - uses: actions/upload-artifact@v3
-        with:
-          name: builds
-          path: '*.tgz'
       - uses: ptonini/gha-upload-release@main
         with:
           file: '*.tgz'
@@ -51,4 +47,4 @@ jobs:
       - uses: helm/chart-releaser-action@v1.4.1
         with:
           install_only: true
-      - run: cr index -p builds -i index.yaml -o ${{ github.event.repository.owner.name }} -t ${{ github.token}} -r ${{ github.event.repository.name }} --push --release-name-template "{{ .Name }}-v{{ .Version }}"
+      - run: cr index -p builds -i index.yaml -o ${{ github.event.repository.owner.name }} -t ${{ github.token }} -r ${{ github.event.repository.name }} --push --release-name-template "{{ .Name }}-v{{ .Version }}"
