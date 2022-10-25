@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.2](https://github.com/ptonini/helm-charts/compare/workload-v1.3.1...workload-v1.3.2) (2022-10-25)
+
+
+### dep
+
+* **workload:** updated lib-default to 1.7.3 ([3dfaba2](https://github.com/ptonini/helm-charts/commit/3dfaba2cdba670b75b380dda96065dba7e0b43b8))
+
 ## [1.3.1](https://github.com/ptonini/helm-charts/compare/workload-v1.3.0...workload-v1.3.1) (2022-10-11)
 
 
