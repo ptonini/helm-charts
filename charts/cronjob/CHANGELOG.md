@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ptonini/helm-charts/compare/cronjob-v1.0.4...cronjob-v1.1.0) (2022-10-26)
+
+
+### dep
+
+* **cronjob:** updated lib-default to 1.7.3 ([59f9a68](https://github.com/ptonini/helm-charts/commit/59f9a68c5c5a37dfe4c56f2e0d46def0bf7f54f3))
+
 ## [1.0.4](https://github.com/ptonini/helm-charts/compare/cronjob-v1.0.3...cronjob-v1.0.4) (2022-10-05)
 
 
