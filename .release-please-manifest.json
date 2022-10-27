@@ -3,7 +3,7 @@
   "charts/lib-kong": "1.1.0",
   "charts/lib-bots": "1.0.1",
   "charts/configmap": "1.0.0",
-  "charts/cronjob": "1.1.0",
+  "charts/cronjob": "1.1.1",
   "charts/ingress": "1.0.0",
   "charts/secret": "1.0.0",
   "charts/service": "1.0.1",
