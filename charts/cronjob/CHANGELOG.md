@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/ptonini/helm-charts/compare/cronjob-v1.1.0...cronjob-v1.1.1) (2022-10-27)
+
+
+### Bug Fixes
+
+* **cronjob:** corrected image tag call in lib-default ([e394e93](https://github.com/ptonini/helm-charts/commit/e394e939b1cab901f11cd1758cb562b941ace3cd))
+
 ## [1.1.0](https://github.com/ptonini/helm-charts/compare/cronjob-v1.0.4...cronjob-v1.1.0) (2022-10-26)
 
 
