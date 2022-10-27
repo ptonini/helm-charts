@@ -3,5 +3,5 @@
 charts/*/charts/
 charts/*/Chart.lock
 charts/*/*.json
-charts/*/values
+charts/cronjob/values
 charts/*/environment.yaml
