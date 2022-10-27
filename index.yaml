@@ -255,6 +255,19 @@ entries:
     version: 1.0.0
   cronjob:
   - apiVersion: v2
+    created: "2022-10-27T16:27:54.190108397Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.7.4
+    description: Cronjob
+    digest: e66daef8d8062d2643defab05c63b4b459c7287e893f488f254c3313a2267ad6
+    name: cronjob
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/cronjob-v1.1.1/cronjob-1.1.1.tgz
+    version: 1.1.1
+  - apiVersion: v2
     created: "2022-10-26T00:15:55.719784198Z"
     dependencies:
     - name: lib-default
@@ -1162,4 +1175,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-27T15:21:31.39480605Z"
+generated: "2022-10-27T16:27:54.190314898Z"
