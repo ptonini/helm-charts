@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.4](https://github.com/ptonini/helm-charts/compare/lib-default-v1.7.3...lib-default-v1.7.4) (2022-10-27)
+
+
+### Bug Fixes
+
+* **lib-default:** corrected image tag call in _container.yaml ([9cb8d6f](https://github.com/ptonini/helm-charts/commit/9cb8d6f36b44b52f0e8f9a2dd26bba990439a038))
+
 ## [1.7.3](https://github.com/ptonini/helm-charts/compare/lib-default-v1.7.2...lib-default-v1.7.3) (2022-10-21)
 
 
