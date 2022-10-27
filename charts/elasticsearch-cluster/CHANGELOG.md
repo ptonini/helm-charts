@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v1.0.1...elasticsearch-cluster-v1.1.0) (2022-10-27)
+
+
+### Features
+
+* **elasticsearch-cluster:** added support for cert-manager certificates ([c88ab95](https://github.com/ptonini/helm-charts/commit/c88ab95e017bb49ed5501aa519a0028daf7cac1e))
+
 ## [1.0.1](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v1.0.0...elasticsearch-cluster-v1.0.1) (2022-10-04)
 
 
