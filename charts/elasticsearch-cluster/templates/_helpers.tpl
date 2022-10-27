@@ -1,8 +1,8 @@
 {{- define "elasticsearch.http" }}
-{{- if .tls_certificate }}
+{{- if .tlsCertificate }}
 tls:
   certificate:
-    secretName: {{ .tls_certificate }}
+    secretName: {{ .tlsCertificate }}
 {{- end }}
 service:
   {{- if .service.annotations }}
@@ -11,7 +11,7 @@ service:
   {{- end }}
   spec:
     type: {{ .service.type }}
-    {{- if .service.loadbalancer_ip }}
-    loadBalancerIP: {{ .service.loadbalancer_ip }}
+    {{- if .service.loadBalancerIP }}
+    loadBalancerIP: {{ .service.loadBalancerIP }}
     {{- end }}
 {{- end }}

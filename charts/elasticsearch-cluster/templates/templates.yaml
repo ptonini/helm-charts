@@ -1,0 +1,8 @@
+{{- if .Values.certificate.enabled }}
+{{$_ := set .Values.http "tlsCertificate" .Values.certificate.secretName }}
+{{- include "library.cert-manager.certificate" . }}
+{{- end }}
+
+{{- include "library.rbac.serviceaccount" . }}
+
+

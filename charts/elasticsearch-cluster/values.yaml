@@ -1,8 +1,11 @@
 version: 7.10.2
-tls_certificate: ~
+
+certificate:
+  enabled: false
+  secretName: ~
 
 http:
-  tls_certificate: ~
+  tlsCertificate: ~
   service:
     annotations: ~
     type: LoadBalancer
