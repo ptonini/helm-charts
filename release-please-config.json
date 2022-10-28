@@ -63,6 +63,9 @@
     "charts/endpoint-bots": {
       "release-type": "helm"
     },
+    "charts/ingress-bot": {
+      "release-type": "helm"
+    },
     "charts/certificate": {
       "release-type": "helm"
     }

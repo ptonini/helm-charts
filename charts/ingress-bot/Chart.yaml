@@ -1,0 +1,9 @@
+apiVersion: v2
+name: ingress-bot
+description: Ingress Manager Bot
+type: application
+version: 0.0.0
+dependencies:
+  - name: lib-default
+    version: 1.7.4
+    repository: https://ptonini.github.io/helm-charts

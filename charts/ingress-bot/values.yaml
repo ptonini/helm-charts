@@ -1,0 +1,48 @@
+image: ghcr.io/ptonini/kube-bot:latest
+command: ['/bin/bash', '/scripts/ingress-bot.sh']
+env:
+  DRY_RUN: "false"
+  DEBUG: "false"
+  INTERVAL: 1m
+  CHARTS_REPOSITORY: https://example.com/helm-charts
+  INGRESS_CHART: ingress
+volumes: []
+volumeMounts:
+  - name: scripts
+    mountPath: "/scripts"
+    readOnly: true
+
+serviceaccount:
+  roles:
+    - scope: cluster
+      rules:
+        - apiGroups:
+            - ""
+          resources:
+            - namespaces
+            - configmaps
+            - services
+            - secrets
+          verbs:
+            - list
+            - get
+            - create
+            - update
+            - delete
+            - patch
+        - apiGroups:
+            - extensions
+            - networking.k8s.io
+            - configuration.konghq.com
+          resources:
+            - ingresses
+            - kongingresses
+          verbs:
+            - list
+            - get
+            - create
+            - delete
+            - patch
+  bindings:
+    - scope: cluster
+      kind: ClusterRole
