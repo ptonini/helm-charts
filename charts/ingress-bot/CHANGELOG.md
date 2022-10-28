@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/ptonini/helm-charts/compare/ingress-bot-v1.0.1...ingress-bot-v1.0.2) (2022-10-28)
+
+
+### Bug Fixes
+
+* **ingress-bot:** added serviceaccount.enabled flag ([ac461d3](https://github.com/ptonini/helm-charts/commit/ac461d3d2e3ce014b07f9fe53ce0a56cd45785a8))
+
 ## [1.0.1](https://github.com/ptonini/helm-charts/compare/ingress-bot-v1.0.0...ingress-bot-v1.0.1) (2022-10-28)
 
 
