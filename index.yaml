@@ -164,6 +164,23 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/cachet-v1.0.0/cachet-1.0.0.tgz
     version: 1.0.0
+  certificate:
+  - apiVersion: v2
+    created: "2022-10-28T14:54:37.171021527Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.7.4
+    - name: lib-cert-manager
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.1.0
+    description: Cert-Manager Certificate
+    digest: 33f594d311464e112eb7df0c5cea091f2b3ff81d40ee79633905f2ca335236a2
+    name: certificate
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/certificate-v1.0.0/certificate-1.0.0.tgz
+    version: 1.0.0
   chartmuseum:
   - apiVersion: v2
     created: "2022-10-05T00:08:14.402312158Z"
@@ -1191,4 +1208,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-27T17:49:45.316696231Z"
+generated: "2022-10-28T14:54:37.172334648Z"
