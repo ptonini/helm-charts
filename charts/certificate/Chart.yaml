@@ -2,7 +2,7 @@ apiVersion: v2
 name: certificate
 description: Cert-Manager Certificate
 type: application
-version: 0.0.0
+version: 1.0.0
 dependencies:
   - name: lib-default
     version: 1.7.4
