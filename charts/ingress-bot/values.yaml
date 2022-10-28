@@ -13,6 +13,7 @@ volumeMounts:
     readOnly: true
 
 serviceaccount:
+  enabled: true
   roles:
     - scope: cluster
       rules:
