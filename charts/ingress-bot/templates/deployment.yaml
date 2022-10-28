@@ -1,5 +1,5 @@
 {{- $_ := set .Values "configmap" (dict "data" (dict "ingress-bot.sh" (.Files.Get "scripts/ingress-bot.sh"))) }}
-{{- $_  = set .Values "volumes" (dict "name" "scripts" "configMap" (dict "name" .Release.Name )) }}
+{{- $_  = set .Values "volumes" (list (dict "name" "scripts" "configMap" (dict "name" .Release.Name ))) }}
 
 {{- include "library.workload" . }}
 
