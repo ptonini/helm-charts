@@ -1,9 +1,0 @@
-apiVersion: v2
-name: endpoint-bots
-description: Endpoint Manager Bots
-type: application
-version: 1.0.4
-dependencies:
-  - name: lib-default
-    version: 1.6.1
-    repository: https://ptonini.github.io/helm-charts
