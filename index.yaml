@@ -490,6 +490,19 @@ entries:
     version: 1.0.0
   ingress-bot:
   - apiVersion: v2
+    created: "2022-10-30T02:47:50.544247659Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.7.4
+    description: Ingress Manager Bot
+    digest: 585d6286e9451823707e1282704174ba1690b4dd0e6f4df2e30bee3243bb0d44
+    name: ingress-bot
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/ingress-bot-v1.0.3/ingress-bot-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
     created: "2022-10-28T23:10:05.325823093Z"
     dependencies:
     - name: lib-default
@@ -1248,4 +1261,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-28T23:10:05.325957798Z"
+generated: "2022-10-30T02:47:50.544389961Z"
