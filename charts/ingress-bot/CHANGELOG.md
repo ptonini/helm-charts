@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/ptonini/helm-charts/compare/ingress-bot-v1.0.2...ingress-bot-v1.0.3) (2022-10-30)
+
+
+### Miscellaneous Chores
+
+* **ingress-bot:** renamed domain filed to hostname ([31a9e85](https://github.com/ptonini/helm-charts/commit/31a9e856b82d81c43fa6b3e927e19b65520b7e7a))
+
 ## [1.0.2](https://github.com/ptonini/helm-charts/compare/ingress-bot-v1.0.1...ingress-bot-v1.0.2) (2022-10-28)
 
 
