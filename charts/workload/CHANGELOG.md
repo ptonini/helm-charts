@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.4](https://github.com/ptonini/helm-charts/compare/workload-v1.3.3...workload-v1.3.4) (2022-11-18)
+
+
+### Miscellaneous Chores
+
+* updated lib-default to 1.7.5 ([33afbff](https://github.com/ptonini/helm-charts/commit/33afbfffcaa4a2c89fd42ec29bf226110a42a809))
+
 ## [1.3.3](https://github.com/ptonini/helm-charts/compare/workload-v1.3.2...workload-v1.3.3) (2022-11-01)
 
 
