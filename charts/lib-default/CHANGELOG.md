@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.5](https://github.com/ptonini/helm-charts/compare/lib-default-v1.7.4...lib-default-v1.7.5) (2022-11-18)
+
+
+### Miscellaneous Chores
+
+* renamed checksum field to digest and adjusted logic ([f4f7481](https://github.com/ptonini/helm-charts/commit/f4f7481e5d7c2d084720c098a83a3d86f492cd82))
+
 ## [1.7.4](https://github.com/ptonini/helm-charts/compare/lib-default-v1.7.3...lib-default-v1.7.4) (2022-10-27)
 
 
