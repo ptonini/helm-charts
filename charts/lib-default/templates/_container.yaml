@@ -5,7 +5,7 @@
 {{- if kindIs "string" .image }}
 image: {{ .image }}
 {{- else if kindIs "map" .image }}
-image: {{ if .image.registry }}{{ print .image.registry "/"}}{{ end }}{{ .image.repository }}{{ if .image.tag }}{{ print ":" .image.tag }}{{ else if .image.checksum }}{{ print "@sha256:" .image.checksum }}{{ end }}
+image: {{ if .image.registry }}{{ print .image.registry "/"}}{{ end }}{{ .image.repository }}{{ if .image.tag }}{{ print ":" .image.tag }}{{ else if .image.digest }}{{ print "@" .image.digest }}{{ end }}
 {{- end }}
 {{- if .containerSecurityContext }}
 securityContext:{{ .containerSecurityContext | toYaml | nindent 4 }}
