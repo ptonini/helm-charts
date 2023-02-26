@@ -1131,6 +1131,22 @@ entries:
     version: 1.0.0
   workload:
   - apiVersion: v2
+    created: "2023-02-26T23:31:54.979019034Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.8.0
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.1.0
+    description: Kubernetes Generic Workload Template
+    digest: e3a27321d0678b4b9011ecc8896532b5ffe45867bba145db74adea5880ec08cd
+    name: workload
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/workload-v1.4.0/workload-1.4.0.tgz
+    version: 1.4.0
+  - apiVersion: v2
     created: "2022-11-18T22:54:14.576010388Z"
     dependencies:
     - name: lib-default
@@ -1322,4 +1338,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2023-02-26T23:25:25.768656123Z"
+generated: "2023-02-26T23:31:54.979284635Z"
