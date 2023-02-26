@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/ptonini/helm-charts/compare/workload-v1.3.4...workload-v1.4.0) (2023-02-26)
+
+
+### Features
+
+* **workload:** added volumeClaimTemplates to template (updated lib-default to 1.8.0) ([0bc4734](https://github.com/ptonini/helm-charts/commit/0bc473488fdd792c686d4710a0ca695ce2146ca8))
+
 ## [1.3.4](https://github.com/ptonini/helm-charts/compare/workload-v1.3.3...workload-v1.3.4) (2022-11-18)
 
 
