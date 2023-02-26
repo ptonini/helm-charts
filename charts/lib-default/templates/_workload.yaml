@@ -10,6 +10,9 @@ spec:
       {{- include "library.factory.pod.labels" . | indent 6 }}
   template:
     {{- include "library.pod" . | indent 4 }}
+  {{- if .Values.volumeClaimTemplates }}
+  volumeClaimTemplates: {{ .Values.volumeClaimTemplates | toYaml | nindent 4 }}
+  {{- end }}
 {{- end }}
 
 
