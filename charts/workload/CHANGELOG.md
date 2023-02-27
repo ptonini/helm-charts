@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/ptonini/helm-charts/compare/workload-v1.4.0...workload-v1.5.0) (2023-02-27)
+
+
+### Features
+
+* **workload:** added headless service factory to StatefulSet template ([a0857db](https://github.com/ptonini/helm-charts/commit/a0857db652bbfd532d514757c740185dcf6bd215))
+
 ## [1.4.0](https://github.com/ptonini/helm-charts/compare/workload-v1.3.4...workload-v1.4.0) (2023-02-26)
 
 
