@@ -6,6 +6,13 @@
 
 {{- if .Values.service.enabled }}{{ include "library.service" . }}{{ end }}
 
+{{- if eq .Values.kind "StatefulSet" }}
+{{- $root := deepCopy . }}
+{{- $_ := set $root.Values.service "type" "Headless" }}
+{{- $_ = set $root.Values.service "resource_name_suffix" "headless" }}
+{{ include "library.service" $root }}
+{{- end }}
+
 {{- if .Values.kongingress.enabled }}
 {{- include "library.kong.kongingress" . }}
 {{- $_ := set .Values.ingress.annotations "konghq.com/override" .Release.Name }}
