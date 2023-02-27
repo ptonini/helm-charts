@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.9.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.8.0...lib-default-v1.9.0) (2023-02-27)
+
+
+### Features
+
+* **lib-default:** added headless service support to service template ([057e895](https://github.com/ptonini/helm-charts/commit/057e895be2e476e87c249843ec4d4d9b63db7cc1))
+* **lib-default:** added serviceName to workload (StatefulSet) template ([5e407c2](https://github.com/ptonini/helm-charts/commit/5e407c24c6869b9f1fa50f89be66c12322ae1c10))
+
 ## [1.8.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.7.5...lib-default-v1.8.0) (2023-02-26)
 
 
