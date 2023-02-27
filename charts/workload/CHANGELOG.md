@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/ptonini/helm-charts/compare/workload-v1.5.0...workload-v1.5.1) (2023-02-27)
+
+
+### Bug Fixes
+
+* **workload:** removed annotations from headless service ([0aae7a3](https://github.com/ptonini/helm-charts/commit/0aae7a36da38ccb3a83b692c9cf203be32f6100b))
+
 ## [1.5.0](https://github.com/ptonini/helm-charts/compare/workload-v1.4.0...workload-v1.5.0) (2023-02-27)
 
 
