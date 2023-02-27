@@ -10,6 +10,7 @@
 {{- $root := deepCopy . }}
 {{- $_ := set $root.Values.service "type" "Headless" }}
 {{- $_ = set $root.Values.service "resource_name_suffix" "headless" }}
+{{- $_ = unset $root.Values.service "annotations" }}
 {{ include "library.service" $root }}
 {{- end }}
 
