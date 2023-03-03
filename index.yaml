@@ -1057,6 +1057,19 @@ entries:
     version: 1.0.0
   rabbitmq-cluster:
   - apiVersion: v2
+    created: "2023-03-03T18:58:12.37132996Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.1
+    description: RabbitMQ Cluster
+    digest: cba8a1fece6e9fb76b039a3ca57837f227f41c3681285b8cf0a80b9d56d42358
+    name: rabbitmq-cluster
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/rabbitmq-cluster-v1.1.0/rabbitmq-cluster-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
     created: "2022-10-04T18:04:26.444900141Z"
     dependencies:
     - name: lib-default
@@ -1378,4 +1391,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2023-02-27T06:54:41.629361159Z"
+generated: "2023-03-03T18:58:12.371741164Z"
