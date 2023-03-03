@@ -31,6 +31,8 @@ resources:
     cpu: 500m
     memory: 1Gi
   
+envConfig: ~
+
 additionalPlugins:
   - rabbitmq_top
   - rabbitmq_shovel

@@ -9,6 +9,9 @@ spec:
   rabbitmq:
     additionalPlugins: {{ .Values.additionalPlugins | toYaml | nindent 6 }}
     additionalConfig: {{ .Values.additionalConfig }}
+    {{- if .Values.envConfig }}
+    envConfig: {{ .Values.envConfig }}
+    {{- end }}
   {{- if .Values.tls }}
   tls: {{ .Values.tls | toYaml | nindent 4 }}
   {{- end }}
