@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ptonini/helm-charts/compare/rabbitmq-cluster-v1.0.1...rabbitmq-cluster-v1.1.0) (2023-03-03)
+
+
+### Features
+
+* **rabbitmq-cluster:** added envConfig value to template ([d48678b](https://github.com/ptonini/helm-charts/commit/d48678be4c1a319b469bd0984be2a2b3fea76d1b))
+
 ## [1.0.1](https://github.com/ptonini/helm-charts/compare/rabbitmq-cluster-v1.0.0...rabbitmq-cluster-v1.0.1) (2022-10-04)
 
 
