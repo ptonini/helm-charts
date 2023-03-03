@@ -2,7 +2,7 @@ apiVersion: v2
 name: rabbitmq-cluster
 description: RabbitMQ Cluster
 type: application
-version: 1.0.1
+version: 1.1.0
 dependencies:
   - name: lib-default
     version: 1.0.1
