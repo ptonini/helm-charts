@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/ptonini/helm-charts/compare/workload-v1.5.1...workload-v1.6.0) (2023-04-14)
+
+
+### Features
+
+* **workload:** added memory autoscaling ([6db55b2](https://github.com/ptonini/helm-charts/commit/6db55b2aab14ca96ccf9b31df7db17f1c2e855f0))
+
 ## [1.5.1](https://github.com/ptonini/helm-charts/compare/workload-v1.5.0...workload-v1.5.1) (2023-02-27)
 
 
