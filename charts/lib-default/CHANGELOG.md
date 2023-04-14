@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.9.0...lib-default-v1.10.0) (2023-04-14)
+
+
+### Features
+
+* adicionado avr_memory ([#114](https://github.com/ptonini/helm-charts/issues/114)) ([8d3f9be](https://github.com/ptonini/helm-charts/commit/8d3f9bebfec98c51c8f8ed469998aef333ebbe1a))
+
 ## [1.9.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.8.0...lib-default-v1.9.0) (2023-02-27)
 
 
