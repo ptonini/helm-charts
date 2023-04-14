@@ -77,5 +77,3 @@ ingress:
 
 serviceaccount:
   enabled: true
-
-
