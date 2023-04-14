@@ -74,6 +74,5 @@ ingress:
   monitoring:
     route: *health_path
 
-
 serviceaccount:
   enabled: true
