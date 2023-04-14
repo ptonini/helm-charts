@@ -11,6 +11,7 @@ autoscaler:
   enabled: false
   max_replicas: 1
   avr_cpu: 80
+  avr_memory: 80
 serviceaccount:
   enabled: false
 service:
