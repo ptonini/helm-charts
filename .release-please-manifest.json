@@ -16,7 +16,7 @@
   "charts/elasticsearch-cluster": "1.1.0",
   "charts/admission-controller": "1.2.1",
   "charts/cachet": "1.0.3",
-  "charts/chartmuseum": "1.0.4",
+  "charts/chartmuseum": "1.0.5",
   "charts/psono": "1.1.1",
   "charts/pypicloud": "1.1.0",
   "charts/endpoint-bots": "1.0.4",
