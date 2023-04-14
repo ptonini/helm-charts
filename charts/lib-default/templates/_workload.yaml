@@ -32,8 +32,16 @@ spec:
   minReplicas: {{ .Values.replicas }}
   maxReplicas: {{ if gt .Values.replicas .Values.autoscaler.maxReplicas }}{{ .Values.replicas }}{{ else }}{{ .Values.autoscaler.maxReplicas }}{{ end }}
   metrics:
+    {{- if .Values.autoscaler.avr_cpu }}
     - type: Resource
       resource:
         name: cpu
         targetAverageUtilization: {{ .Values.autoscaler.avr_cpu }}
+    {{- end }}
+    {{- if .Values.autoscaler.avr_memory }}
+    - type: Resource
+      resource:
+        name: memory
+        targetAverageUtilization: {{ .Values.autoscaler.avr_memory }}
+    {{- end }}
 {{- end }}
