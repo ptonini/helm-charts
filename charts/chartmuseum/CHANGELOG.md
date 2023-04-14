@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ptonini/helm-charts/compare/chartmuseum-v1.0.5...chartmuseum-v1.1.0) (2023-04-14)
+
+
+### Bug Fixes
+
+* **chartmuseum:** test workflow ([d0eea03](https://github.com/ptonini/helm-charts/commit/d0eea03e2fe8c22521f6601465dbcb21161910ea))
+
 ## [1.0.5](https://github.com/ptonini/helm-charts/compare/chartmuseum-v1.0.4...chartmuseum-v1.0.5) (2023-04-14)
 
 
