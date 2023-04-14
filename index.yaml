@@ -183,6 +183,22 @@ entries:
     version: 1.0.0
   chartmuseum:
   - apiVersion: v2
+    created: "2023-04-14T03:18:35.836002945Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.2
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Chartmuseum Helm Repository
+    digest: f2ce58d89839a355581f7dcdfc2b669714a10fc4aa81f8b915ee893c1ad7ea17
+    name: chartmuseum
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/chartmuseum-v1.1.0/chartmuseum-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
     created: "2023-04-14T03:07:39.20999524Z"
     dependencies:
     - name: lib-default
@@ -1407,4 +1423,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2023-04-14T03:07:39.210680142Z"
+generated: "2023-04-14T03:18:35.836192646Z"
