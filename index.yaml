@@ -622,6 +622,22 @@ entries:
     version: 1.0.0
   kong-plugin:
   - apiVersion: v2
+    created: "2023-04-15T00:47:03.011213839Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.0.0
+    description: Kong Plugin
+    digest: 471477cd54b871111ce2b2d75453fb5ff065204c97ff3ad5424a67a2ec3021f9
+    name: kong-plugin
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/kong-plugin-v1.0.1/kong-plugin-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
     created: "2022-10-04T01:14:14.089868413Z"
     dependencies:
     - name: lib-default
@@ -1447,4 +1463,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2023-04-14T18:34:27.702269239Z"
+generated: "2023-04-15T00:47:03.011469539Z"
