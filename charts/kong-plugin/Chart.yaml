@@ -2,7 +2,7 @@ apiVersion: v2
 name: kong-plugin
 description: Kong Plugin
 type: application
-version: 1.0.0
+version: 1.0.1
 dependencies:
   - name: lib-default
     version: 1.0.0
