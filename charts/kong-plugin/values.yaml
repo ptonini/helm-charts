@@ -1,4 +1,3 @@
-ingress_class: kong
 scope: namespace
 plugin: ~
 
