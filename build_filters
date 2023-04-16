@@ -1,4 +1,0 @@
-#!/bin/bash
-for L in $(jq -r '.packages | keys | .[]' release-please-config.json); do
-  echo "$(awk -F/ '{print $2}' <<< "${L}"): $L/*"
-done
