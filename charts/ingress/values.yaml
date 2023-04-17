@@ -2,11 +2,3 @@ annotations: {}
 labels: ~
 domain: example.com
 paths: []
-
-kongingress:
-  enabled: true
-  annotations: {}
-  route:
-    protocols: [ "https" ]
-    https_redirect_status_code: 302
-    strip_path: true
