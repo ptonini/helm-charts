@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ptonini/helm-charts/compare/ingress-v1.0.0...ingress-v1.1.0) (2023-04-18)
+
+
+### Features
+
+* **ingress:** removed KongIngress creation ([2eaaf2c](https://github.com/ptonini/helm-charts/commit/2eaaf2c7ead8b1e248bb324378d6e7472856172b))
+
 ## 1.0.0 (2022-10-03)
 
 
