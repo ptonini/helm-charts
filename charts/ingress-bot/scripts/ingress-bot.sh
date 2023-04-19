@@ -16,7 +16,6 @@ while true; do
         CERTIFICATE_ISSUER=$(jq -r '.data.cert_issuer' <<< "${CONFIG}")
 
         SERVICES=$(kubectl get -n "${NAMESPACE}" services -l ingress="${INGRESS}" -o json)
-        PATHS_JSON=$(jq '.items | map({path:.metadata.annotations."nodis.com.br/service-route",service:.metadata.name,port:.spec.ports[0].port})' <<< "${SERVICES}")
 
         CONFIG_STRING="${HOSTNAME},${KONG_PLUGINS},${MONITORING_ROUTE},${INGRESS_CLASS},${CERTIFICATE_ISSUER}"
         PATHS_STRING=$(jq -r '.items[] | [.metadata.annotations."nodis.com.br/service-route",.metadata.name,.spec.ports[0].port] | @csv' <<< "${SERVICES}" | sort)
@@ -54,7 +53,10 @@ while true; do
             fi
         elif [[ ${CURRENT_CONFIG_STRING} != "${CONFIG_STRING}" ]] || [[ ${CURRENT_PATHS_STRING} != "${PATHS_STRING}" ]]; then
             echo "updating: ${NAMESPACE}/${INGRESS}"
-            VALUES='{"domain": "'${HOSTNAME}'", "paths": '${PATHS_JSON}', "kongingress": {"enabled": true}}'
+            PATHS_JSON=$(jq '.items | map({path:.metadata.annotations."nodis.com.br/service-route",service:.metadata.name,port:.spec.ports[0].port})' <<< "${SERVICES}")
+            VALUES="{\"domain\": \"${HOSTNAME}\", \"paths\": ${PATHS_JSON}}"
+            VALUES=$(jq '.annotations += {"ingress.kubernetes.io/force-ssl-redirect": "true"}' <<< "${VALUES}")
+            VALUES=$(jq '.annotations += {"konghq.com/strip-path": "true"}' <<< "${VALUES}")
             [[ -n ${INGRESS_CLASS//null/} ]] && VALUES=$(jq --arg A "${INGRESS_CLASS}" '.annotations += {"kubernetes.io/ingress.class": $A}' <<< "${VALUES}")
             [[ -n ${MONITORING_ROUTE//null/} ]] && VALUES=$(jq --arg A "${MONITORING_ROUTE}" '.annotations += {"nodis.com.br/monitoring-route": $A}' <<< "${VALUES}")
             [[ -n ${KONG_PLUGINS//null/} ]] && VALUES=$(jq --arg A "${KONG_PLUGINS}" '.annotations += {"konghq.com/plugins": $A}' <<< "${VALUES}")
