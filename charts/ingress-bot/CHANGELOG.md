@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ptonini/helm-charts/compare/ingress-bot-v1.0.3...ingress-bot-v1.1.0) (2023-04-19)
+
+
+### Features
+
+* **ingress-bot:** replaced kongingress with annotations ([aaa3cd9](https://github.com/ptonini/helm-charts/commit/aaa3cd9cd48178eb14bb6bd64f16583a0bd82851))
+
 ## [1.0.3](https://github.com/ptonini/helm-charts/compare/ingress-bot-v1.0.2...ingress-bot-v1.0.3) (2022-10-30)
 
 
