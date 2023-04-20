@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/ptonini/helm-charts/compare/workload-v1.6.0...workload-v1.6.1) (2023-04-20)
+
+
+### Bug Fixes
+
+* **workload:** updated HorizontalPodAutoscaler template apiVersion to autoscaling/v2 ([8df8c8d](https://github.com/ptonini/helm-charts/commit/8df8c8d1119842fad9e5a38131c8284b0ce980e9))
+
 ## [1.6.0](https://github.com/ptonini/helm-charts/compare/workload-v1.5.1...workload-v1.6.0) (2023-04-14)
 
 
