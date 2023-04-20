@@ -6,7 +6,7 @@ token_volume:
   expiration: 3600
 resources:
   requests:
-    cpu: 50m
+    cpu: 100m
 autoscaler:
   enabled: false
   max_replicas: 1
@@ -16,8 +16,6 @@ serviceaccount:
 service:
   enabled: true
   port: 8080
-kongingress:
-  enabled: false
 ingress:
   enabled: false
   host: example.com
