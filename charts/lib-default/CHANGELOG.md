@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.1](https://github.com/ptonini/helm-charts/compare/lib-default-v1.10.0...lib-default-v1.10.1) (2023-04-20)
+
+
+### Bug Fixes
+
+* **lib-default:** updated HorizontalPodAutoscaler template apiVersion to autoscaling/v2 ([1e9830e](https://github.com/ptonini/helm-charts/commit/1e9830e8e276a5d148375463366aa531b02fc248))
+
 ## [1.10.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.9.0...lib-default-v1.10.0) (2023-04-14)
 
 
