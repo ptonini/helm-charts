@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.2](https://github.com/ptonini/helm-charts/compare/workload-v1.6.1...workload-v1.6.2) (2023-04-20)
+
+
+### Bug Fixes
+
+* **workload:** removed KongIngress creation ([6fc15c4](https://github.com/ptonini/helm-charts/commit/6fc15c4cafb884bd5bf0ec0de99cab62d10f9d5a))
+
 ## [1.6.1](https://github.com/ptonini/helm-charts/compare/workload-v1.6.0...workload-v1.6.1) (2023-04-20)
 
 
