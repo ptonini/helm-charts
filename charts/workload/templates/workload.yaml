@@ -14,11 +14,6 @@
 {{ include "library.service" $root }}
 {{- end }}
 
-{{- if .Values.kongingress.enabled }}
-{{- include "library.kong.kongingress" . }}
-{{- $_ := set .Values.ingress.annotations "konghq.com/override" .Release.Name }}
-{{ end }}
-
 {{- if .Values.ingress.enabled }}{{ include "library.ingress" . }}{{ end }}
 
 {{- define "library.container_extras" }}
