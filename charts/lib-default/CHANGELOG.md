@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.10.1...lib-default-v1.11.0) (2023-04-21)
+
+
+### Features
+
+* added ingressClassName to ingress template spec ([c0f34e6](https://github.com/ptonini/helm-charts/commit/c0f34e65559da3c0b34c4232bd70f89ff37d911a))
+
 ## [1.10.1](https://github.com/ptonini/helm-charts/compare/lib-default-v1.10.0...lib-default-v1.10.1) (2023-04-20)
 
 
