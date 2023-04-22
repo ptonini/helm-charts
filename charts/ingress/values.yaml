@@ -1,4 +1,5 @@
 annotations: {}
-labels: ~
-domain: example.com
+labels: {}
+ingressClassName: ~
+host: example.com
 paths: []
