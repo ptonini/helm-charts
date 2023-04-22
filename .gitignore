@@ -5,3 +5,4 @@ charts/*/Chart.lock
 charts/*/*.json
 charts/*/values
 charts/*/environment.yaml
+charts/ingress-bot/scripts/env.yaml
