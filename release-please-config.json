@@ -1,5 +1,7 @@
 {
-  "skip-github-release": true,
+  "release-search-depth": 40,
+  "commit-search-depth": 50,
+  "sequential-calls": false,
   "packages": {
     "charts/lib-default": {
       "release-type": "helm",

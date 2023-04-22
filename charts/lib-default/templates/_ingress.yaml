@@ -1,40 +1,35 @@
 {{- define "library.ingress" }}
 {{ $root := dict "Chart" .Chart "Release" .Release "Values" (mergeOverwrite (deepCopy .Values) (coalesce .Values.ingress dict)) }}
+
+{{- if eq (len (default list .Values.paths)) 0 }}
+{{- $_ := set $root.Values "paths" list (dict "service" (include "library.factory.resource_name" $root ) "port" (include "library.factory.service.port.name" $root ) ) }}
+{{- end }}
+
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 {{- include "library.metadata" $root }}
 spec:
+  {{- if $root.Values.ingressClassName }}
+  ingressClassName: {{ $root.Values.ingressClassName }}
+  {{- end }}
   tls:
     - hosts:
         - {{ coalesce $root.Values.host $root.Values.domain }}
-      secretName: {{ coalesce .Values.certificate (printf "%s-certificate" .Release.Name) }}
+      secretName: {{ coalesce $root.Values.certificate (printf "%s-certificate" (include "library.factory.resource_name" $root )) }}
   rules:
     - host: {{ coalesce $root.Values.host $root.Values.domain }}
-      {{- include "library.ingress.http_paths" $root | indent 6 }}
-{{- end }}
-
-{{- define "library.ingress.http_paths" }}
-http:
-  paths:
-    {{- if eq (len (default list .Values.paths)) 0 }}
-    - pathType: ImplementationSpecific
-      backend:
-        service:
-          name: {{ include "library.factory.resource_name" . }}
-          port:
-            name: {{ include "library.factory.service.port.name" . }}
-    {{- else }}
-    {{- range .Values.paths }}
-    - pathType: ImplementationSpecific
-      backend:
-        service:
-          name: {{ .service }}
-          port:
-            number: {{ .port }}
-      {{- if and .path (ne (.path | toString) "/") }}
-      path: {{ .path }}
-      {{- end }}
-    {{- end }}
-    {{- end }}
+      http:
+        paths:
+          {{- range .Values.paths }}
+          - pathType: ImplementationSpecific
+            backend:
+              service:
+                name: {{ .service }}
+                port:
+                  number: {{ .port }}
+            {{- if and .path (ne (.path | toString) "/") }}
+            path: {{ .path }}
+            {{- end }}
+          {{- end }}
 {{- end }}
