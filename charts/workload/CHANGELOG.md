@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/ptonini/helm-charts/compare/workload-v1.6.2...workload-v1.7.0) (2023-04-22)
+
+
+### Features
+
+* **workload:** added ingressClassName property to ingress spec template (updated lib-default to 1.11.0) ([0b8aa51](https://github.com/ptonini/helm-charts/commit/0b8aa51c84c740389a79a24e0547bd0fc70b76b6))
+
 ## [1.6.2](https://github.com/ptonini/helm-charts/compare/workload-v1.6.1...workload-v1.6.2) (2023-04-20)
 
 
