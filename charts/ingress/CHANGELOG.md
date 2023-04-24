@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/ptonini/helm-charts/compare/ingress-v1.2.1...ingress-v1.2.2) (2023-04-24)
+
+
+### Bug Fixes
+
+* removed hosts key from default values ([0e0f17b](https://github.com/ptonini/helm-charts/commit/0e0f17b7d00b9ede3a0298db0299db2fc05a5cd9))
+
 ## [1.2.1](https://github.com/ptonini/helm-charts/compare/ingress-v1.2.0...ingress-v1.2.1) (2023-04-24)
 
 
