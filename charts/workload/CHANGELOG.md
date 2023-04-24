@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.1](https://github.com/ptonini/helm-charts/compare/workload-v1.7.0...workload-v1.7.1) (2023-04-24)
+
+
+### Bug Fixes
+
+* corrected paths object builder in _ingress.yaml ([e9b78b9](https://github.com/ptonini/helm-charts/commit/e9b78b9c8364b2cb48bb4473a802f6501f2081a9))
+
 ## [1.7.0](https://github.com/ptonini/helm-charts/compare/workload-v1.6.2...workload-v1.7.0) (2023-04-22)
 
 
