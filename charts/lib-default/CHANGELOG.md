@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.1](https://github.com/ptonini/helm-charts/compare/lib-default-v1.11.0...lib-default-v1.11.1) (2023-04-24)
+
+
+### Bug Fixes
+
+* **lib-default:** corrected paths object builder in _ingress.yaml ([03b6662](https://github.com/ptonini/helm-charts/commit/03b6662a6f3bc029f3627494fecfff617fdd343d))
+
 ## [1.11.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.10.1...lib-default-v1.11.0) (2023-04-22)
 
 
