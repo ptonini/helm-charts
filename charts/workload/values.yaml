@@ -15,9 +15,7 @@ serviceaccount:
   enabled: false
 service:
   enabled: true
-  port: 8080
 ingress:
   enabled: false
-  host: example.com
   annotations: {}
 volumeClaimTemplates: []
