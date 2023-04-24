@@ -1,5 +1,9 @@
 {{- define "library.service" }}
 {{ $root := dict "Chart" .Chart "Release" .Release "Values" (mergeOverwrite (deepCopy .Values) (coalesce .Values.service dict)) }}
+
+{{- if $root.port }}
+{{- $_ := set $root "ports" (append (default list $root.ports) (dict "port" $root.port) )}}
+{{- end }}
 ---
 apiVersion: v1
 kind: Service
@@ -11,24 +15,15 @@ spec:
   type: {{ coalesce $root.Values.type  "NodePort" }}
   {{- end }}
   ports:
-    {{- if $root.Values.ports }}
     {{- range $root.Values.ports }}
-    {{- include "library.service.port" . | indent 4 }}
-    {{- end }}
-    {{- else }}
-    {{- include "library.service.port" $root.Values | indent 4 }}
+    - name: {{ include "library.factory.service.port.name" . }}
+      port: {{ .port }}
+      targetPort: {{ coalesce .targetPort .port }}
+      protocol: {{ include "library.factory.service.port.protocol" . }}
     {{- end }}
   selector:
     {{- include "library.factory.pod.labels" $root  | indent 4 }}
 {{- end}}
-
-
-{{- define "library.service.port" }}
-- name: {{ include "library.factory.service.port.name" . }}
-  port: {{ .port }}
-  targetPort: {{ coalesce .targetPort .port }}
-  protocol: {{ include "library.factory.service.port.protocol" . }}
-{{- end }}
 
 
 {{- define "library.service.http_probe" }}

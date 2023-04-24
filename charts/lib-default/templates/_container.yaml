@@ -50,12 +50,13 @@ envFrom:
   {{- end }}
 {{- end }}
 {{- if ((.service).enabled) }}
-ports:
   {{- if .service.port }}
-  {{- include "library.container.port" .service | indent 2 }}
+  {{- $_ := set .service "ports" (append (default list .service.ports) (dict "port" .service.port) )}}
   {{- end }}
+ports:
   {{- range .service.ports }}
-  {{- include "library.container.port" . | indent 2 }}
+  - containerPort: {{ coalesce .targetPort .port }}
+    protocol: {{ include "library.factory.service.port.protocol" . }}
   {{- end }}
 {{- end }}
 {{- if .readiness_http_probe }}
@@ -76,12 +77,6 @@ livenessProbe: {{ .livenessProbe | toYaml | nindent 2}}
 lifecycle: {{ .lifecycle | toYaml | nindent 2}}
 {{- end }}
 {{- include "library.container.extras" . }}
-{{- end }}
-
-
-{{- define "library.container.port" }}
-- containerPort: {{ coalesce .targetPort .port }}
-  protocol: {{ include "library.factory.service.port.protocol" . }}
 {{- end }}
 
 
