@@ -518,6 +518,19 @@ entries:
     version: 1.0.0
   ingress:
   - apiVersion: v2
+    created: "2023-04-24T02:18:28.470033171Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.11.1
+    description: Ingress
+    digest: 75fdada1933ca40f1f7e0ac8532599fd44ebde87d4ec9608aa2ea7cbf666fcab
+    name: ingress
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/ingress-v1.2.1/ingress-1.2.1.tgz
+    version: 1.2.1
+  - apiVersion: v2
     created: "2023-04-22T20:58:31.062304171Z"
     dependencies:
     - name: lib-default
@@ -1271,6 +1284,22 @@ entries:
     version: 1.0.0
   workload:
   - apiVersion: v2
+    created: "2023-04-24T02:18:28.603664888Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.11.1
+    - name: lib-kong
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.1.0
+    description: Kubernetes Generic Workload Template
+    digest: a37e9319b9c1522a5417dfa5c9df3eb3d14be5afa9428f0e2a22164d96d381ed
+    name: workload
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/workload-v1.7.1/workload-1.7.1.tgz
+    version: 1.7.1
+  - apiVersion: v2
     created: "2023-04-22T22:45:43.077320771Z"
     dependencies:
     - name: lib-default
@@ -1574,4 +1603,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2023-04-24T02:11:06.217015275Z"
+generated: "2023-04-24T02:18:28.603947893Z"
