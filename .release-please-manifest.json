@@ -4,7 +4,7 @@
   "charts/lib-bots": "1.0.1",
   "charts/configmap": "1.0.0",
   "charts/cronjob": "1.1.2",
-  "charts/ingress": "1.2.2",
+  "charts/ingress": "1.2.3",
   "charts/secret": "1.0.0",
   "charts/service": "1.0.1",
   "charts/serviceaccount": "1.0.0",
