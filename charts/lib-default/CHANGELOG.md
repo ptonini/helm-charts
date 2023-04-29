@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.2](https://github.com/ptonini/helm-charts/compare/lib-default-v1.11.1...lib-default-v1.11.2) (2023-04-29)
+
+
+### Bug Fixes
+
+* restored missing path property in ingress pass rules templates ([98f8dcc](https://github.com/ptonini/helm-charts/commit/98f8dccc308bfbf2014bb7c90112de2a79b31a44))
+
 ## [1.11.1](https://github.com/ptonini/helm-charts/compare/lib-default-v1.11.0...lib-default-v1.11.1) (2023-04-24)
 
 
