@@ -23,6 +23,9 @@ spec:
         paths:
           {{- range .Values.paths }}
           - pathType: ImplementationSpecific
+            {{- if and .path (ne (.path | toString) "/") }}
+            path: {{ .path }}
+            {{- end }}
             backend:
               service:
                 name: {{ .service }}
