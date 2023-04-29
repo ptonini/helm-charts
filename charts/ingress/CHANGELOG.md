@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/ptonini/helm-charts/compare/ingress-v1.2.2...ingress-v1.2.3) (2023-04-29)
+
+
+### Bug Fixes
+
+* restored missing path property in ingress path rules template ([2bbf347](https://github.com/ptonini/helm-charts/commit/2bbf3472203d8b9b2f788c483bb8d5252531039d))
+
 ## [1.2.2](https://github.com/ptonini/helm-charts/compare/ingress-v1.2.1...ingress-v1.2.2) (2023-04-24)
 
 
