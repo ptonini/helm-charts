@@ -518,6 +518,19 @@ entries:
     version: 1.0.0
   ingress:
   - apiVersion: v2
+    created: "2023-04-29T03:56:34.149673614Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.11.2
+    description: Ingress
+    digest: 9e13bbdff56131f3c68c3fc4a3360473b8d052d6782f5168764ef1cc60776966
+    name: ingress
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/ingress-v1.2.3/ingress-1.2.3.tgz
+    version: 1.2.3
+  - apiVersion: v2
     created: "2023-04-24T19:02:02.445024287Z"
     dependencies:
     - name: lib-default
@@ -1624,4 +1637,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2023-04-29T03:50:11.041166268Z"
+generated: "2023-04-29T03:56:34.149842212Z"
