@@ -20,6 +20,5 @@
   "charts/pypicloud": "1.1.0",
   "charts/endpoint-bots": "1.0.4",
   "charts/lib-cert-manager": "1.1.0",
-  "charts/certificate": "1.0.0",
-  "charts/ingress-bot": "1.1.0"
+  "charts/certificate": "1.0.0"
 }
