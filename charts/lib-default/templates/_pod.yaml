@@ -1,29 +1,27 @@
 {{- define "library.pod" }}
+{{- $containers := list }}
+{{- if hasKey .Values "image" }}{{ $containers = append $containers .Values }}{{ end }}
+{{- range (list .Values.containers .Values.extraContainers) }}
+  {{- if kindIs "slice" . }}
+    {{- $containers = concat $containers . }}
+  {{- else if kindIs "map" . }}
+    {{- range $k, $v := . }}
+      {{- $containers = append $containers (set $v "name" $k) }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- $release_name := .Release.Name }}
 metadata:
   {{- if ((.Values.pod).annotations) }}
-  annotations:
-    {{- include "library.factory.kv_list" .Values.pod.annotations | indent 4 }}
+  annotations: {{- include "library.factory.kv_list" .Values.pod.annotations | nindent 4 }}
   {{- end }}
-  labels:
-    {{- include "library.factory.pod.labels" . | indent 4 }}
+  labels: {{ include "library.factory.pod.labels" . | indent 4 }}
 spec:
   {{- include "library.pod.spec" (mergeOverwrite .Values (coalesce .Values.spec dict)) | indent 2 }}
   {{- if ((.Values.serviceaccount).enabled) }}
   serviceAccountName: {{ coalesce .Values.serviceaccount.resource_name .Release.Name }}
   {{- end }}
   containers:
-    {{- $containers := list }}
-    {{- if hasKey .Values "image" }}{{ $containers = append $containers .Values }}{{ end }}
-    {{- range (list .Values.containers .Values.extraContainers) }}
-      {{- if kindIs "slice" . }}
-        {{- $containers = concat $containers . }}
-      {{- else if kindIs "map" . }}
-        {{- range $k, $v := . }}
-          {{- $containers = append $containers (set $v "name" $k) }}
-        {{- end }}
-      {{- end }}
-    {{- end }}
-    {{- $release_name := .Release.Name }}
     {{- range $containers }}
     - name: {{ coalesce .name $release_name }}
       {{- include "library.container" . | indent 6 }}
@@ -48,7 +46,7 @@ imagePullSecrets:
 restartPolicy: {{ .restartPolicy }}
 {{- end }}
 {{- if or .volumes .token_volume }}
-volumes: {{if .volumes }}{{ .volumes | toYaml | nindent 2 }}{{ end }}
+volumes: {{ if .volumes }}{{ .volumes | toYaml | nindent 2 }}{{ end }}
   {{- if ((.token_volume).enabled) }}
   {{- include "library.volume.token_projection" .token_volume }}
   {{- end }}
