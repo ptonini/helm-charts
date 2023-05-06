@@ -15,7 +15,7 @@
 
 {{- define "library.factory.kv_list" }}
 {{- range $k, $v := . }}
-{{ $k }}: {{ $v | quote }}
+{{ $k }}: "{{ $v }}"
 {{- end }}
 {{- end }}
 
