@@ -4,8 +4,7 @@
 apiVersion: v1
 kind: ConfigMap
 {{- include "library.metadata" $root }}
-data:
-  {{- include "library.configmap.data" $root | indent 2}}
+data: {{- include "library.configmap.data" $root | indent 2}}
 {{- end }}
 
 
