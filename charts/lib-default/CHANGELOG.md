@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.12.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.11.2...lib-default-v1.12.0) (2023-05-06)
+
+
+### Bug Fixes
+
+* removed labels conditional adn added it do annotations key ([9bb1a3a](https://github.com/ptonini/helm-charts/commit/9bb1a3a11b6833afc626dec44475f429adea7c67))
+* replaced quotes function with literal quotes in library.factory.kv_list ([71e8d4a](https://github.com/ptonini/helm-charts/commit/71e8d4a3471f973d52529a26c8d1cfad4c39580a))
+
+
+### Code Refactoring
+
+* removed trailing newlines from templates ([c2241c3](https://github.com/ptonini/helm-charts/commit/c2241c3bff0cb46b043b90a78950c827841d9e99))
+
 ## [1.11.2](https://github.com/ptonini/helm-charts/compare/lib-default-v1.11.1...lib-default-v1.11.2) (2023-04-29)
 
 
