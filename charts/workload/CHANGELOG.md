@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/ptonini/helm-charts/compare/workload-v1.7.2...workload-v1.8.0) (2023-05-06)
+
+
+### Code Refactoring
+
+* removed lib-kong dependencies ([f40f471](https://github.com/ptonini/helm-charts/commit/f40f47183684aad6329440b2b565af15068f0efc))
+
 ## [1.7.2](https://github.com/ptonini/helm-charts/compare/workload-v1.7.1...workload-v1.7.2) (2023-05-06)
 
 
