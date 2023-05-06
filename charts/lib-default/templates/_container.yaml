@@ -5,10 +5,10 @@
 {{- if kindIs "string" .image }}
 image: {{ .image }}
 {{- else if kindIs "map" .image }}
-image: {{ if .image.registry }}{{ print .image.registry "/"}}{{ end }}{{ .image.repository }}{{ if .image.tag }}{{ print ":" .image.tag }}{{ else if .image.digest }}{{ print "@" .image.digest }}{{ end }}
+image: {{ if .image.registry }}{{ .image.registry }}/{{ end }}{{ .image.repository }}{{ if .image.tag }}:{{ .image.tag }}{{ else if .image.digest }}@{{ .image.digest }}{{ end }}
 {{- end }}
 {{- if .containerSecurityContext }}
-securityContext:{{ .containerSecurityContext | toYaml | nindent 4 }}
+securityContext: {{ .containerSecurityContext | toYaml | nindent 4 }}
 {{- end }}
 {{- if .imagePullPolicy }}
 imagePullPolicy: {{ .imagePullPolicy }}
@@ -59,14 +59,6 @@ ports:
     protocol: {{ include "library.factory.service.port.protocol" . }}
   {{- end }}
 {{- end }}
-{{- if .readiness_http_probe }}
-readinessProbe:
-  {{- include "library.container.http_probe" .readiness_http_probe | indent 2 }}
-{{- end }}
-{{- if .liveness_http_probe }}
-livenessProbe:
-  {{- include "library.container.http_probe" .liveness_http_probe | indent 2 }}
-{{- end }}
 {{- if .readinessProbe }}
 readinessProbe: {{ .readinessProbe | toYaml | nindent 2}}
 {{- end }}
@@ -77,32 +69,4 @@ livenessProbe: {{ .livenessProbe | toYaml | nindent 2}}
 lifecycle: {{ .lifecycle | toYaml | nindent 2}}
 {{- end }}
 {{- include "library.container.extras" . }}
-{{- end }}
-
-
-{{- define "library.container.probe_commons" }}
-  {{- if .initialDelaySeconds }}
-initialDelaySeconds: {{ .initialDelaySeconds }}
-  {{- end }}
-  {{- if .periodSeconds }}
-periodSeconds: {{ .periodSeconds }}
-  {{- end }}
-  {{- if .failureThreshold }}
-failureThreshold: {{ .failureThreshold }}
-  {{- end }}
-  {{- if .timeoutSeconds }}
-timeoutSeconds: {{ .timeoutSeconds }}
-  {{- end }}
-{{- end }}
-
-
-{{- define "library.container.http_probe" }}
-{{- include "library.container.probe_commons" . }}
-httpGet:
-  {{- if .path }}
-  path: {{ .path }}
-  {{- end }}
-  {{- if .port }}
-  port: {{ .port }}
-  {{- end }}
 {{- end }}
