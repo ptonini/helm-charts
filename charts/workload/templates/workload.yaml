@@ -6,6 +6,8 @@
 
 {{- if .Values.service.enabled }}{{ include "library.service" . }}{{ end }}
 
+{{- if .Values.ingress.enabled }}{{ include "library.ingress" . }}{{ end }}
+
 {{- if eq .Values.kind "StatefulSet" }}
 {{- $root := deepCopy . }}
 {{- $_ := set $root.Values.service "type" "Headless" }}
@@ -14,15 +16,3 @@
 {{ include "library.service" $root }}
 {{- end }}
 
-{{- if .Values.ingress.enabled }}{{ include "library.ingress" . }}{{ end }}
-
-{{- define "library.container_extras" }}
-{{- if .service.liveness_probe }}
-livenessProbe:
-  {{- include "library.service.http_probe" .service | indent 2 }}
-{{- end }}
-{{- if .service.readiness_probe }}
-readinessProbe:
-  {{- include "library.service.http_probe" .service | indent 2 }}
-{{- end }}
-{{- end }}
