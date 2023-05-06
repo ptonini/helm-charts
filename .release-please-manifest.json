@@ -8,7 +8,7 @@
   "charts/secret": "1.0.0",
   "charts/service": "1.0.1",
   "charts/serviceaccount": "1.0.0",
-  "charts/workload": "1.7.1",
+  "charts/workload": "1.7.2",
   "charts/kong-consumer": "1.0.0",
   "charts/kong-ingress": "1.0.0",
   "charts/kong-plugin": "1.0.1",

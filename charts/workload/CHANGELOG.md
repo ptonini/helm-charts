@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.2](https://github.com/ptonini/helm-charts/compare/workload-v1.7.1...workload-v1.7.2) (2023-05-06)
+
+
+### Bug Fixes
+
+* removed labels conditional adn added it do annotations key ([9bb1a3a](https://github.com/ptonini/helm-charts/commit/9bb1a3a11b6833afc626dec44475f429adea7c67))
+
 ## [1.7.1](https://github.com/ptonini/helm-charts/compare/workload-v1.7.0...workload-v1.7.1) (2023-04-24)
 
 
