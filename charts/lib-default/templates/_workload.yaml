@@ -6,46 +6,46 @@ kind: {{ coalesce .Values.kind "Deployment" }}
 spec:
   replicas: {{ .Values.replicas }}
   selector:
-    matchLabels:
-      {{- include "library.factory.pod.labels" . | indent 6 }}
-  template:
-    {{- include "library.pod" . | indent 4 }}
+    matchLabels: {{ include "library.factory.pod.labels" . | indent 6 }}
+  template: {{ include "library.pod" . | indent 4 }}
   {{- if eq .Values.kind "StatefulSet" }}
   serviceName: {{ include "library.factory.resource_name" . }}-headless
+  {{- end }}
   {{- if .Values.volumeClaimTemplates }}
   volumeClaimTemplates: {{ .Values.volumeClaimTemplates | toYaml | nindent 4 }}
   {{- end }}
-  {{- end  }}
 {{- end }}
 
 
 {{- define "library.horizontalpodautoscaler" }}
+{{- $averageCpu := coalesce .Values.autoscaler.averageCpu .Values.autoscaler.avr_cpu }}
+{{- $averageMemory := coalesce .Values.autoscaler.averageMemory .Values.autoscaler.avr_cpu }}
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 {{- include "library.metadata" . }}
 spec:
   scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
+    apiVersion: {{ coalesce .Values.apiVersion "apps/v1" }}
+    kind: {{ coalesce .Values.kind "Deployment" }}
     name: {{ include "library.factory.resource_name" . }}
   minReplicas: {{ .Values.replicas }}
   maxReplicas: {{ if gt .Values.replicas .Values.autoscaler.maxReplicas }}{{ .Values.replicas }}{{ else }}{{ .Values.autoscaler.maxReplicas }}{{ end }}
-  metrics:
-    {{- if .Values.autoscaler.avr_cpu }}
+  metrics: {{ if .Values.autoscaler.metrics }}{{ .Values.autoscaler.metrics | toYaml | nindent 4 }}{{ end }}
+    {{- if $averageCpu }}
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: {{ .Values.autoscaler.avr_cpu }}
+          averageUtilization: {{ $averageCpu }}
     {{- end }}
-    {{- if .Values.autoscaler.avr_memory }}
+    {{- if $averageMemory }}
     - type: Resource
       resource:
         name: memory
         target:
           type: Utilization
-          averageUtilization:  {{ .Values.autoscaler.avr_memory }}
+          averageUtilization:  {{ $averageMemory }}
     {{- end }}
 {{- end }}
