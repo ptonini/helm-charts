@@ -7,10 +7,6 @@
       "release-type": "helm",
       "separate-pull-requests": true
     },
-    "charts/lib-kong": {
-      "release-type": "helm",
-      "separate-pull-requests": true
-    },
     "charts/lib-cert-manager": {
       "release-type": "helm",
       "separate-pull-requests": true
