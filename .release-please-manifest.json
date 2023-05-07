@@ -1,7 +1,5 @@
 {
   "charts/lib-default": "1.12.1",
-  "charts/lib-kong": "1.1.0",
-  "charts/lib-bots": "1.0.1",
   "charts/configmap": "1.0.0",
   "charts/cronjob": "1.1.2",
   "charts/ingress": "1.2.3",
@@ -10,15 +8,12 @@
   "charts/serviceaccount": "1.0.0",
   "charts/workload": "1.8.1",
   "charts/kong-consumer": "1.1.0",
-  "charts/kong-ingress": "1.0.0",
   "charts/kong-plugin": "1.1.0",
   "charts/rabbitmq-cluster": "1.1.0",
   "charts/elasticsearch-cluster": "1.1.0",
   "charts/admission-controller": "1.2.1",
-  "charts/cachet": "1.0.3",
   "charts/psono": "1.1.1",
   "charts/pypicloud": "1.1.0",
-  "charts/endpoint-bots": "1.0.4",
   "charts/lib-cert-manager": "1.1.0",
   "charts/certificate": "1.0.0"
 }
