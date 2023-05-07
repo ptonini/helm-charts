@@ -666,6 +666,19 @@ entries:
     version: 1.0.0
   kong-consumer:
   - apiVersion: v2
+    created: "2023-05-07T05:35:24.301263483Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.12.1
+    description: Kong Consumer
+    digest: a43ca864e6fe6d086a816a70419686ab12fcb4b8d49840b11cfc1b853b4ea95e
+    name: kong-consumer
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/kong-consumer-v1.1.0/kong-consumer-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
     created: "2022-10-04T01:14:13.4860948Z"
     dependencies:
     - name: lib-default
@@ -699,6 +712,19 @@ entries:
     - https://github.com/ptonini/helm-charts/releases/download/kong-ingress-v1.0.0/kong-ingress-1.0.0.tgz
     version: 1.0.0
   kong-plugin:
+  - apiVersion: v2
+    created: "2023-05-07T05:35:24.453991905Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.12.1
+    description: Kong Plugin
+    digest: 689fda47d30b31790059e3b68078a681fa46254d2e3d4a7738a1757126846e4b
+    name: kong-plugin
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/kong-plugin-v1.1.0/kong-plugin-1.1.0.tgz
+    version: 1.1.0
   - apiVersion: v2
     created: "2023-04-15T00:47:03.011213839Z"
     dependencies:
@@ -1679,4 +1705,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2023-05-07T04:17:35.760171648Z"
+generated: "2023-05-07T05:35:24.454217007Z"
