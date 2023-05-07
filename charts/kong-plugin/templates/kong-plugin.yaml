@@ -1,0 +1,28 @@
+{{ $root := dict "Chart" .Chart "Release" .Release "Values" (mergeOverwrite (deepCopy .Values) (coalesce .Values.kongplugin dict)) }}
+---
+apiVersion: configuration.konghq.com/v1
+{{- if eq $root.Values.scope "cluster" }}
+kind: KongClusterPlugin
+{{- else }}
+kind: KongPlugin
+{{- end }}
+{{- include "library.metadata" $root }}
+plugin: {{ $root.Values.plugin }}
+{{- if $root.Values.config }}
+config:
+{{- range $k, $v := $root.Values.config }}
+  {{- if kindIs "string" $v }}
+  {{ $k }}: {{ $v | quote }}
+  {{- else if kindIs "float64" $v }}
+  {{ $k }}: {{ $v | quote }}
+  {{- else if kindIs "bool" $v }}
+  {{ $k }}: {{ $v }}
+  {{- else if kindIs "slice" $v }}
+  {{ $k }}: {{ $v | toJson }}
+  {{- else if kindIs "map" $v }}
+  {{ $k }}: {{ $v | toJson }}
+  {{- else }}
+  {{ $k }}: {{ $v }}
+  {{- end }}
+{{- end }}
+{{- end }}

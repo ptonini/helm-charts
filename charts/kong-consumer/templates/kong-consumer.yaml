@@ -1,5 +1,13 @@
 {{- $_ := set .Values.annotations "kubernetes.io/ingress.class" .Values.ingress_class }}
-{{- include "library.kong.kongconsumer" . }}
+{{ $root := dict "Chart" .Chart "Release" .Release "Values" (mergeOverwrite (deepCopy .Values) (coalesce .Values.kongconsumer dict)) }}
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongConsumer
+{{- include "library.metadata" . }}
+username: {{ $.Values.username }}
+credentials:
+  - {{ include "library.factory.metadata.name" $root }}
+
 
 {{- if .Values.password }}
 {{- $root := deepCopy $ }}
