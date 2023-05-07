@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/ptonini/helm-charts/compare/workload-v1.8.0...workload-v1.8.1) (2023-05-07)
+
+
+### Bug Fixes
+
+* fixed kv_list factory null value treatment ([09fe9b7](https://github.com/ptonini/helm-charts/commit/09fe9b763dd169bb0c2da9d07cfdb4c2818162e2))
+
 ## [1.8.0](https://github.com/ptonini/helm-charts/compare/workload-v1.7.2...workload-v1.8.0) (2023-05-06)
 
 
