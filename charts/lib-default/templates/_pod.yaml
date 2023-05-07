@@ -13,7 +13,7 @@
 {{- $release_name := .Release.Name }}
 metadata:
   {{- if ((.Values.pod).annotations) }}
-  annotations: {{- include "library.factory.kv_list" .Values.pod.annotations | nindent 4 }}
+  annotations: {{ include "library.factory.kv_list" .Values.pod.annotations | indent 4 }}
   {{- end }}
   labels: {{ include "library.factory.pod.labels" . | indent 4 }}
 spec:
