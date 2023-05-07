@@ -35,9 +35,6 @@
     "charts/kong-consumer": {
       "release-type": "helm"
     },
-    "charts/kong-ingress": {
-      "release-type": "helm"
-    },
     "charts/kong-plugin": {
       "release-type": "helm"
     },
