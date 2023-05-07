@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.1](https://github.com/ptonini/helm-charts/compare/lib-default-v1.12.0...lib-default-v1.12.1) (2023-05-07)
+
+
+### Bug Fixes
+
+* fixed kv_list factory null value treatment ([dff386c](https://github.com/ptonini/helm-charts/commit/dff386cb8bdba6c6817fd51f147f554a8b5d3168))
+
 ## [1.12.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.11.2...lib-default-v1.12.0) (2023-05-06)
 
 
