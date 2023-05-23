@@ -1,0 +1,6 @@
+dependencies:
+- name: lib-default
+  repository: file://../lib-default
+  version: 1.12.1
+digest: sha256:d153895f6f87fcfec3676810f8026d84e9dfbbccb3bc91baca43a442237b1a0b
+generated: "2023-05-22T21:49:16.195473045-03:00"
