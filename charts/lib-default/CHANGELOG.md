@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.2](https://github.com/ptonini/helm-charts/compare/lib-default-v1.12.1...lib-default-v1.12.2) (2023-05-23)
+
+
+### Bug Fixes
+
+* corrected path iterator in ingress template ([a3c46c7](https://github.com/ptonini/helm-charts/commit/a3c46c793b121d9337b8777d1d5d666945b389bd))
+
 ## [1.12.1](https://github.com/ptonini/helm-charts/compare/lib-default-v1.12.0...lib-default-v1.12.1) (2023-05-07)
 
 
