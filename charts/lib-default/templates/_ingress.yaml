@@ -1,7 +1,7 @@
 {{- define "library.ingress" }}
 {{ $root := dict "Chart" .Chart "Release" .Release "Values" (mergeOverwrite (deepCopy .Values) (coalesce .Values.ingress dict)) }}
-{{- if eq (len (default list .Values.paths)) 0 }}
-{{- $_ := set $root.Values "paths" (list (dict "service" (include "library.factory.resource_name" $root ) "port" (include "library.factory.service.port.name" $root))) }}
+{{- if eq (len (default list $root.Values.paths)) 0 }}
+{{- $_ := set $root.Values "paths" (list (dict "service" (include "library.factory.resource_name" $root ) "port" $root.Values.service.port)) }}
 {{- end }}
 ---
 apiVersion: networking.k8s.io/v1
@@ -19,7 +19,7 @@ spec:
     - host: {{ coalesce $root.Values.host $root.Values.domain }}
       http:
         paths:
-          {{- range .Values.paths }}
+          {{- range $root.Values.paths }}
           - pathType: ImplementationSpecific
             {{- if and .path (ne (.path | toString) "/") }}
             path: {{ .path }}
