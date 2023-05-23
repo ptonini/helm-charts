@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.4](https://github.com/ptonini/helm-charts/compare/ingress-v1.2.3...ingress-v1.2.4) (2023-05-23)
+
+
+### Bug Fixes
+
+* corrected path iterator in ingress template ([0bdc958](https://github.com/ptonini/helm-charts/commit/0bdc958b6b9e87c7dead112fed4bca672a0a8926))
+
 ## [1.2.3](https://github.com/ptonini/helm-charts/compare/ingress-v1.2.2...ingress-v1.2.3) (2023-04-29)
 
 
