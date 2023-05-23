@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.2](https://github.com/ptonini/helm-charts/compare/workload-v1.8.1...workload-v1.8.2) (2023-05-23)
+
+
+### Bug Fixes
+
+* corrected path iterator in ingress template ([0bdc958](https://github.com/ptonini/helm-charts/commit/0bdc958b6b9e87c7dead112fed4bca672a0a8926))
+
 ## [1.8.1](https://github.com/ptonini/helm-charts/compare/workload-v1.8.0...workload-v1.8.1) (2023-05-07)
 
 
