@@ -20,14 +20,19 @@ metadata:
   {{- end }}
   labels: {{ include "library.factory.pod.labels" . | indent 4 }}
 spec:
-  {{- include "library.pod.spec" (mergeOverwrite .Values (coalesce .Values.pod.spec dict)) | indent 2 }}
+  {{- include "library.pod.spec" (mergeOverwrite .Values (coalesce ((.Values.pod).spec) dict)) | indent 2 }}
   {{- if ((.Values.serviceaccount).enabled) }}
   serviceAccountName: {{ coalesce .Values.serviceaccount.resource_name .Release.Name }}
   {{- end }}
+  {{- if .Values.initContainers }}
+  initContainers:
+    {{- range .Values.initContainers }}
+    {{- include "library.container" . | indent 2 }}
+    {{- end }}
+  {{- end }}
   containers:
     {{- range $containers }}
-    - name: {{ .name }}
-      {{- include "library.container" . | indent 6 }}
+    {{- include "library.container" . | indent 4 }}
     {{- end }}
 {{- end }}
 
@@ -61,13 +66,6 @@ restartPolicy: {{ .restartPolicy }}
 volumes: {{ if .volumes }}{{ .volumes | toYaml | nindent 2 }}{{ end }}
   {{- if ((.token_volume).enabled) }}
   {{- include "library.volume.token_projection" .token_volume }}
-  {{- end }}
-{{- end }}
-{{- if .initContainers }}
-initContainers:
-  {{- range .initContainers }}
-  - name: {{ .name }}
-    {{- include "library.container" . | indent 4 }}
   {{- end }}
 {{- end }}
 {{- end }}
