@@ -1,8 +1,8 @@
 {{- define "library.metadata" }}
 metadata:
   name: {{ include "library.factory.resource_name" . }}
-  {{- if ne (.Values.scope | toString) "cluster" }}
-  namespace: {{ .Release.Namespace }}
+  {{- if ne (toString .Values.scope) "cluster" }}
+  namespace: {{ coalesce .Values.resource_namespace .Release.Namespace }}
   {{- end }}
   {{- if .Values.annotations }}
   annotations: {{- include "library.factory.kv_list" .Values.annotations | indent 4 }}
