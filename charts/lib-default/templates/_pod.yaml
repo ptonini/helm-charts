@@ -1,6 +1,10 @@
 {{- define "library.pod" }}
 {{- $containers := list }}
-{{- if hasKey .Values "image" }}{{ $containers = append $containers .Values }}{{ end }}
+{{- if hasKey .Values "image" }}
+  {{- $container := deepCopy .Values }}
+  {{- $_ := set $container "name" .Release.Name }}
+  {{- $containers = append $containers $container }}
+{{- end }}
 {{- range (list .Values.containers .Values.extraContainers) }}
   {{- if kindIs "slice" . }}
     {{- $containers = concat $containers . }}
@@ -10,20 +14,19 @@
     {{- end }}
   {{- end }}
 {{- end }}
-{{- $release_name := .Release.Name }}
 metadata:
   {{- if ((.Values.pod).annotations) }}
   annotations: {{ include "library.factory.kv_list" .Values.pod.annotations | indent 4 }}
   {{- end }}
   labels: {{ include "library.factory.pod.labels" . | indent 4 }}
 spec:
-  {{- include "library.pod.spec" (mergeOverwrite .Values (coalesce .Values.spec dict)) | indent 2 }}
+  {{- include "library.pod.spec" (mergeOverwrite .Values (coalesce .Values.pod.spec dict)) | indent 2 }}
   {{- if ((.Values.serviceaccount).enabled) }}
   serviceAccountName: {{ coalesce .Values.serviceaccount.resource_name .Release.Name }}
   {{- end }}
   containers:
     {{- range $containers }}
-    - name: {{ coalesce .name $release_name }}
+    - name: {{ .name }}
       {{- include "library.container" . | indent 6 }}
     {{- end }}
 {{- end }}
