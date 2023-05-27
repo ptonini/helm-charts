@@ -33,6 +33,15 @@ spec:
 
 
 {{- define "library.pod.spec" }}
+{{- if .terminationGracePeriodSeconds }}
+terminationGracePeriodSeconds: {{ .terminationGracePeriodSeconds }}
+{{- end }}
+{{- if .hostNetwork }}
+hostNetwork: {{ .hostNetwork }}
+{{- end }}
+{{- if .dnsPolicy }}
+dnsPolicy: {{ .dnsPolicy }}
+{{- end }}
 {{- if .securityContext }}
 securityContext:{{ .securityContext | toYaml | nindent 2 }}
 {{- end }}
