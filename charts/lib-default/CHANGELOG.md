@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.0.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.12.2...lib-default-v2.0.0) (2023-05-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* major refactoring on rbac templates
+
+### Features
+
+* added attributes to pod spec ([809ac11](https://github.com/ptonini/helm-charts/commit/809ac11016e75ebd2d06bc59fd77d33c0a7b3100))
+* added namespace override to _metadata.yaml ([2823c84](https://github.com/ptonini/helm-charts/commit/2823c84fc5d2f74028115ae618ceb75d06cc1513))
+* made replica field optional for DaemonSet compatibility ([75987ac](https://github.com/ptonini/helm-charts/commit/75987ac1cce610f767ca46ce07392e156448ff4e))
+* major refactoring on rbac templates ([962c918](https://github.com/ptonini/helm-charts/commit/962c918dc02c0782b938cb0fd64ab933a1ead7c0))
+
+
+### Bug Fixes
+
+* corrected pod spec template ([cd74b17](https://github.com/ptonini/helm-charts/commit/cd74b17737ea0575fc71e7161127a30abf57adf3))
+
 ## [1.12.2](https://github.com/ptonini/helm-charts/compare/lib-default-v1.12.1...lib-default-v1.12.2) (2023-05-23)
 
 
