@@ -4,7 +4,9 @@ apiVersion: {{ coalesce .Values.apiVersion "apps/v1" }}
 kind: {{ coalesce .Values.kind "Deployment" }}
 {{- include "library.metadata" . }}
 spec:
+  {{- if .Values.replicas }}
   replicas: {{ .Values.replicas }}
+  {{- end }}
   selector:
     matchLabels: {{ include "library.factory.pod.labels" . | indent 6 }}
   template: {{ include "library.pod" . | indent 4 }}
@@ -46,6 +48,6 @@ spec:
         name: memory
         target:
           type: Utilization
-          averageUtilization:  {{ $averageMemory }}
+          averageUtilization: {{ $averageMemory }}
     {{- end }}
 {{- end }}
