@@ -1,5 +1,5 @@
 kind: Deployment
-replicas: 1
+replicas: ~
 token_volume:
   enabled: true
   name: token
