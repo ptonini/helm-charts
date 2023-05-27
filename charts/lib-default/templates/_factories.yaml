@@ -3,11 +3,6 @@
 {{- end}}
 
 
-{{- define "library.factory.service.port.name" }}
-{{- coalesce .name  "http"}}
-{{- end }}
-
-
 {{- define "library.factory.service.port.protocol" }}
 {{- coalesce .protocol  "TCP" }}
 {{- end }}
