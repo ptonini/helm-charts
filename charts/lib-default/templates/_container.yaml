@@ -8,7 +8,7 @@ image: {{ .image }}
 image: {{ if .image.registry }}{{ .image.registry }}/{{ end }}{{ .image.repository }}{{ if .image.tag }}:{{ .image.tag }}{{ else if .image.digest }}@{{ .image.digest }}{{ end }}
 {{- end }}
 {{- if .containerSecurityContext }}
-securityContext: {{ .containerSecurityContext | toYaml | nindent 4 }}
+securityContext: {{ .containerSecurityContext | toYaml | nindent 2 }}
 {{- end }}
 {{- if .imagePullPolicy }}
 imagePullPolicy: {{ .imagePullPolicy }}
