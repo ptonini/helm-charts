@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/ptonini/helm-charts/compare/workload-v1.8.2...workload-v2.0.0) (2023-05-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* updated lib-default to 2.0.0
+
+### Features
+
+* updated lib-default to 2.0.0 ([958130c](https://github.com/ptonini/helm-charts/commit/958130c170c22ebf571bff52f8e49f5444547d5e))
+
 ## [1.8.2](https://github.com/ptonini/helm-charts/compare/workload-v1.8.1...workload-v1.8.2) (2023-05-23)
 
 
