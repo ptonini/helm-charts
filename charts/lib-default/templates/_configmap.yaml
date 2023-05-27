@@ -1,3 +1,7 @@
+{{- define "library.configmap.data" }}
+{{- include "library.factory.kv_list" .Values.data }}
+{{- end }}
+
 {{- define "library.configmap"}}
 {{ $root := dict "Chart" .Chart "Release" .Release "Values" (mergeOverwrite (deepCopy .Values) (coalesce .Values.configmap dict)) }}
 ---
@@ -8,6 +12,3 @@ data: {{- include "library.configmap.data" $root | indent 2}}
 {{- end }}
 
 
-{{- define "library.configmap.data" }}
-{{- include "library.factory.kv_list" .Values.data }}
-{{- end }}
