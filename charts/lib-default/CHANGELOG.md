@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/ptonini/helm-charts/compare/lib-default-v2.0.0...lib-default-v2.1.0) (2023-05-28)
+
+
+### Features
+
+* added tolerations to pod spec ([cc2527e](https://github.com/ptonini/helm-charts/commit/cc2527ef3a089d19553c6b94f5aef4ad080c3b63))
+
 ## [2.0.0](https://github.com/ptonini/helm-charts/compare/lib-default-v1.12.2...lib-default-v2.0.0) (2023-05-27)
 
 
