@@ -62,6 +62,9 @@ imagePullSecrets:
 {{- if .restartPolicy }}
 restartPolicy: {{ .restartPolicy }}
 {{- end }}
+{{- if .tolerations }}
+tolerations: {{ .tolerations | toYaml | nindent 2 }}
+{{- end }}
 {{- if or .volumes .token_volume }}
 volumes: {{ if .volumes }}{{ .volumes | toYaml | nindent 2 }}{{ end }}
   {{- if ((.token_volume).enabled) }}
