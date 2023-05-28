@@ -1,5 +1,5 @@
 {
-  "charts/lib-default": "2.0.0",
+  "charts/lib-default": "2.1.0",
   "charts/configmap": "1.0.0",
   "charts/cronjob": "1.1.2",
   "charts/ingress": "1.2.4",
