@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/ptonini/helm-charts/compare/lib-default-v2.1.0...lib-default-v2.1.1) (2023-05-30)
+
+
+### Bug Fixes
+
+* corrected service ports list builder ([706dd1e](https://github.com/ptonini/helm-charts/commit/706dd1e0f3f228675d21d9c2b13e10a7497d9140))
+
 ## [2.1.0](https://github.com/ptonini/helm-charts/compare/lib-default-v2.0.0...lib-default-v2.1.0) (2023-05-28)
 
 
