@@ -10,8 +10,8 @@ spec:
   selector:
     matchLabels: {{ include "library.factory.pod.labels" . | indent 6 }}
   template: {{ include "library.pod" . | indent 4 }}
-  {{- if eq .Values.kind "StatefulSet" }}
-  serviceName: {{ include "library.factory.resource_name" . }}-headless
+  {{- if .Values.serviceName }}
+  serviceName: {{ .Values.serviceName }}
   {{- end }}
   {{- if .Values.volumeClaimTemplates }}
   volumeClaimTemplates: {{ .Values.volumeClaimTemplates | toYaml | nindent 4 }}
@@ -20,8 +20,8 @@ spec:
 
 
 {{- define "library.horizontalpodautoscaler" }}
-{{- $averageCpu := coalesce .Values.autoscaler.averageCpu .Values.autoscaler.avr_cpu }}
-{{- $averageMemory := coalesce .Values.autoscaler.averageMemory .Values.autoscaler.avr_cpu }}
+{{- $_ := set .Values.autoscaler "averageCpu" (coalesce .Values.autoscaler.averageCpu .Values.autoscaler.avr_cpu) }}
+{{- $_ = set .Values.autoscaler "averageMemory" (coalesce .Values.autoscaler.averageMemory .Values.autoscaler.avr_cpu) }}
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
@@ -34,20 +34,20 @@ spec:
   minReplicas: {{ .Values.replicas }}
   maxReplicas: {{ if gt .Values.replicas .Values.autoscaler.maxReplicas }}{{ .Values.replicas }}{{ else }}{{ .Values.autoscaler.maxReplicas }}{{ end }}
   metrics: {{ if .Values.autoscaler.metrics }}{{ .Values.autoscaler.metrics | toYaml | nindent 4 }}{{ end }}
-    {{- if $averageCpu }}
+    {{- if .Values.autoscaler.averageCpu }}
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: {{ $averageCpu }}
+          averageUtilization: {{ .Values.autoscaler.averageCpu }}
     {{- end }}
-    {{- if $averageMemory }}
+    {{- if .Values.autoscaler.averageMemory }}
     - type: Resource
       resource:
         name: memory
         target:
           type: Utilization
-          averageUtilization: {{ $averageMemory }}
+          averageUtilization: {{ .Values.autoscaler.averageMemory }}
     {{- end }}
 {{- end }}
