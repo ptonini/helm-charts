@@ -9,8 +9,6 @@ resources:
     cpu: 100m
 autoscaler:
   enabled: false
-  max_replicas: 1
-  avr_cpu: 80
 serviceaccount:
   enabled: false
 service:
