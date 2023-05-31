@@ -1,21 +1,21 @@
 {{- define "library.workload" }}
 ---
-apiVersion: {{ coalesce .Values.apiVersion "apps/v1" }}
+apiVersion: apps/v1
 kind: {{ coalesce .Values.kind "Deployment" }}
 {{- include "library.metadata" . }}
 spec:
   {{- if .Values.replicas }}
   replicas: {{ .Values.replicas }}
   {{- end }}
-  selector:
-    matchLabels: {{ include "library.factory.pod.labels" . | indent 6 }}
-  template: {{ include "library.pod" . | indent 4 }}
   {{- if .Values.serviceName }}
   serviceName: {{ .Values.serviceName }}
   {{- end }}
   {{- if .Values.volumeClaimTemplates }}
   volumeClaimTemplates: {{ .Values.volumeClaimTemplates | toYaml | nindent 4 }}
   {{- end }}
+  selector:
+    matchLabels: {{ include "library.factory.pod.labels" . | indent 6 }}
+  template: {{ include "library.pod" . | indent 4 }}
 {{- end }}
 
 
@@ -28,7 +28,7 @@ kind: HorizontalPodAutoscaler
 {{- include "library.metadata" . }}
 spec:
   scaleTargetRef:
-    apiVersion: {{ coalesce .Values.apiVersion "apps/v1" }}
+    apiVersion: apps/v1
     kind: {{ coalesce .Values.kind "Deployment" }}
     name: {{ include "library.factory.resource_name" . }}
   minReplicas: {{ .Values.replicas }}
