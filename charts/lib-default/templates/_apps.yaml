@@ -1,4 +1,4 @@
-{{- define "library.workload" }}
+{{- define "library.app" }}
 ---
 apiVersion: apps/v1
 kind: {{ coalesce .Values.kind "Deployment" }}
