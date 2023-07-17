@@ -2,7 +2,7 @@ apiVersion: v2
 name: workload
 description: Kubernetes Generic Workload Template
 type: application
-version: 2.0.1
+version: 2.1.0
 dependencies:
   - name: lib-default
     version: 2.2.0
