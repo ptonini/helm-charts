@@ -44,6 +44,9 @@ terminationGracePeriodSeconds: {{ .terminationGracePeriodSeconds }}
 {{- if .hostNetwork }}
 hostNetwork: {{ .hostNetwork }}
 {{- end }}
+{{- if .hostPID }}
+hostPID: {{ .hostPID }}
+{{- end }}
 {{- if .dnsPolicy }}
 dnsPolicy: {{ .dnsPolicy }}
 {{- end }}
