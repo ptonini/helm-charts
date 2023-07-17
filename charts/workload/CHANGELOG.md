@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/ptonini/helm-charts/compare/workload-v2.0.1...workload-v2.1.0) (2023-07-17)
+
+
+### Features
+
+* added hostPID parameter to pod template (updated lib-default to 2.2.0) ([3517d5f](https://github.com/ptonini/helm-charts/commit/3517d5f32b27be854db1232ae97615e6f8665889))
+
 ## [2.0.1](https://github.com/ptonini/helm-charts/compare/workload-v2.0.0...workload-v2.0.1) (2023-05-30)
 
 
