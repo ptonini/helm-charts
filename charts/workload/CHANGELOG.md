@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/ptonini/helm-charts/compare/workload-v2.1.0...workload-v2.1.1) (2023-07-17)
+
+
+### Bug Fixes
+
+* corrected libray.app template call ([2197226](https://github.com/ptonini/helm-charts/commit/21972263ab5d36cf0b44664587c15bccab22be83))
+
 ## [2.1.0](https://github.com/ptonini/helm-charts/compare/workload-v2.0.1...workload-v2.1.0) (2023-07-17)
 
 
