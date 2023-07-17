@@ -16,4 +16,4 @@
 
 {{- if .Values.ingress.enabled }}{{ include "library.ingress" . }}{{ end }}
 
-{{- include "library.workload" . }}
+{{- include "library.app" . }}
