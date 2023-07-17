@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.2.0](https://github.com/ptonini/helm-charts/compare/lib-default-v2.1.2...lib-default-v2.2.0) (2023-07-17)
+
+
+### Features
+
+* added hostPID parameter to pod template ([b2fa528](https://github.com/ptonini/helm-charts/commit/b2fa5286a913765ec11cd36e383da282312df1ca))
+* added job template ([70df400](https://github.com/ptonini/helm-charts/commit/70df400df9923f0ade9caf26e555c92debe79506))
+
 ## [2.1.2](https://github.com/ptonini/helm-charts/compare/lib-default-v2.1.1...lib-default-v2.1.2) (2023-05-30)
 
 
