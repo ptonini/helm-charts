@@ -4,9 +4,6 @@ token_volume:
   enabled: true
   name: token
   expiration: 3600
-resources:
-  requests:
-    cpu: 100m
 autoscaler:
   enabled: false
 serviceaccount:
