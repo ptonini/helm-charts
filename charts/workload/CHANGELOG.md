@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/ptonini/helm-charts/compare/workload-v2.1.1...workload-v2.1.2) (2023-08-02)
+
+
+### Bug Fixes
+
+* removed resource requests from values.yaml ([7fe4f98](https://github.com/ptonini/helm-charts/commit/7fe4f987219878bbbc90ca5a485a1fa10891e608))
+
 ## [2.1.1](https://github.com/ptonini/helm-charts/compare/workload-v2.1.0...workload-v2.1.1) (2023-07-17)
 
 
