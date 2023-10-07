@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v1.1.2...elasticsearch-cluster-v1.1.3) (2023-10-07)
+
+
+### Bug Fixes
+
+* updated lib-default to 2.2.0 ([1890ce8](https://github.com/ptonini/helm-charts/commit/1890ce828c2d0b062e0fbcc7b44667cfcc2b4932))
+
 ## [1.1.2](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v1.1.1...elasticsearch-cluster-v1.1.2) (2023-10-07)
 
 
