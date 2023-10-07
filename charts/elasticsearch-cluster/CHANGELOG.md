@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v1.1.0...elasticsearch-cluster-v1.1.1) (2023-10-07)
+
+
+### Bug Fixes
+
+* corrected http template loading ([e45c6d4](https://github.com/ptonini/helm-charts/commit/e45c6d486cf2d97bcb051418100e960dec35b720))
+
 ## [1.1.0](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v1.0.1...elasticsearch-cluster-v1.1.0) (2022-10-27)
 
 
