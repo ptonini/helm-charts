@@ -409,6 +409,22 @@ entries:
     version: 1.0.0
   elasticsearch-cluster:
   - apiVersion: v2
+    created: "2023-10-08T20:51:00.058759724Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 2.2.0
+    - name: lib-cert-manager
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.1.0
+    description: Elasticsearch Cluster
+    digest: 597de4b8dec581b6546bf1238ea7b909cee1530438a43f41b0d4da692943da67
+    name: elasticsearch-cluster
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/elasticsearch-cluster-v2.0.2/elasticsearch-cluster-2.0.2.tgz
+    version: 2.0.2
+  - apiVersion: v2
     created: "2023-10-08T20:18:59.684488519Z"
     dependencies:
     - name: lib-default
@@ -1956,4 +1972,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2023-10-08T20:18:59.685029927Z"
+generated: "2023-10-08T20:51:00.059003625Z"
