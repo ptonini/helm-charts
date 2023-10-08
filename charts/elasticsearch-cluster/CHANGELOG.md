@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.0.0...elasticsearch-cluster-v2.0.1) (2023-10-08)
+
+
+### Bug Fixes
+
+* added fleetServerRef to agent template ([e86934d](https://github.com/ptonini/helm-charts/commit/e86934d358dc4e77f9eb342435d844aa3c7478ab))
+
 ## [2.0.0](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v1.3.0...elasticsearch-cluster-v2.0.0) (2023-10-08)
 
 
