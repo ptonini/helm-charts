@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.0.1...elasticsearch-cluster-v2.0.2) (2023-10-08)
+
+
+### Bug Fixes
+
+* fixed agent deployment mode ([bd6c902](https://github.com/ptonini/helm-charts/commit/bd6c902024286e1d5f0c3d095ece103c4ac3d27e))
+
 ## [2.0.1](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.0.0...elasticsearch-cluster-v2.0.1) (2023-10-08)
 
 
