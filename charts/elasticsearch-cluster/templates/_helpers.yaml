@@ -56,7 +56,7 @@ spec:
         dnsPolicy: ClusterFirstWithHostNet
         {{- end }}
         {{- if .Values.agent.tolerations }}
-        tolerations: {{ .Values.agent.tolerations | toYaml | nindent 8 }}
+        tolerations: {{ .Values.agent.tolerations | toYaml | nindent 10 }}
         {{- end }}
         containers:
           - name: agent
