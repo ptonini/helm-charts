@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.0](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.0.2...elasticsearch-cluster-v2.1.0) (2023-10-08)
+
+
+### Features
+
+* added new fields to agent template ([a37616c](https://github.com/ptonini/helm-charts/commit/a37616cfa5030e7d0fc2a48bf5c3677a60db9d7f))
+
+
+### Bug Fixes
+
+* altered tolerations indentation on agent template ([a84a4ef](https://github.com/ptonini/helm-charts/commit/a84a4efffd1b71f95be5092cfa1a3f1ee3e68a7d))
+
 ## [2.0.2](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.0.1...elasticsearch-cluster-v2.0.2) (2023-10-08)
 
 
