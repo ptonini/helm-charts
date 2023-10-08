@@ -5,12 +5,12 @@ kind: Elasticsearch
 spec:
   version: {{ .Values.version }}
   http:
-    {{- include "elasticsearch.http" (merge (deepCopy .Values.http) .Values.elasticsearch.http) | indent 4}}
+    {{- include "elasticsearch.http" (merge (deepCopy .Values.http) .Values.elasticsearch.http) | indent 4 }}
   nodeSets:
     {{- range .Values.elasticsearch.node_sets }}
     - name: {{ .name }}
       count: {{ .count }}
-      config: {{ merge .config $.Values.elasticsearch.config | toYaml | nindent 10 }}
+      config: {{ merge (deepCopy .config) $.Values.elasticsearch.config | toYaml | nindent 8 }}
       podTemplate:
         spec:
           serviceAccountName: {{ $.Release.Name }}

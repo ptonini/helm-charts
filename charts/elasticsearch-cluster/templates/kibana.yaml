@@ -9,6 +9,9 @@ spec:
     name: {{ .Release.Name }}
   http:
     {{- include "elasticsearch.http" (merge (deepCopy .Values.http) .Values.kibana.http) | indent 4}}
+  {{- if .Values.kibana.config }}
+  config: {{ .Values.kibana.config | toYaml | nindent 4 }}
+  {{- end }}
   podTemplate:
     spec:
       serviceAccountName: {{ $.Release.Name }}

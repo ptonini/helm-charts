@@ -41,7 +41,7 @@ elasticsearch:
 kibana:
   count: 1
   nodeSelector: ~
-  tolerations:
+  tolerations: ~
   config: ~
   http: {}
   resources:
