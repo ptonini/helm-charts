@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v1.2.0...elasticsearch-cluster-v1.3.0) (2023-10-08)
+
+
+### Features
+
+* added kibana.config parameter ([fbcdab2](https://github.com/ptonini/helm-charts/commit/fbcdab22eacd76a65fa012975753d5c03f08a659))
+
 ## [1.2.0](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v1.1.3...elasticsearch-cluster-v1.2.0) (2023-10-08)
 
 
