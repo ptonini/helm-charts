@@ -35,10 +35,12 @@ spec:
   fleetServerRef:
     name: {{ .Values.agent.fleetServerRef }}
   {{- end }}
+  {{- if (and .Values.agent.config (ne .Values.agent.mode "fleet"))}}
+  config: {{ .Values.agent.config | toYaml | nindent 4 }}
+  {{- end }}
   mode: {{ .Values.agent.mode }}
   fleetServerEnabled: {{ .Values.agent.fleetServerEnabled }}
   policyID: {{ .Values.agent.policyID }}
-  config: {{ .Values.agent.config | toYaml | nindent 4 }}
   {{- if .Values.agent.fleetServerEnabled }}
   deployment:
     replicas: {{ .Values.agent.replicas }}
@@ -61,4 +63,11 @@ spec:
         containers:
           - name: agent
             resources: {{ .Values.agent.resources | toYaml | nindent 14 }}
+            {{- if .Values.agent.env }}
+            env:
+              {{- range $k, $v := .Values.agent.env }}
+              - name: {{ $k }}
+                value: {{ $v | quote }}
+              {{- end }}
+            {{- end }}
 {{- end }}

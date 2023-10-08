@@ -62,29 +62,26 @@ apm:
 
 fleet_server:
   enabled: false
-  name: fleet-server
+  name: &fleet_server_name fleet-server
   replicas: 1
   tolerations: ~
+  env: ~
   resources:
     requests:
       memory: 256Mi
   mode: fleet
   fleetServerEnabled: true
   policyID: ~
-  config:
-    output:
-      elasticsearch:
-        ssl:
-          verification_mode: certificate
+  config: {}
   http: {}
   serviceaccount:
-    resource_name: fleet-server
+    resource_name: *fleet_server_name
     bindings:
       - scope: cluster
-        resource_name: fleet-server
+        resource_name: *fleet_server_name
     roles:
       - scope: cluster
-        resource_name: fleet-server
+        resource_name: *fleet_server_name
         rules:
           - apiGroups:
               - ""
@@ -107,26 +104,23 @@ fleet_server:
 
 agent:
   enabled: false
-  name: elastic-agent
-  mode: fleet
-  fleetServerEnabled: false
-  fleetServerRef: fleet-server
-  policyID: ~
+  name: &agent_name elastic
   tolerations: ~
-  http: {}
+  env: ~
   resources:
     requests:
       memory: 128Mi
-  config:
-    output:
-      elasticsearch:
-        ssl:
-          verification_mode: certificate
+  mode: fleet
+  fleetServerEnabled: false
+  fleetServerRef: *fleet_server_name
+  policyID: ~
+  http: {}
+  config: {}
   serviceaccount:
-    resource_name: elastic-agent
+    resource_name: *agent_name
     bindings:
       - kind: ClusterRole
-        resource_name: elastic-agent
+        resource_name: *agent_name
         scope: cluster
     roles:
       - resource_name: elastic-agent
