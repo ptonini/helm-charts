@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v1.1.3...elasticsearch-cluster-v1.2.0) (2023-10-08)
+
+
+### Features
+
+* added env, volume and volumeMounts to elasticsearch pod spec ([59ec5e3](https://github.com/ptonini/helm-charts/commit/59ec5e310aa19e5d987d2d531f78dcb2fffcf7a3))
+
 ## [1.1.3](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v1.1.2...elasticsearch-cluster-v1.1.3) (2023-10-07)
 
 
