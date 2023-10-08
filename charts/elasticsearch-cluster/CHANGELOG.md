@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.1.0...elasticsearch-cluster-v2.2.0) (2023-10-08)
+
+
+### Features
+
+* added env parameter to agent template ([19fd069](https://github.com/ptonini/helm-charts/commit/19fd0693fadf77abf2e0fdbc7967f40a7482097d))
+
 ## [2.1.0](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.0.2...elasticsearch-cluster-v2.1.0) (2023-10-08)
 
 
