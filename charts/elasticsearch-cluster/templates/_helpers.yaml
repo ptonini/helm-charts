@@ -42,7 +42,7 @@ spec:
   deployment:
     replicas: {{ .Values.agent.replicas }}
   {{- else }}
-  statefullset:
+  daemonSet:
   {{- end }}
     podTemplate:
       spec:
