@@ -43,6 +43,16 @@ spec:
                   value: "true"
                 - name: MALLOC_ARENA_MAX
                   value: "2"
+                {{- range $k, $v := .env }}
+                - name: {{ $k }}
+                  value: {{ $v | quote }}
+                {{- end }}
+              {{- if .volumeMounts }}
+              volumeMounts: {{ .volumeMounts  | toYaml | nindent 16 }}
+              {{- end }}
+          {{- if .volumes }}
+          volumes: {{ .volumes  | toYaml | nindent 12 }}
+          {{- end }}
       {{- if .storage }}
       volumeClaimTemplates:
         - metadata:

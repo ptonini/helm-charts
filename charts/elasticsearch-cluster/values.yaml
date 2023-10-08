@@ -19,13 +19,7 @@ elasticsearch:
     - name: data0001
       count: 3
       nodeSelector: ~
-      config:
-        node:
-          roles:
-            - data
-            - ingest
-            - ml
-            - master
+      config: {}
       resources:
         requests:
           memory: 2048Mi
@@ -40,14 +34,14 @@ elasticsearch:
       storage:
         size: 128Gi
         class: default
+      env: {}
+      volumeMounts: ~
+      volumes: ~
 
 kibana:
   count: 1
   nodeSelector: ~
   tolerations:
-#    - key: "key1"
-#      operator: "Exists"
-#      effect: "NoSchedule"
   config: ~
   http: {}
   resources:
