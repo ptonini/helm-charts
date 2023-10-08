@@ -1,4 +1,4 @@
-{{- if gt .Values.apm.count 0.0 }}
+{{- if .Values.apm.enabled }}
 ---
 apiVersion: apm.k8s.elastic.co/v1
 kind: ApmServer

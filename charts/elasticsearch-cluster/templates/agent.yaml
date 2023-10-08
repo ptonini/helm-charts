@@ -1,0 +1,6 @@
+{{- if .Values.agent.enabled }}
+{{- $root := dict "Chart" .Chart "Release" .Release "Values" (dict "http" .Values.http "agent" .Values.agent "version" .Values.version) }}
+{{- include "elastisearch.agent" $root }}
+{{ $root = dict "Chart" .Chart "Release" .Release "Values" .Values.agent.serviceaccount }}
+{{- include "library.rbac.serviceaccount" $root }}
+{{- end }}

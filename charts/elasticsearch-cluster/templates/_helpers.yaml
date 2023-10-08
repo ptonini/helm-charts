@@ -1,0 +1,54 @@
+{{- define "elasticsearch.http" }}
+{{- if .tlsCertificate }}
+tls:
+  certificate:
+    secretName: {{ .tlsCertificate }}
+{{- end }}
+service:
+  {{- if .service.annotations }}
+  metadata:
+    annotations: {{ .service.annotations | toYaml | nindent 6 }}
+  {{- end }}
+  spec:
+    type: {{ .service.type }}
+    {{- if .service.loadBalancerIP }}
+    loadBalancerIP: {{ .service.loadBalancerIP }}
+    {{- end }}
+{{- end }}
+
+{{- define "elastisearch.agent" }}
+apiVersion: agent.k8s.elastic.co/v1alpha1
+kind: Agent
+metadata:
+  name: {{ .Values.agent.name }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  version: {{ .Values.version }}
+  kibanaRef:
+    name: {{ .Release.Name }}
+  elasticsearchRefs:
+    - name: {{ .Release.Name }}
+  {{- if .Values.agent.fleetServerEnabled }}
+  http:
+    {{- include "elasticsearch.http" (merge (deepCopy .Values.http) .Values.agent.http) | indent 4 }}
+  {{- end }}
+  mode: {{ .Values.agent.mode }}
+  fleetServerEnabled: {{ .Values.agent.fleetServerEnabled }}
+  policyID: {{ .Values.agent.policyID }}
+  {{- if .Values.agent.fleetServerEnabled }}
+  deployment:
+    replicas: {{ .Values.agent.replicas }}
+  {{- else }}
+  statefullset:
+  {{- end }}
+    podTemplate:
+      spec:
+        serviceAccountName: {{ .Values.agent.name }}
+        automountServiceAccountToken: true
+        securityContext:
+          runAsUser: 0
+        {{- if not .Values.agent.fleetServerEnabled }}
+        hostNetwork: true
+        dnsPolicy: ClusterFirstWithHostNet
+        {{- end }}
+{{- end }}

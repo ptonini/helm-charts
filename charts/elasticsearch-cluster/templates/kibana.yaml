@@ -1,3 +1,4 @@
+{{- if .Values.kibana.enabled }}
 ---
 apiVersion: kibana.k8s.elastic.co/v1
 kind: Kibana
@@ -24,3 +25,4 @@ spec:
       containers:
         - name: kibana
           resources: {{ .Values.kibana.resources | toYaml | nindent 12 }}
+{{- end }}

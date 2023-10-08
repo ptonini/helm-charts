@@ -11,34 +11,28 @@ http:
     type: LoadBalancer
     
 elasticsearch:
+  enabled: true
   http: {}
   config: {}
   plugins:
     - repository-s3
   node_sets:
     - name: data0001
-      count: 3
+      count: 1
       nodeSelector: ~
       config: {}
-      resources:
-        requests:
-          memory: 2048Mi
-        limit:
-          memory: 2048Mi
-      jvm_heap_memory: 1800m
+      resources: ~
+      jvm_heap_memory: ~
       jvm_extra_options: ""
       tolerations:
-#        - key: "key1"
-#          operator: "Exists"
-#          effect: "NoSchedule"
       storage:
         size: 128Gi
-        class: default
       env: {}
       volumeMounts: ~
       volumes: ~
 
 kibana:
+  enabled: true
   count: 1
   nodeSelector: ~
   tolerations: ~
@@ -51,7 +45,8 @@ kibana:
       memory: 512Mi
 
 apm:
-  count: 0
+  enabled: false
+  count: 1
   nodeSelector: ~
   http: {}
   config:
@@ -64,3 +59,110 @@ apm:
       memory: 512Mi
     limit:
       memory: 512Mi
+
+fleet_server:
+  enabled: false
+  name: fleet-server
+  replicas: 1
+  mode: fleet
+  fleetServerEnabled: true
+  policyID: ~
+  http: {}
+  serviceaccount:
+    resource_name: fleet-server
+    bindings:
+      - scope: cluster
+        resource_name: fleet-server
+    roles:
+      - scope: cluster
+        resource_name: fleet-server
+        rules:
+          - apiGroups:
+              - ""
+            resources:
+              - pods
+              - namespaces
+              - nodes
+            verbs:
+              - get
+              - watch
+              - list
+          - apiGroups:
+              - coordination.k8s.io
+            resources:
+              - leases
+            verbs:
+              - get
+              - create
+              - update
+
+agent:
+  enabled: false
+  name: elastic-agent
+  mode: fleet
+  fleetServerEnabled: false
+  policyID: ~
+  serviceaccount:
+    resource_name: elastic-agent
+    bindings:
+      - kind: ClusterRole
+        resource_name: elastic-agent
+        scope: cluster
+    roles:
+      - resource_name: elastic-agent
+        scope: cluster
+        rules:
+          - apiGroups: [""]
+            resources:
+              - pods
+              - nodes
+              - namespaces
+              - events
+              - services
+              - configmaps
+            verbs:
+              - get
+              - watch
+              - list
+          - apiGroups: ["coordination.k8s.io"]
+            resources:
+              - leases
+            verbs:
+              - get
+              - create
+              - update
+          - nonResourceURLs:
+              - "/metrics"
+            verbs:
+              - get
+          - apiGroups: ["extensions"]
+            resources:
+              - replicasets
+            verbs:
+              - "get"
+              - "list"
+              - "watch"
+          - apiGroups:
+              - "apps"
+            resources:
+              - statefulsets
+              - deployments
+              - replicasets
+            verbs:
+              - "get"
+              - "list"
+              - "watch"
+          - apiGroups:
+              - ""
+            resources:
+              - nodes/stats
+            verbs:
+              - get
+          - apiGroups:
+              - "batch"
+            resources:
+              - jobs
+            verbs:
+              - "get"
+              - "list"
+              - "watch"
