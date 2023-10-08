@@ -64,9 +64,18 @@ fleet_server:
   enabled: false
   name: fleet-server
   replicas: 1
+  tolerations: ~
+  resources:
+    requests:
+      memory: 256Mi
   mode: fleet
   fleetServerEnabled: true
   policyID: ~
+  config:
+    output:
+      elasticsearch:
+        ssl:
+          verification_mode: certificate
   http: {}
   serviceaccount:
     resource_name: fleet-server
@@ -103,6 +112,16 @@ agent:
   fleetServerEnabled: false
   fleetServerRef: fleet-server
   policyID: ~
+  tolerations: ~
+  http: {}
+  resources:
+    requests:
+      memory: 128Mi
+  config:
+    output:
+      elasticsearch:
+        ssl:
+          verification_mode: certificate
   serviceaccount:
     resource_name: elastic-agent
     bindings:

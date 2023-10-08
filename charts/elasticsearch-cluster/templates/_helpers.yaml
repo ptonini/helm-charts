@@ -38,6 +38,7 @@ spec:
   mode: {{ .Values.agent.mode }}
   fleetServerEnabled: {{ .Values.agent.fleetServerEnabled }}
   policyID: {{ .Values.agent.policyID }}
+  config: {{ .Values.agent.config | toYaml | nindent 4 }}
   {{- if .Values.agent.fleetServerEnabled }}
   deployment:
     replicas: {{ .Values.agent.replicas }}
@@ -54,4 +55,10 @@ spec:
         hostNetwork: true
         dnsPolicy: ClusterFirstWithHostNet
         {{- end }}
+        {{- if .Values.agent.tolerations }}
+        tolerations: {{ .Values.agent.tolerations | toYaml | nindent 8 }}
+        {{- end }}
+        containers:
+          - name: agent
+            resources: {{ .Values.agent.resources | toYaml | nindent 14 }}
 {{- end }}
