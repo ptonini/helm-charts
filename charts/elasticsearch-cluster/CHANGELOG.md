@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v1.3.0...elasticsearch-cluster-v2.0.0) (2023-10-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* added fleet server and agent templates
+
+### Features
+
+* added fleet server and agent templates ([c546375](https://github.com/ptonini/helm-charts/commit/c546375eabe0325ad3bc22091f37b633e34e0fcd))
+
 ## [1.3.0](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v1.2.0...elasticsearch-cluster-v1.3.0) (2023-10-08)
 
 
