@@ -101,6 +101,7 @@ agent:
   name: elastic-agent
   mode: fleet
   fleetServerEnabled: false
+  fleetServerRef: fleet-server
   policyID: ~
   serviceaccount:
     resource_name: elastic-agent
