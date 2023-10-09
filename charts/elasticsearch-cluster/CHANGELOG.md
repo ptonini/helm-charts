@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.2](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.2.1...elasticsearch-cluster-v2.2.2) (2023-10-09)
+
+
+### Bug Fixes
+
+* added host path volumes to agent template ([b85fcee](https://github.com/ptonini/helm-charts/commit/b85fcee331a50ab86f60211e99b8bf59f44d1953))
+
 ## [2.2.1](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.2.0...elasticsearch-cluster-v2.2.1) (2023-10-09)
 
 
