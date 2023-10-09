@@ -56,6 +56,16 @@ spec:
         {{- if not .Values.agent.fleetServerEnabled }}
         hostNetwork: true
         dnsPolicy: ClusterFirstWithHostNet
+        volumes:
+          - name: varlibdockercontainers
+            hostPath:
+              path: /var/lib/docker/containers
+          - name: varlogcontainers
+            hostPath:
+              path: /var/log/containers
+          - name: varlogpods
+            hostPath:
+              path: /var/log/pods
         {{- end }}
         {{- if .Values.agent.tolerations }}
         tolerations: {{ .Values.agent.tolerations | toYaml | nindent 10 }}
@@ -69,5 +79,14 @@ spec:
               - name: {{ $k }}
                 value: {{ $v | quote }}
               {{- end }}
+            {{- end }}
+            {{- if not .Values.agent.fleetServerEnabled }}
+            volumeMounts:
+              - mountPath: /var/lib/docker/containers
+                name: varlibdockercontainers
+              - mountPath: /var/log/containers
+                name: varlogcontainers
+              - mountPath: /var/log/pods
+                name: varlogpods
             {{- end }}
 {{- end }}
