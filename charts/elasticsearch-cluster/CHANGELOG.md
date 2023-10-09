@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.1](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.2.0...elasticsearch-cluster-v2.2.1) (2023-10-09)
+
+
+### Bug Fixes
+
+* updated default agent service account cluster role ([bfa7d53](https://github.com/ptonini/helm-charts/commit/bfa7d5304df9c30c422171a86201a35daf4a1347))
+
 ## [2.2.0](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.1.0...elasticsearch-cluster-v2.2.0) (2023-10-08)
 
 
