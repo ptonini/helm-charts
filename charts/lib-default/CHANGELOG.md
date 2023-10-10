@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.1](https://github.com/ptonini/helm-charts/compare/lib-default-v2.3.0...lib-default-v2.3.1) (2023-10-10)
+
+
+### Bug Fixes
+
+* fixed service template ([60612e1](https://github.com/ptonini/helm-charts/commit/60612e1499726a974614a08944a4e201b8f281c4))
+
 ## [2.3.0](https://github.com/ptonini/helm-charts/compare/lib-default-v2.2.0...lib-default-v2.3.0) (2023-10-10)
 
 
