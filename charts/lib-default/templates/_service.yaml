@@ -13,6 +13,9 @@ spec:
   {{- else }}
   type: {{ coalesce $root.Values.type  "NodePort" }}
   {{- end }}
+  {{- if eq eq $root.Values.type "ExternalName" }}
+  externalName: {{ $.root.Values.externalName}}
+  {{- end }}
   ports:
     {{- range $root.Values.ports }}
     - name: {{ coalesce .name  "http" }}
