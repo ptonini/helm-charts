@@ -13,8 +13,8 @@ spec:
   {{- else }}
   type: {{ coalesce $root.Values.type  "NodePort" }}
   {{- end }}
-  {{- if eq eq $root.Values.type "ExternalName" }}
-  externalName: {{ $.root.Values.externalName}}
+  {{- if eq $root.Values.type "ExternalName" }}
+  externalName: {{ $root.Values.externalName }}
   {{- end }}
   ports:
     {{- range $root.Values.ports }}
@@ -23,5 +23,7 @@ spec:
       targetPort: {{ coalesce .targetPort .port }}
       protocol: {{ include "library.factory.service.port.protocol" . }}
     {{- end }}
+  {{- if ne $root.Values.type "ExternalName" }}
   selector: {{- include "library.factory.pod.labels" $root  | indent 4 }}
+  {{- end }}
 {{- end}}
