@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.3](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.2.2...elasticsearch-cluster-v2.2.3) (2023-10-10)
+
+
+### Bug Fixes
+
+* updated fleet server serviceaccount permissions ([2486000](https://github.com/ptonini/helm-charts/commit/2486000a11cd10b3cd9adfbbb343b0651d357a50))
+
 ## [2.2.2](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.2.1...elasticsearch-cluster-v2.2.2) (2023-10-09)
 
 
