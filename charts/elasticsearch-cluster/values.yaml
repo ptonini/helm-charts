@@ -24,7 +24,7 @@ elasticsearch:
       resources: ~
       jvm_heap_memory: ~
       jvm_extra_options: ""
-      tolerations:
+      tolerations: ~
       storage:
         size: 128Gi
       env: {}
@@ -63,132 +63,82 @@ apm:
 fleet_server:
   enabled: false
   name: &fleet_server_name fleet-server
+  mode: fleet
+  fleetServerEnabled: true
+  policyID: ~
+  config: { }
+  http: { }
   replicas: 1
   tolerations: ~
   env: ~
   resources:
     requests:
       memory: 256Mi
-  mode: fleet
-  fleetServerEnabled: true
-  policyID: ~
-  config: {}
-  http: {}
   serviceaccount:
     resource_name: *fleet_server_name
     bindings:
-      - scope: cluster
-        resource_name: *fleet_server_name
+      - resource_name: *fleet_server_name
+        scope: cluster
     roles:
-      - scope: cluster
-        resource_name: *fleet_server_name
+      - resource_name: *fleet_server_name
+        scope: cluster
         rules:
-          - apiGroups:
-              - ""
-            resources:
-              - pods
-              - namespaces
-              - nodes
-            verbs:
-              - get
-              - watch
-              - list
-          - apiGroups:
-              - coordination.k8s.io
-            resources:
-              - leases
-            verbs:
-              - get
-              - create
-              - update
+          - apiGroups: [""]
+            resources: ["pods", "namespaces", "nodes"]
+            verbs: ["get", "watch", "list"]
+          - apiGroups: ["coordination.k8s.io"]
+            resources: ["leases"]
+            verbs: ["get", "create", "update"]
+          - apiGroups: [ "apps" ]
+            resources: ["replicasets"]
+            verbs: [ "get", "watch", "list" ]
+          - apiGroups: ["batch"]
+            resources: ["jobs"]
+            verbs: [ "get", "watch", "list" ]
 
 agent:
   enabled: false
-  name: &agent_name elastic
+  name: elastic
+  mode: fleet
+  fleetServerEnabled: false
+  fleetServerRef: *fleet_server_name
+  policyID: ~
+  http: { }
+  config: { }
   tolerations: ~
   env: ~
   resources:
     requests:
       memory: 128Mi
-  mode: fleet
-  fleetServerEnabled: false
-  fleetServerRef: *fleet_server_name
-  policyID: ~
-  http: {}
-  config: {}
   serviceaccount:
-    resource_name: *agent_name
+    resource_name: &agent_serviceaccount elastic-agent
     bindings:
-      - kind: ClusterRole
-        resource_name: *agent_name
+      - resource_name: *agent_serviceaccount
         scope: cluster
     roles:
-      - resource_name: elastic-agent
+      - resource_name: *agent_serviceaccount
         scope: cluster
         rules:
           - apiGroups: [""]
-            resources:
-              - pods
-              - nodes
-              - namespaces
-              - events
-              - services
-              - configmaps
-              - persistentvolumes
-              - persistentvolumeclaims
-            verbs:
-              - get
-              - watch
-              - list
+            resources: ["pods", "nodes", "namespaces", "events", "services", "configmaps", "persistentvolumes", "persistentvolumeclaims"]
+            verbs: ["get", "watch", "list"]
           - apiGroups: ["coordination.k8s.io"]
-            resources:
-              - leases
-            verbs:
-              - get
-              - create
-              - update
-          - nonResourceURLs:
-              - "/metrics"
-            verbs:
-              - get
+            resources: ["leases"]
+            verbs: ["get", "create", "update"]
+          - nonResourceURLs: ["/metrics"]
+            verbs: ["get"]
           - apiGroups: ["extensions"]
-            resources:
-              - replicasets
-            verbs:
-              - get
-              - list
-              - watch
-          - apiGroups:
-              - "apps"
-            resources:
-              - statefulsets
-              - deployments
-              - replicasets
-              - daemonsets
-            verbs:
-              - get
-              - list
-              - watch
-          - apiGroups:
-              - ""
-            resources:
-              - nodes/stats
-            verbs:
-              - get
-          - apiGroups:
-              - "batch"
-            resources:
-              - jobs
-              - cronjobs
-            verbs:
-              - get
-              - list
-              - watch
-          - apiGroups:
-              - storage.k8s.io
-            resources:
-              - storageclasses
-            verbs:
-              - get
-              - list
-              - watch
+            resources: ["replicasets"]
+            verbs: ["get", "watch", "list"]
+          - apiGroups: ["apps"]
+            resources: ["statefulsets", "deployments", "replicasets", "daemonsets"]
+            verbs: ["get", "watch", "list"]
+          - apiGroups: [""]
+            resources: ["nodes/stats"]
+            verbs: ["get"]
+          - apiGroups: ["batch"]
+            resources: ["jobs", "cronjobs"]
+            verbs: ["get", "watch", "list"]
+          - apiGroups: ["storage.k8s.io"]
+            resources: ["storageclasses"]
+            verbs: ["get", "watch", "list"]
