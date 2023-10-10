@@ -1604,6 +1604,19 @@ entries:
     version: 1.0.0
   service:
   - apiVersion: v2
+    created: "2023-10-10T21:49:57.165957316Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 2.3.1
+    description: Service
+    digest: f8e94bdd324982e0052d0b8120882f9e7c48683404ec4621752058569d01141a
+    name: service
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/service-v1.1.0/service-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
     created: "2022-10-04T18:04:26.720944866Z"
     dependencies:
     - name: lib-default
@@ -2068,4 +2081,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2023-10-10T21:44:38.988805931Z"
+generated: "2023-10-10T21:49:57.166330723Z"
