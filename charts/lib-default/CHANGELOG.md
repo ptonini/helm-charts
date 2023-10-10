@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/ptonini/helm-charts/compare/lib-default-v2.2.0...lib-default-v2.3.0) (2023-10-10)
+
+
+### Features
+
+* added externalName property to service.spec ([4d962fe](https://github.com/ptonini/helm-charts/commit/4d962fe79a294fdbab27ca57cb472cdad61b60bb))
+
 ## [2.2.0](https://github.com/ptonini/helm-charts/compare/lib-default-v2.1.2...lib-default-v2.2.0) (2023-07-17)
 
 
