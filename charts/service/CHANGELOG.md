@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ptonini/helm-charts/compare/service-v1.0.1...service-v1.1.0) (2023-10-10)
+
+
+### Features
+
+* added support for ExternalName services ([4adca34](https://github.com/ptonini/helm-charts/commit/4adca34df822d3de29eb1fbc616ab7fb6eb8d641))
+
 ## [1.0.1](https://github.com/ptonini/helm-charts/compare/service-v1.0.0...service-v1.0.1) (2022-10-04)
 
 
