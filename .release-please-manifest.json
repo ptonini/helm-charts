@@ -10,7 +10,7 @@
   "charts/kong-consumer": "1.1.0",
   "charts/kong-plugin": "1.1.0",
   "charts/rabbitmq-cluster": "1.1.0",
-  "charts/elasticsearch-cluster": "2.3.4",
+  "charts/elasticsearch-cluster": "2.4.0",
   "charts/admission-controller": "1.2.1",
   "charts/psono": "1.1.1",
   "charts/pypicloud": "1.1.0",

@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.0](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.3.4...elasticsearch-cluster-v2.4.0) (2023-10-11)
+
+
+### Features
+
+* added ingress templates ([f99ba0b](https://github.com/ptonini/helm-charts/commit/f99ba0bf2c1071c7cd32a718af85a79437454e16))
+
 ## [2.3.4](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.3.3...elasticsearch-cluster-v2.3.4) (2023-10-11)
 
 
