@@ -6,18 +6,20 @@ kind: ApmServer
 spec:
   version: {{ .Values.version }}
   count: {{ .Values.apm.count }}
-  config: {{ .Values.apm.config | toYaml | nindent 4 }}
   elasticsearchRef:
     name: {{ .Release.Name }}
-  http:
-    {{- include "elasticsearch.http" (merge (deepCopy .Values.http) .Values.apm.http) | indent 4}}
+  {{- include "elasticsearch.http" (merge (deepCopy .Values.http) .Values.apm.http) | indent 2 }}
+  config: {{ .Values.apm.config | toYaml | nindent 4 }}
   podTemplate:
     spec:
       serviceAccountName: {{ .Release.Name }}
       {{- if .Values.apm.nodeSelector }}
       nodeSelector: {{ .Values.apm.nodeSelector | toYaml | nindent 8 }}
       {{- end }}
+      {{- if .Values.apm.tolerations }}
+      tolerations: {{ .Values.apm.tolerations | toYaml | nindent 8 }}
+      {{- end }}
       containers:
-        - name: kibana
+        - name: apm
           resources: {{ .Values.apm.resources | toYaml | nindent 10 }}
 {{- end }}

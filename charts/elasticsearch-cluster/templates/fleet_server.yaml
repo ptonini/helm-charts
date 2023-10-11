@@ -1,6 +1,0 @@
-{{- if .Values.fleet_server.enabled }}
-{{- $root := dict "Chart" .Chart "Release" .Release "Values" (dict "http" .Values.http "agent" .Values.fleet_server "version" .Values.version) }}
-{{- include "elastisearch.agent" $root }}
-{{ $root = dict "Chart" .Chart "Release" .Release "Values" .Values.fleet_server.serviceaccount }}
-{{- include "library.rbac.serviceaccount" $root }}
-{{- end }}

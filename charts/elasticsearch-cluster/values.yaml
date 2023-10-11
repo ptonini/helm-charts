@@ -1,7 +1,9 @@
 version: 7.10.2
 
 http:
-  tlsCertificate: ~
+  tls:
+    selfSignedCertificate:
+      disabled: false
   service:
     annotations: ~
     type: LoadBalancer
@@ -17,48 +19,46 @@ elasticsearch:
   plugins:
     - repository-s3
   node_sets:
-    - name: data0001
+    - name: data
       count: 1
-      nodeSelector: ~
-      config: {}
-      resources: ~
+      config: { }
       jvm_heap_memory: ~
       jvm_extra_options: ""
+      nodeSelector: ~
+      volumes: ~
+      env: { }
+      resources: ~
+      volumeMounts: ~
       tolerations: ~
       storage:
+        class: ~
         size: 128Gi
-      env: {}
-      volumeMounts: ~
-      volumes: ~
 
 kibana:
   enabled: true
   count: 1
+  http: { }
+  config: ~
   nodeSelector: ~
   tolerations: ~
-  config: ~
-  http: {}
   resources:
     requests:
-      memory: 512Mi
-    limit:
-      memory: 512Mi
+      memory: 256Mi
 
 apm:
   enabled: false
   count: 1
-  nodeSelector: ~
-  http: {}
+  http: { }
   config:
     output:
       elasticsearch:
         ssl:
           verification_mode: certificate
+  nodeSelector: ~
+  tolerations: ~
   resources:
     requests:
-      memory: 512Mi
-    limit:
-      memory: 512Mi
+      memory: 256Mi
 
 fleet_server:
   enabled: false
@@ -73,7 +73,7 @@ fleet_server:
   env: ~
   resources:
     requests:
-      memory: 256Mi
+      memory: 128Mi
   serviceaccount:
     resource_name: *fleet_server_name
     bindings:

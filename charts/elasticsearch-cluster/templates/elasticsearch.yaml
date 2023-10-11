@@ -5,8 +5,7 @@ kind: Elasticsearch
 {{- include "library.metadata" . }}
 spec:
   version: {{ .Values.version }}
-  http:
-    {{- include "elasticsearch.http" (merge (deepCopy .Values.http) .Values.elasticsearch.http) | indent 4 }}
+  {{- include "elasticsearch.http" (merge (deepCopy .Values.http) .Values.elasticsearch.http) | indent 2 }}
   nodeSets:
     {{- range .Values.elasticsearch.node_sets }}
     - name: {{ .name }}
@@ -25,12 +24,7 @@ spec:
           initContainers:
             - name: elasticsearch-plugins
               command: ["sh", "-c"]
-              args:
-                - echo "Installing plugins" &&
-                  {{- range $.Values.elasticsearch.plugins }}
-                  bin/elasticsearch-plugin install --batch {{ . }} &&
-                  {{- end }}
-                  echo "Installation complete"
+              args: ["{{ range $.Values.elasticsearch.plugins }}bin/elasticsearch-plugin install --batch {{ . }} && {{ end }}echo"]
           {{- end }}
           containers:
             - name: elasticsearch

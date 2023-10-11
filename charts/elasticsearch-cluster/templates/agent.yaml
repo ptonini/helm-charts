@@ -4,3 +4,84 @@
 {{ $root = dict "Chart" .Chart "Release" .Release "Values" .Values.agent.serviceaccount }}
 {{- include "library.rbac.serviceaccount" $root }}
 {{- end }}
+
+{{- if .Values.fleet_server.enabled }}
+{{- $root := dict "Chart" .Chart "Release" .Release "Values" (dict "http" .Values.http "agent" .Values.fleet_server "version" .Values.version) }}
+{{- include "elastisearch.agent" $root }}
+{{ $root = dict "Chart" .Chart "Release" .Release "Values" .Values.fleet_server.serviceaccount }}
+{{- include "library.rbac.serviceaccount" $root }}
+{{- end }}
+
+{{- define "elastisearch.agent" }}
+apiVersion: agent.k8s.elastic.co/v1alpha1
+kind: Agent
+metadata:
+  name: {{ .Values.agent.name }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  version: {{ .Values.version }}
+  kibanaRef:
+    name: {{ .Release.Name }}
+  {{- if .Values.agent.fleetServerEnabled }}
+  elasticsearchRefs:
+    - name: {{ .Release.Name }}
+  {{- include "elasticsearch.http" (merge (deepCopy .Values.http) .Values.agent.http) | indent 2 }}
+  {{- else }}
+  fleetServerRef:
+    name: {{ .Values.agent.fleetServerRef }}
+  {{- end }}
+  {{- if (and .Values.agent.config (eq .Values.agent.mode "standalone")) }}
+  config: {{ .Values.agent.config | toYaml | nindent 4 }}
+  {{- end }}
+  mode: {{ .Values.agent.mode }}
+  fleetServerEnabled: {{ .Values.agent.fleetServerEnabled }}
+  policyID: {{ .Values.agent.policyID }}
+  {{- if .Values.agent.fleetServerEnabled }}
+  deployment:
+    replicas: {{ .Values.agent.replicas }}
+  {{- else }}
+  daemonSet:
+  {{- end }}
+    podTemplate:
+      spec:
+        serviceAccountName: {{ .Values.agent.name }}
+        automountServiceAccountToken: true
+        securityContext:
+          runAsUser: 0
+        {{- if not .Values.agent.fleetServerEnabled }}
+        hostNetwork: true
+        dnsPolicy: ClusterFirstWithHostNet
+        volumes:
+          - name: varlibdockercontainers
+            hostPath:
+              path: /var/lib/docker/containers
+          - name: varlogcontainers
+            hostPath:
+              path: /var/log/containers
+          - name: varlogpods
+            hostPath:
+              path: /var/log/pods
+        {{- end }}
+        {{- if .Values.agent.tolerations }}
+        tolerations: {{ .Values.agent.tolerations | toYaml | nindent 10 }}
+        {{- end }}
+        containers:
+          - name: agent
+            resources: {{ .Values.agent.resources | toYaml | nindent 14 }}
+            {{- if .Values.agent.env }}
+            env:
+              {{- range $k, $v := .Values.agent.env }}
+              - name: {{ $k }}
+                value: {{ $v | quote }}
+              {{- end }}
+            {{- end }}
+            {{- if not .Values.agent.fleetServerEnabled }}
+            volumeMounts:
+              - mountPath: /var/lib/docker/containers
+                name: varlibdockercontainers
+              - mountPath: /var/log/containers
+                name: varlogcontainers
+              - mountPath: /var/log/pods
+                name: varlogpods
+            {{- end }}
+{{- end }}
