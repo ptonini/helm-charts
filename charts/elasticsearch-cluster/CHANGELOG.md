@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.2.3...elasticsearch-cluster-v2.3.0) (2023-10-11)
+
+
+### Features
+
+* updated tls block in elasticsearch.html template ([b03043c](https://github.com/ptonini/helm-charts/commit/b03043c0db45e66728013f16f403a6f232939fc6))
+
 ## [2.2.3](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.2.2...elasticsearch-cluster-v2.2.3) (2023-10-10)
 
 
