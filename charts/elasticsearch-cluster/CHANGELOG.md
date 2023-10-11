@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.1](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.4.0...elasticsearch-cluster-v2.4.1) (2023-10-11)
+
+
+### Bug Fixes
+
+* fixed elastic ingress port number ([3b0491c](https://github.com/ptonini/helm-charts/commit/3b0491c6848c513168e973e8bfde99675bb797b6))
+
 ## [2.4.0](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.3.4...elasticsearch-cluster-v2.4.0) (2023-10-11)
 
 
