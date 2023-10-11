@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.3](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.3.2...elasticsearch-cluster-v2.3.3) (2023-10-11)
+
+
+### Bug Fixes
+
+* fixed serviceAccountName parameter value in agent.yaml ([29805f8](https://github.com/ptonini/helm-charts/commit/29805f852a26c53fe17934b2dd87c93c5603cbcc))
+
 ## [2.3.2](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.3.1...elasticsearch-cluster-v2.3.2) (2023-10-11)
 
 
