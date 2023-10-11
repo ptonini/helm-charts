@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.2](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.3.1...elasticsearch-cluster-v2.3.2) (2023-10-11)
+
+
+### Bug Fixes
+
+* fixed metadata indentation on elasticsearch.http template ([cc18d12](https://github.com/ptonini/helm-charts/commit/cc18d12fac66d7c31efaa9660f57c0a960560760))
+
 ## [2.3.1](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.3.0...elasticsearch-cluster-v2.3.1) (2023-10-11)
 
 
