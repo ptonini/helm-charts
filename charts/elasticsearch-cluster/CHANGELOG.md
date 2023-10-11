@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.2](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.4.1...elasticsearch-cluster-v2.4.2) (2023-10-11)
+
+
+### Bug Fixes
+
+* fixed context generation login im elasticsearch.http template calls ([5343856](https://github.com/ptonini/helm-charts/commit/53438563d5eee7897de367532ab378f89b0b1406))
+
 ## [2.4.1](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.4.0...elasticsearch-cluster-v2.4.1) (2023-10-11)
 
 
