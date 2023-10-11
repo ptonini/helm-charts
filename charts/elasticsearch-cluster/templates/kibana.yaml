@@ -8,7 +8,7 @@ spec:
   count: {{ .Values.kibana.count }}
   elasticsearchRef:
     name: {{ .Release.Name }}
-  {{- include "elasticsearch.http" (merge (deepCopy .Values.http) .Values.kibana.http) | indent 2 }}
+  {{- include "elasticsearch.http" (merge .Values.kibana.http (deepCopy .Values.http)) | indent 2 }}
   {{- if .Values.kibana.config }}
   config: {{ .Values.kibana.config | toYaml | nindent 4 }}
   {{- end }}

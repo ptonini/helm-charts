@@ -8,7 +8,7 @@ spec:
   count: {{ .Values.apm.count }}
   elasticsearchRef:
     name: {{ .Release.Name }}
-  {{- include "elasticsearch.http" (merge (deepCopy .Values.http) .Values.apm.http) | indent 2 }}
+  {{- include "elasticsearch.http" (merge (deepCopy .Values.apm.http .Values.http)) | indent 2 }}
   config: {{ .Values.apm.config | toYaml | nindent 4 }}
   podTemplate:
     spec:

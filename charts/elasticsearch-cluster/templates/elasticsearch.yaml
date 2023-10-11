@@ -5,7 +5,7 @@ kind: Elasticsearch
 {{- include "library.metadata" . }}
 spec:
   version: {{ .Values.version }}
-  {{- include "elasticsearch.http" (merge (deepCopy .Values.http) .Values.elasticsearch.http) | indent 2 }}
+  {{- include "elasticsearch.http" (merge .Values.elasticsearch.http (deepCopy .Values.http)) | indent 2 }}
   nodeSets:
     {{- range .Values.elasticsearch.node_sets }}
     - name: {{ .name }}

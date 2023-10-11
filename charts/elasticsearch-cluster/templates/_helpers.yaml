@@ -28,7 +28,7 @@ spec:
   {{- if .Values.agent.fleetServerEnabled }}
   elasticsearchRefs:
     - name: {{ .Release.Name }}
-  {{- include "elasticsearch.http" (merge (deepCopy .Values.http) .Values.agent.http) | indent 2 }}
+  {{- include "elasticsearch.http" (merge .Values.agent.http (deepCopy .Values.http)) | indent 2 }}
   {{- else }}
   fleetServerRef:
     name: {{ .Values.agent.fleetServerRef }}
