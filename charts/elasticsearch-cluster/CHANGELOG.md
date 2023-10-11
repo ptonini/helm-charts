@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.1](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.3.0...elasticsearch-cluster-v2.3.1) (2023-10-11)
+
+
+### Bug Fixes
+
+* updated default tls value ([cb261c0](https://github.com/ptonini/helm-charts/commit/cb261c04f390d47360b7fd3d5918f0b8047981b2))
+
 ## [2.3.0](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.2.3...elasticsearch-cluster-v2.3.0) (2023-10-11)
 
 
