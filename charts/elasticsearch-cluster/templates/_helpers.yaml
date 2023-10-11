@@ -6,7 +6,7 @@ http:
   service:
     {{- if .service.annotations }}
     metadata:
-      annotations: {{ .service.annotations | toYaml | nindent 6 }}
+      annotations: {{ .service.annotations | toYaml | nindent 8 }}
     {{- end }}
     spec:
       type: {{ .service.type }}
