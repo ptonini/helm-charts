@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.4](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.3.3...elasticsearch-cluster-v2.3.4) (2023-10-11)
+
+
+### Bug Fixes
+
+* split agent and fleet template files ([1018f16](https://github.com/ptonini/helm-charts/commit/1018f16f6fc7e5a341a62f5440280f42a8d5c78c))
+
 ## [2.3.3](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.3.2...elasticsearch-cluster-v2.3.3) (2023-10-11)
 
 
