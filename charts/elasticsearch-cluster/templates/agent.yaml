@@ -44,7 +44,7 @@ spec:
   {{- end }}
     podTemplate:
       spec:
-        serviceAccountName: {{ .Values.agent.name }}
+        serviceAccountName: {{ .Values.agent.serviceaccount.resource_name }}
         automountServiceAccountToken: true
         securityContext:
           runAsUser: 0
