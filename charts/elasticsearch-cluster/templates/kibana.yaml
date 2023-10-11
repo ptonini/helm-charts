@@ -25,3 +25,11 @@ spec:
         - name: kibana
           resources: {{ .Values.kibana.resources | toYaml | nindent 12 }}
 {{- end }}
+
+{{- if .Values.kibana.ingress.enabled }}
+{{ $root := dict "Chart" .Chart "Release" .Release "Values" .Values.kibana }}
+{{ $_ := set $root.Values.ingress "resource_name" (printf "%s-kb" .Release.Name) }}
+{{ $_ = set $root.Values.ingress "paths" (list (dict "port" 5601 "service" (printf "%s-http" $root.Values.ingress.resource_name ))) }}
+{{ $_ = set $root.Values.ingress "certificate" (printf "%s-ingress-tls" $root.Values.ingress.resource_name) }}
+{{ include "library.ingress" (dict "Chart" .Chart "Release" .Release "Values" .Values.kibana) }}
+{{- end }}

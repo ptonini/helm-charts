@@ -23,3 +23,10 @@ spec:
         - name: apm
           resources: {{ .Values.apm.resources | toYaml | nindent 10 }}
 {{- end }}
+{{- if .Values.apm.ingress.enabled }}
+{{ $root := dict "Chart" .Chart "Release" .Release "Values" .Values.apm }}
+{{ $_ := set $root.Values.ingress "resource_name" (printf "%s-apm" .Release.Name) }}
+{{ $_ = set $root.Values.ingress "paths" (list (dict "port" 5601 "service" (printf "%s-http" $root.Values.ingress.resource_name ))) }}
+{{ $_ = set $root.Values.ingress "certificate" (printf "%s-ingress-tls" $root.Values.ingress.resource_name) }}
+{{ include "library.ingress" (dict "Chart" .Chart "Release" .Release "Values" .Values.apm) }}
+{{- end }}

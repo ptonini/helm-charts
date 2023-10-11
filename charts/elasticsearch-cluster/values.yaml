@@ -4,7 +4,7 @@ http:
   tls: ~
   service:
     annotations: ~
-    type: LoadBalancer
+    type: ClusterIP
 
 certificate:
   enabled: false
@@ -31,6 +31,8 @@ elasticsearch:
       storage:
         class: ~
         size: 128Gi
+  ingress:
+    enabled: false
 
 kibana:
   enabled: true
@@ -42,6 +44,8 @@ kibana:
   resources:
     requests:
       memory: 256Mi
+  ingress:
+    enabled: true
 
 apm:
   enabled: false
@@ -57,6 +61,8 @@ apm:
   resources:
     requests:
       memory: 256Mi
+  ingress:
+    enabled: false
 
 fleet_server:
   enabled: false
@@ -93,6 +99,14 @@ fleet_server:
           - apiGroups: ["batch"]
             resources: ["jobs"]
             verbs: [ "get", "watch", "list" ]
+  ingress:
+    enabled: false
+    resource_name: fleet-server
+    certificate: fleet-server-ingress-tls
+    paths:
+      - service: fleet-server-agent-http
+        port: 8220
+
 
 agent:
   enabled: false
@@ -140,3 +154,5 @@ agent:
           - apiGroups: ["storage.k8s.io"]
             resources: ["storageclasses"]
             verbs: ["get", "watch", "list"]
+  ingress:
+    enabled: false
