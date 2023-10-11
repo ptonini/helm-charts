@@ -1,9 +1,7 @@
 version: 7.10.2
 
 http:
-  tls:
-    selfSignedCertificate:
-      disabled: false
+  tls: ~
   service:
     annotations: ~
     type: LoadBalancer
