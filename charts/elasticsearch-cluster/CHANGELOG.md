@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.4.2...elasticsearch-cluster-v1.0.0) (2023-10-13)
+
+
+### Features
+
+* first release ([6800aa0](https://github.com/ptonini/helm-charts/commit/6800aa0d530083e7ba378e8a23b1961ebe364346))
+
 ## [2.4.2](https://github.com/ptonini/helm-charts/compare/elasticsearch-cluster-v2.4.1...elasticsearch-cluster-v2.4.2) (2023-10-11)
 
 
