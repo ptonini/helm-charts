@@ -2,7 +2,7 @@ apiVersion: v2
 name: eck-stack
 description: Elastic Cluster on Kubernetes Stack
 type: application
-version: 1.0.0
+version: 1.0.1
 dependencies:
   - name: lib-default
     version: 2.2.0
