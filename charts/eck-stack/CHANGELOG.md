@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/ptonini/helm-charts/compare/eck-stack-v1.0.0...eck-stack-v1.0.1) (2023-10-13)
+
+
+### Bug Fixes
+
+* fixed beat container name ([53cb2cd](https://github.com/ptonini/helm-charts/commit/53cb2cdc7a8d494c080cfd1a070823a30d1754ab))
+
 ## 1.0.0 (2023-10-13)
 
 
