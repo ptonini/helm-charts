@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/ptonini/helm-charts/compare/eck-stack-v1.0.1...eck-stack-v1.0.2) (2023-10-13)
+
+
+### Code Refactoring
+
+* altered beat resource name logic ([0f71c04](https://github.com/ptonini/helm-charts/commit/0f71c04e82ee23ffe89f0b70719841a231bf066f))
+
 ## [1.0.1](https://github.com/ptonini/helm-charts/compare/eck-stack-v1.0.0...eck-stack-v1.0.1) (2023-10-13)
 
 
