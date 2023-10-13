@@ -1,6 +1,5 @@
 {{- range .Values.beats  }}
 {{- with (dict "Chart" $.Chart "Release" $.Release "Values" (dict "global" $.Values.global "version" $.Values.version "beat" . ))}}
-{{- $_ := set .Values "resource_name" (printf "%s-%s" .Release.Name .Values.beat.type)}}
 ---
 apiVersion: beat.k8s.elastic.co/v1beta1
 kind: Beat
