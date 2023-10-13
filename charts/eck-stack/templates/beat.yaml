@@ -30,7 +30,7 @@ spec:
         tolerations: {{ .Values.beat.tolerations | toYaml | nindent 10 }}
         {{- end }}
         containers:
-          - name: beat
+          - name: {{ .Values.beat.type }}
             {{- if .resources  }}
             resources: {{ .Values.beat.resources | toYaml | nindent 14 }}
             {{- end }}
