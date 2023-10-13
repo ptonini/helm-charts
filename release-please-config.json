@@ -44,6 +44,9 @@
     "charts/elasticsearch-cluster": {
       "release-type": "helm"
     },
+    "charts/eck-stack": {
+      "release-type": "helm"
+    },
     "charts/psono": {
       "release-type": "helm"
     },

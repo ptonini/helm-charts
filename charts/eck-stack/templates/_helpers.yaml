@@ -8,11 +8,7 @@ http:
     metadata:
       annotations: {{ .service.annotations | toYaml | nindent 8 }}
     {{- end }}
-    spec:
-      type: {{ .service.type }}
-      {{- if .service.loadBalancerIP }}
-      loadBalancerIP: {{ .service.loadBalancerIP }}
-      {{- end }}
+    spec: {{ unset (deepCopy .service) "annotations" | toYaml | nindent 6 }}
 {{- end }}
 
 {{- define "elastisearch.agent" }}

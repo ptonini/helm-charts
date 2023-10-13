@@ -3,5 +3,6 @@
 charts/*/charts/
 charts/*/*.json
 charts/*/values
+/charts/*/rendered.yaml
 charts/*/environment.yaml
 charts/ingress-bot/scripts/env.yaml

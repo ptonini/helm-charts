@@ -1,0 +1,9 @@
+{{- if .Values.fleet_server.enabled }}
+{{- $root := dict "Chart" .Chart "Release" .Release "Values" (dict "global" .Values.global "agent" .Values.fleet_server "version" .Values.version) }}
+{{- include "elastisearch.agent" $root }}
+{{- include "library.rbac.serviceaccount" (dict "Chart" .Chart "Release" .Release "Values" .Values.fleet_server) }}
+{{- end }}
+{{- if .Values.fleet_server.ingress.enabled }}
+{{ $root := dict "Chart" .Chart "Release" .Release "Values" .Values.fleet_server }}
+{{ include "library.ingress" (dict "Chart" .Chart "Release" .Release "Values" .Values.fleet_server) }}
+{{- end }}
