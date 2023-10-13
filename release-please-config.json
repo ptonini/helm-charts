@@ -41,9 +41,6 @@
     "charts/rabbitmq-cluster": {
       "release-type": "helm"
     },
-    "charts/elasticsearch-cluster": {
-      "release-type": "helm"
-    },
     "charts/eck-stack": {
       "release-type": "helm"
     },

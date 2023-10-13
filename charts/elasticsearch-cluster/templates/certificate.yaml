@@ -1,3 +1,0 @@
-{{- if .Values.certificate.enabled }}
-{{- include "library.cert-manager.certificate" . }}
-{{- end }}
