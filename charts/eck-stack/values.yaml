@@ -15,6 +15,7 @@ elasticsearch:
   enabled: false
   http: {}
   config: {}
+  secureSettingsSecrets: []
   plugins:
     - repository-s3
   node_sets:

@@ -4,6 +4,5 @@
 {{- include "library.rbac.serviceaccount" (dict "Chart" .Chart "Release" .Release "Values" .Values.fleet_server) }}
 {{- end }}
 {{- if .Values.fleet_server.ingress.enabled }}
-{{ $root := dict "Chart" .Chart "Release" .Release "Values" .Values.fleet_server }}
 {{ include "library.ingress" (dict "Chart" .Chart "Release" .Release "Values" .Values.fleet_server) }}
 {{- end }}

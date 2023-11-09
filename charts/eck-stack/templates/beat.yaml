@@ -1,4 +1,4 @@
-{{- range .Values.beats  }}
+{{- range .Values.beats }}
 {{- with (dict "Chart" $.Chart "Release" $.Release "Values" (dict "global" $.Values.global "version" $.Values.version "beat" . ))}}
 ---
 apiVersion: beat.k8s.elastic.co/v1beta1

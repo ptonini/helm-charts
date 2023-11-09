@@ -6,6 +6,10 @@ kind: Elasticsearch
 spec:
   version: {{ .Values.version }}
   {{- include "elasticsearch.http" (merge .Values.elasticsearch.http (deepCopy .Values.global.http)) | indent 2 }}
+  secureSettings:
+    {{- range .Values.elasticsearch.secureSettingsSecrets }}
+    - secretName: {{ . }}
+    {{- end }}
   nodeSets:
     {{- range .Values.elasticsearch.node_sets }}
     - name: {{ .name }}
