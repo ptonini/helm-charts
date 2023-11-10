@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ptonini/helm-charts/compare/eck-stack-v1.0.2...eck-stack-v1.1.0) (2023-11-09)
+
+
+### Features
+
+* added elasticsearch.secureSettingsSecrets to values ([bfc924b](https://github.com/ptonini/helm-charts/commit/bfc924b367ad1bbf9573b7c937818b6e12b743f6))
+
 ## [1.0.2](https://github.com/ptonini/helm-charts/compare/eck-stack-v1.0.1...eck-stack-v1.0.2) (2023-10-13)
 
 
