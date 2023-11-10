@@ -409,6 +409,22 @@ entries:
     version: 1.0.0
   eck-stack:
   - apiVersion: v2
+    created: "2023-11-10T03:22:32.351268393Z"
+    dependencies:
+    - name: lib-default
+      repository: https://ptonini.github.io/helm-charts
+      version: 2.2.0
+    - name: lib-cert-manager
+      repository: https://ptonini.github.io/helm-charts
+      version: 1.1.0
+    description: Elastic Cluster on Kubernetes Stack
+    digest: 4942c019484f00534e6e7278fdd9bdd0271401ec514d1592c1e89e0f6611db01
+    name: eck-stack
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/eck-stack-v1.1.0/eck-stack-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
     created: "2023-10-13T04:41:32.987958109Z"
     dependencies:
     - name: lib-default
@@ -2258,4 +2274,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2023-10-13T04:41:32.988381315Z"
+generated: "2023-11-10T03:22:32.351790096Z"
