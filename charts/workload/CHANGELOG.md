@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/ptonini/helm-charts/compare/workload-v2.1.2...workload-v2.2.0) (2023-11-13)
+
+
+### Features
+
+* added pod selector label factory ([ec1192c](https://github.com/ptonini/helm-charts/commit/ec1192ca0da328c55429ed289e670c96816e2801))
+
 ## [2.1.2](https://github.com/ptonini/helm-charts/compare/workload-v2.1.1...workload-v2.1.2) (2023-08-02)
 
 
