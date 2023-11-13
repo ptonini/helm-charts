@@ -15,10 +15,6 @@
 {{- end }}
 
 
-{{- define "library.factory.pod.labels" }}
-{{- if ((.Values.pod).labels) }}
-{{- include "library.factory.kv_list" .Values.pod.labels }}
-{{- else }}
-app: {{ .Release.Name }}
-{{- end }}
+{{- define "library.factory.podSelectorLabel" }}
+{{ coalesce .Values.podSelectorLabel.key "app" }}: {{ coalesce .Values.podSelectorLabel.value .Values.resource_name .Release.Name }}
 {{- end }}

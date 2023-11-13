@@ -18,11 +18,17 @@ metadata:
   {{- if ((.Values.pod).annotations) }}
   annotations: {{ include "library.factory.kv_list" .Values.pod.annotations | indent 4 }}
   {{- end }}
-  labels: {{ include "library.factory.pod.labels" . | indent 4 }}
+  labels:
+    {{ include "library.factory.podSelectorLabel" . | indent 6 }}
+    {{- if ((.Values.pod).labels) }}
+    {{- include "library.factory.kv_list" .Values.pod.labels }}
+    {{- end }}
 spec:
   {{- include "library.pod.spec" (mergeOverwrite .Values (coalesce ((.Values.pod).spec) dict)) | indent 2 }}
   {{- if ((.Values.serviceaccount).enabled) }}
   serviceAccountName: {{ coalesce .Values.serviceaccount.resource_name .Release.Name }}
+  {{- else if .Values.serviceAccountName }}
+  serviceAccountName: {{ .Values.serviceAccountName }}
   {{- end }}
   {{- if .Values.initContainers }}
   initContainers:

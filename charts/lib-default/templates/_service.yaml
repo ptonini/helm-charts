@@ -24,6 +24,6 @@ spec:
       protocol: {{ include "library.factory.service.port.protocol" . }}
     {{- end }}
   {{- if ne $root.Values.type "ExternalName" }}
-  selector: {{- include "library.factory.pod.labels" $root  | indent 4 }}
+  selector: {{ include "library.factory.podSelectorLabel" . | nindent 4 }}
   {{- end }}
 {{- end}}
