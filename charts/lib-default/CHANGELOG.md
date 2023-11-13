@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.0](https://github.com/ptonini/helm-charts/compare/lib-default-v2.3.1...lib-default-v2.4.0) (2023-11-13)
+
+
+### Features
+
+* added pod selector label factory ([18aea8f](https://github.com/ptonini/helm-charts/commit/18aea8f4a1f354ed5f4619e0b99994efdd91b90f))
+
 ## [2.3.1](https://github.com/ptonini/helm-charts/compare/lib-default-v2.3.0...lib-default-v2.3.1) (2023-10-10)
 
 
