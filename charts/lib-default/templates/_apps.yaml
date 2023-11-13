@@ -14,7 +14,7 @@ spec:
   volumeClaimTemplates: {{ .Values.volumeClaimTemplates | toYaml | nindent 4 }}
   {{- end }}
   selector:
-    matchLabels: {{ include "library.factory.podSelectorLabel" . | nindent 6 }}
+    matchLabels: {{ include "library.factory.podSelectorLabel" . | indent 6 }}
   template: {{ include "library.pod" . | indent 4 }}
 {{- end }}
 

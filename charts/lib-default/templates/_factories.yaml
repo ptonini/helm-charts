@@ -16,5 +16,5 @@
 
 
 {{- define "library.factory.podSelectorLabel" }}
-{{ coalesce .Values.podSelectorLabel.key "app" }}: {{ coalesce .Values.podSelectorLabel.value .Values.resource_name .Release.Name }}
+{{ coalesce ((.Values).podSelectorLabel).key "app" }}: {{ coalesce ((.Values).podSelectorLabel).value .Values.resource_name .Release.Name }}
 {{- end }}

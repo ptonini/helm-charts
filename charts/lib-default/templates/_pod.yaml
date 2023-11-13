@@ -19,9 +19,9 @@ metadata:
   annotations: {{ include "library.factory.kv_list" .Values.pod.annotations | indent 4 }}
   {{- end }}
   labels:
-    {{ include "library.factory.podSelectorLabel" . | indent 6 }}
+    {{- include "library.factory.podSelectorLabel" . | indent 4 }}
     {{- if ((.Values.pod).labels) }}
-    {{- include "library.factory.kv_list" .Values.pod.labels }}
+    {{- include "library.factory.kv_list" .Values.pod.labels | indent 4 }}
     {{- end }}
 spec:
   {{- include "library.pod.spec" (mergeOverwrite .Values (coalesce ((.Values.pod).spec) dict)) | indent 2 }}
