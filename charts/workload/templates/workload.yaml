@@ -5,10 +5,10 @@
 {{- if .Values.service.enabled }}{{ include "library.service" . }}{{ end }}
 
 {{- if and (eq .Values.kind "StatefulSet") (not .Values.serviceName) }}
-{{- $serviceName :=  printf "%s-headless" (include "library.factory.resource_name" . )}}
+{{- $serviceName := printf "%s-headless" (include "library.factory.resource_name" . ) }}
 {{- $root := dict "Chart" .Chart "Release" .Release "Values" (deepCopy .Values.service) }}
 {{- $_ := set $root.Values "resource_name" $serviceName }}
-{{- $_ = set $root.Values "type" "Headless"}}
+{{- $_ = set $root.Values "type" "Headless" }}
 {{- $_ = unset $root.Values "annotations" }}
 {{ include "library.service" $root }}
 {{- $_ = set .Values "serviceName" $serviceName }}

@@ -7,7 +7,7 @@ token_volume:
 autoscaler:
   enabled: false
 serviceaccount:
-  enabled: false
+  enabled: true
 service:
   enabled: true
 ingress:
