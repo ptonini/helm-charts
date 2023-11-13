@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.1](https://github.com/ptonini/helm-charts/compare/lib-default-v2.4.0...lib-default-v2.4.1) (2023-11-13)
+
+
+### Bug Fixes
+
+* fixed indentation and lice spacing in pod selector label usage ([7a81b34](https://github.com/ptonini/helm-charts/commit/7a81b34a25a6236ef91d2a205532848275d66b58))
+
 ## [2.4.0](https://github.com/ptonini/helm-charts/compare/lib-default-v2.3.1...lib-default-v2.4.0) (2023-11-13)
 
 
