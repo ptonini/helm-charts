@@ -14,5 +14,6 @@
   "charts/pypicloud": "1.1.0",
   "charts/lib-cert-manager": "1.1.0",
   "charts/certificate": "1.0.0",
-  "charts/eck-stack": "1.1.0"
+  "charts/eck-stack": "1.1.0",
+  "charts/libk8s": "1.0.0"
 }
