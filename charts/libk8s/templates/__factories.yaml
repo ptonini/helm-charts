@@ -1,0 +1,63 @@
+{{- define "k8s.factory.resourceName" }}
+{{- coalesce .Values.resourceName .Release.Name }}
+{{- end}}
+
+{{- define "k8s.factory.resourceNamespace" }}
+{{- coalesce .Values.resourceNamespace .Release.Namespace }}
+{{- end}}
+
+
+{{- define "k8s.factory.serviceProtocol" }}
+{{- coalesce .protocol  "TCP" }}
+{{- end }}
+
+
+{{- define "k8s.factory.mapToMapString" }}
+{{- range $k, $v := . }}
+{{ $k }}: {{ $v | toString | quote }}
+{{- end }}
+{{- end }}
+
+
+{{- define "k8s.factory.mapToEnvList" }}
+{{- range $k, $v := . }}
+- name: {{ $k }}
+  value: {{ if kindIs "map" $v }}{{ $v | toYaml | indent 4 }}{{ else }}{{ $v | toString | quote }}{{ end }}
+{{- end }}
+{{- end }}
+
+
+{{- define "k8s.factory.podSelectorLabel" }}
+{{ coalesce .Values.selectorLabel ((.Values).pod).selectorLabel .Values.libk8s.pod.selectorLabel }}: {{ coalesce .Values.selectorLabelValue ((.Values).pod).selectorLabelValue .Values.resourceName .Release.Name }}
+{{- end }}
+
+
+{{- define "k8s.factory.serviceAccountName" }}
+{{- if hasKey .Values "serviceaccount" }}
+{{- coalesce  .Values.serviceaccount.resourceName .Values.resourceName .Release.Name }}
+{{- else }}
+{{- coalesce .Values.serviceAccountName ((.Values).pod).serviceAccountName .Values.libk8s.pod.serviceAccountName }}
+{{- end }}
+{{- end }}
+
+
+{{- define "k8s.factory.containerImage" }}
+{{- if kindIs "string" . }}{{ . }}
+{{- else }}
+{{- if .registry }}{{ .registry }}/{{ end }}{{ .repository }}{{ if .tag }}:{{ .tag }}{{ else if .digest }}@{{ .digest }}{{ end }}{{ end }}
+{{- end }}
+
+
+{{- define "k8s.factory.issuerKind" }}
+{{- ternary "ClusterIssuer" "Issuer" (eq .Values.scope .Values.libk8s.scopes.cluster) }}
+{{- end }}
+
+
+{{- define "k8s.factory.roleKind" }}
+{{- ternary "ClusterRole" "Role" (eq .Values.scope .Values.libk8s.scopes.cluster) }}
+{{- end }}
+
+
+{{- define "k8s.factory.bindingKind" }}
+{{- printf "%sBinding" (include "k8s.factory.roleKind" .) }}
+{{- end }}

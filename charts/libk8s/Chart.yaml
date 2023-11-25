@@ -1,0 +1,5 @@
+apiVersion: v2
+name: libk8s
+description: Common kubernetes resource template library
+version: 1.0.0
+type: library

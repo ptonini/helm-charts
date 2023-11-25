@@ -1,0 +1,24 @@
+{{- define "k8s.core.configmap"}}
+---
+apiVersion: v1
+kind: ConfigMap
+{{- include "k8s.metadata" . }}
+data:
+  {{ include "k8s.factory.mapToMapString" .Values.data | indent 2 }}
+{{- end }}
+
+
+{{- define "k8s.core.secret"}}
+---
+apiVersion: v1
+kind: Secret
+{{- include "k8s.metadata" . }}
+type: {{ coalesce .Values.type .Values.libk8s.secrets.type}}
+data:
+  {{- range $k, $v := .Values.plainText }}
+  {{ $k | quote }}: {{ $v | b64enc }}
+  {{- end }}
+  {{- range $k, $v := .Values.encoded }}
+  {{ $k | quote }}: {{ $v }}
+  {{- end }}
+{{- end }}

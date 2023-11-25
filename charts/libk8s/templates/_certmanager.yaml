@@ -1,0 +1,46 @@
+{{- define "k8s.cert-manager.issuer" }}
+---
+apiVersion: cert-manager.io/v1
+kind: {{ include "k8s.factory.issuerKind" . }}
+{{- include "k8s.metadata" . }}
+spec: {{- .Values.spec | toYaml | nindent 2 }}
+{{- end }}
+
+
+{{- define "k8s.cert-manager.certificate" }}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+{{- include "k8s.metadata" . }}
+spec:
+  secretName: {{ .Values.secretName }}
+  {{- if .Values.secretTemplate }}
+  secretTemplate: {{ .Values.secretTemplate | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if .Values.usages }}
+  usages: {{ .Values.usages | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if .Values.dnsNames }}
+  dnsNames: {{ .Values.dnsNames | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if .Values.uris }}
+  uris: {{ .Values.uris | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if .Values.ipAddresses }}
+  ipAddresses: {{ .Values.ipAddresses | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if .Values.subject }}
+  subject: {{ .Values.subject | toYaml | nindent 4 }}
+  {{- end }}
+  isCA: {{ default false .Values.isCA }}
+  {{- if .Values.duration }}
+  duration: {{ .values.duration }}
+  {{- end }}
+  {{- if .Values.renewBefore }}
+  renewBefore: {{ .Values.renewBefore }}
+  {{- end }}
+  issuerRef:
+    name: {{ .Values.issuer }}
+    kind: {{ .Values.issuerKind }}
+    group: cert-manager.io
+{{- end }}

@@ -3,6 +3,10 @@
   "commit-search-depth": 50,
   "sequential-calls": false,
   "packages": {
+    "charts/libk8s": {
+      "release-type": "helm",
+      "separate-pull-requests": true
+    },
     "charts/lib-default": {
       "release-type": "helm",
       "separate-pull-requests": true
@@ -42,9 +46,6 @@
       "release-type": "helm"
     },
     "charts/eck-stack": {
-      "release-type": "helm"
-    },
-    "charts/psono": {
       "release-type": "helm"
     },
     "charts/pypicloud": {

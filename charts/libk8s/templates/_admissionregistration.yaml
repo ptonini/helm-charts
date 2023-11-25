@@ -1,0 +1,33 @@
+{{- define "k8s.admissionregistration.webhook" }}
+---
+{{- with (dict "Chart" .Chart "Release" .Release "Values" (mergeOverwrite (deepCopy .Values) (coalesce .Values.webhook dict))) }}
+apiVersion: admissionregistration.k8s.io/v1
+kind: {{ coalesce .Values.kind .Values.libk8s.webhook.kind }}
+{{- include "k8s.metadata" . }}
+webhooks:
+  - name: {{ include "k8s.factory.resourceName" . }}.{{ include "k8s.factory.resourceNamespace" . }}
+    matchPolicy: {{ coalesce .Values.matchPolicy .Values.libk8s.webhook.matchPolicy }}
+    failurePolicy: {{ coalesce .Values.failurePolicy .Values.libk8s.webhook.failurePolicy }}
+    objectSelector:
+      matchExpressions:
+        - key: {{ .Values.podSelectorLabel }}
+          operator: NotIn
+          values:
+            - {{ include "k8s.factory.resourceName" . }}
+    namespaceSelector:
+      matchExpressions:
+        - key: kubernetes.io/metadata.name
+          operator: {{ coalesce .Values.namespaceSelector.operator .Values.libk8s.webhook.namespaceSelector.operator }}
+          values: {{ coalesce .Values.namespaceSelector.namespaces .Values.libk8s.webhook.namespaceSelector.namespaces | toYaml | nindent 12 }}
+    rules: {{ .Values.rules | toYaml | nindent 6 }}
+    clientConfig:
+      {{- if .Values.caBundle }}
+      caBundle: {{ .Values.caBundle }}
+      {{- end }}
+      service:
+        name: {{ include "k8s.factory.resourceName" . }}.
+        namespace: {{ include "k8s.factory.resourceNamespace" . }}
+        path: {{ coalesce .Values.path .Values.libk8s.webhook.path }}
+    admissionReviewVersions: {{ coalesce .Values.admissionReviewVersions .Values.libk8s.webhook.admissionReviewVersions  | toYaml | nindent 6}}
+    sideEffects: None
+{{- end }}{{ end }}

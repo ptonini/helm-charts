@@ -11,7 +11,6 @@
   "charts/kong-plugin": "1.1.0",
   "charts/rabbitmq-cluster": "1.1.0",
   "charts/admission-controller": "1.2.1",
-  "charts/psono": "1.1.1",
   "charts/pypicloud": "1.1.0",
   "charts/lib-cert-manager": "1.1.0",
   "charts/certificate": "1.0.0",

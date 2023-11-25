@@ -1,0 +1,20 @@
+{{- define "k8s.metadata" }}
+metadata:
+  {{- if or .Values.resourceGenerateName .Values.generateName }}
+  generateName: {{ coalesce .Values.resourceGenerateName .Values.generateName }}
+  {{- else }}
+  name: {{ include "k8s.factory.resourceName" . }}
+  {{- end }}
+  {{- if ne .Values.scope .Values.libk8s.scopes.cluster }}
+  namespace: {{ include "k8s.factory.resourceNamespace" . }}
+  {{- end }}
+  {{- if .Values.annotations }}
+  annotations: {{- include "k8s.factory.mapToMapString" .Values.annotations | indent 4 }}
+  {{- end }}
+  labels:
+    app.kubernetes.io/name: {{ .Release.Name }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    {{- include "k8s.factory.mapToMapString" .Values.labels | indent 4 }}
+{{- end }}

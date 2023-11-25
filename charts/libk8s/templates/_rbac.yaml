@@ -1,0 +1,39 @@
+{{- define "k8s.core.serviceaccount" }}
+---
+apiVersion: v1
+kind: ServiceAccount
+{{- include "k8s.metadata" . }}
+{{- range .Values.roles }}
+{{- $_ := set . "libk8s" $.Values.libk8s }}
+{{- include "k8s.rbac.role" (dict "Chart" $.Chart "Release" $.Release "Values" .) }}
+{{- end }}
+{{- range $.Values.bindings }}
+{{- $_ := set . "libk8s" $.Values.libk8s }}
+{{- include "k8s.rbac.binding" (dict "Chart" $.Chart "Release" $.Release "Values"  .) }}
+{{- end }}
+{{- end }}
+
+
+{{- define "k8s.rbac.role" }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: {{ include "k8s.factory.roleKind" . }}
+{{- include "k8s.metadata" . }}
+rules: {{ .Values.rules | toYaml | nindent 2 }}
+{{- end }}
+
+
+{{- define "k8s.rbac.binding" }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: {{ include "k8s.factory.bindingKind" . }}
+{{- include "k8s.metadata" . }}
+roleRef:
+  kind: {{ coalesce .Values.roleKind (include "k8s.factory.roleKind" . ) }}
+  name: {{ coalesce .Values.roleName (include "k8s.factory.resourceName" . )}}
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+  - kind: ServiceAccount
+    name: {{ coalesce ((.Values).serviceAccount).name (include "k8s.factory.resourceName" . )}}
+    namespace: {{ coalesce ((.Values).serviceAccount).namespace (include "k8s.factory.resourceNamespace" . )}}
+{{- end }}

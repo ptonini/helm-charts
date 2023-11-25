@@ -1,0 +1,30 @@
+{{- define "k8s.batch.job" }}
+---
+apiVersion: batch/v1
+kind: Job
+{{- include "k8s.metadata" . }}
+{{ include "k8s.batch.job.spec" . }}
+{{- end }}
+
+{{- define "k8s.batch.cronjob" }}
+---
+apiVersion: batch/v1
+kind: CronJob
+{{- include "k8s.metadata" . }}
+spec:
+  schedule: {{ coalesce .Values.schedule .Values.libk8s.cronjob.schedule | quote }}
+  concurrencyPolicy: {{ coalesce .Values.concurrencyPolicy .Values.libk8s.cronjob.concurrencyPolicy }}
+  jobTemplate: {{ include "k8s.batch.job.spec" . | indent 4 }}
+{{- end }}
+
+
+{{- define "k8s.batch.job.spec" }}
+spec:
+  parallelism: {{ coalesce .Values.parallelism .Values.libk8s.job.parallelism }}
+  completions: {{ coalesce .Values.completions .Values.libk8s.job.completions }}
+  restartPolicy: {{ coalesce .Values.restartPolicy .Values.libk8s.job.restartPolicy }}
+  {{- if .Values.activeDeadlineSeconds }}
+  activeDeadlineSeconds: {{ .Values.activeDeadlineSeconds  }}
+  {{- end }}
+  template: {{ include "k8s.core.pod" . | indent 4 }}
+{{- end }}
