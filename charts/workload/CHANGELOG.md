@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/ptonini/helm-charts/compare/workload-v2.2.0...workload-v3.0.0) (2023-12-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* **workload:** major refactoring, replaced template library
+
+### Features
+
+* **workload:** major refactoring, replaced template library ([d12cbdb](https://github.com/ptonini/helm-charts/commit/d12cbdba4dfc884bb816176738e84fa70b5f96bd))
+
 ## [2.2.0](https://github.com/ptonini/helm-charts/compare/workload-v2.1.2...workload-v2.2.0) (2023-11-13)
 
 
