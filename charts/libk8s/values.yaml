@@ -2,7 +2,7 @@ scopes:
   namespaced: namespaced
   cluster: cluster
 workload:
-  appKind: Deployment
+  kind: Deployment
 job:
   completions: 1
   parallelism:  1
@@ -13,12 +13,18 @@ cronjob:
 pod:
   serviceAccountName: default
   selectorLabel: app
+  serviceAccountTokenVolume:
+    name: token
+    expiration: 3600
 service:
   type: ClusterIP
   port:
     protocol: TCP
 secret:
   type: Opaque
+autoscaler:
+  metrics:
+    targetType: Utilization
 webhook:
   kind: MutatingWebhookConfiguration
   matchPolicy: Equivalent
@@ -30,3 +36,8 @@ webhook:
       - kube-public
       - kube-node-lease
   path: /mutate
+  admissionReviewVersions:
+    - v1
+certificate:
+  issuer: self-signed
+  issuerKind: ClusterIssuer

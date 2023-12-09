@@ -1,0 +1,130 @@
+{{- define "k8s.core.pod" }}
+---
+apiVersion: v1
+kind: Pod
+{{ include "k8s.metadata" . }}
+{{ include "k8s.core.pod.spec" . }}
+{{- end }}
+
+
+{{- define "k8s.core.pod.template" }}
+{{- include "k8s.contextMutator.mergePodToValues" . }}
+metadata:
+  {{- if .Values.annotations }}
+  annotations: {{ include "k8s.factory.mapToMapString" .Values.annotations | indent 4 }}
+  {{- end }}
+  labels:
+    {{- include "k8s.metadata.helmLabels" . | indent 4 }}
+    {{- include "k8s.factory.podSelectorLabel" . | indent 4 }}
+    {{- include "k8s.factory.mapToMapString" .Values.labels | indent 4 }}
+{{- include "k8s.core.pod.spec" . }}
+{{- end }}
+
+
+{{- define "k8s.core.pod.spec" }}
+{{- include "k8s.contextMutator.injectContainer" . }}
+spec:
+  serviceAccountName: {{ include "k8s.factory.serviceAccountName" . }}
+  {{- if .Values.nodeSelector }}
+  nodeSelector: {{ .Values.nodeSelector | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if .Values.imagePullSecrets }}
+  imagePullSecrets: {{ include "k8s.factory.listToNameList" .Values.imagePullSecrets | indent 4 }}
+  {{- end }}
+  {{- if .Values.tolerations }}
+  tolerations: {{ .Values.tolerations | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if .Values.terminationGracePeriodSeconds }}
+  terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
+  {{- end }}
+  {{- if .Values.hostNetwork }}
+  hostNetwork: {{ .Values.hostNetwork }}
+  {{- end }}
+  {{- if .Values.hostPID }}
+  hostPID: {{ .Values.hostPID }}
+  {{- end }}
+  {{- if .Values.dnsPolicy }}
+  dnsPolicy: {{ .Values.dnsPolicy }}
+  {{- end }}
+  {{- if .Values.restartPolicy }}
+  restartPolicy: {{ .Values.restartPolicy }}
+  {{- end }}
+  {{- if .Values.securityContext }}
+  securityContext: {{ .Values.securityContext | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if or .Values.volumes .Values.serviceAccountTokenVolume }}
+  volumes: {{ .Values.volumes | toYaml | nindent 4 }}
+    {{- if .Values.serviceAccountTokenVolume }}
+    - name: {{  coalesce .Values.serviceAccountTokenVolume.name .Values.libk8s.pod.serviceAccountTokenVolume.name  }}
+      projected:
+        sources:
+          - serviceAccountToken:
+              path: {{ coalesce .Values.serviceAccountTokenVolume.path .Values.serviceAccountTokenVolume.name .Values.libk8s.pod.serviceAccountTokenVolume.name }}
+              expirationSeconds: {{ coalesce .Values.serviceAccountTokenVolume.expiration .Values.libk8s.pod.serviceAccountTokenVolume.expiration }}
+              {{- if .Values.serviceAccountTokenVolume.audience }}
+              audience: {{ .Values.serviceAccountTokenVolume.audience }}
+              {{- end }}
+    {{- end }}
+  {{- end }}
+  {{- if .Values.initContainers }}
+  initContainers:
+    {{- range .Values.initContainers }}
+    {{- include "k8s.core.pod.container" . | indent 4 }}
+    {{- end }}
+  {{- end }}
+  containers:
+    {{- range .Values.containers }}
+    {{- include "k8s.core.pod.container" (set . "service" $.Values.service) | indent 4 }}
+    {{- end }}
+{{- end }}
+
+
+{{- define "k8s.core.pod.container" }}
+- name: {{ .name }}
+  image: {{ include "k8s.factory.containerImage" .image }}
+  {{- if .imagePullPolicy }}
+  imagePullPolicy: {{ .imagePullPolicy }}
+  {{- end }}
+  {{- if .command }}
+  command: {{ .command | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if .args }}
+  args: {{ .args | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if .env }}
+  env: {{ include "k8s.factory.mapToEnvList" .env | indent 4 }}
+  {{- end }}
+  {{- if or .envSecretRefs .envConfigMapRefs  }}
+  envFrom:
+    {{- range .envConfigMapRefs }}
+    - configMapRef:
+        name: {{ . }}
+    {{- end }}
+    {{- range .envSecretRefs }}
+    - secretRef:
+        name: {{ . }}
+    {{- end }}
+  {{- end }}
+  {{- if .volumeMounts }}
+  volumeMounts: {{ .volumeMounts | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if .service }}
+  ports:
+    {{- range .service.ports }}
+    - containerPort: {{ coalesce .targetPort .port }}
+      protocol: {{ include "k8s.factory.serviceProtocol" . }}
+    {{- end }}
+  {{- end }}
+  {{- if .resources }}
+  resources: {{ .resources | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if .readinessProbe }}
+  readinessProbe: {{ .readinessProbe | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if .livenessProbe }}
+  livenessProbe: {{ .livenessProbe | toYaml | nindent 4 }}
+  {{- end }}
+  {{- if .lifecycle }}
+  lifecycle: {{ .lifecycle | toYaml }}
+  {{- end }}
+{{- end }}

@@ -1,4 +1,4 @@
-{{- define "k8s.cert-manager.issuer" }}
+{{- define "k8s.certManager.issuer" }}
 ---
 apiVersion: cert-manager.io/v1
 kind: {{ include "k8s.factory.issuerKind" . }}
@@ -7,13 +7,13 @@ spec: {{- .Values.spec | toYaml | nindent 2 }}
 {{- end }}
 
 
-{{- define "k8s.cert-manager.certificate" }}
+{{- define "k8s.certManager.certificate" }}
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
 {{- include "k8s.metadata" . }}
 spec:
-  secretName: {{ .Values.secretName }}
+  secretName: {{ coalesce .Values.secretName .Release.Name }}
   {{- if .Values.secretTemplate }}
   secretTemplate: {{ .Values.secretTemplate | toYaml | nindent 4 }}
   {{- end }}

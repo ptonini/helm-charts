@@ -9,17 +9,13 @@ spec:
   {{- end }}
   tls:
     - hosts: {{ .Values.hosts | toYaml | nindent 8 }}
-      secretName: {{ coalesce .Values.certificate (printf "%s-certificate" (include "k8s.factory.resourceName" . )) }}
+      secretName: {{ include "k8s.factory.certificateName" . }}
   rules:
-    {{- if not .Values.paths }}
-    {{- $_ := set .Values "paths" (list (dict "service" (include "k8s.factory.resourceName" .) "port" (first .Values.service.ports).port)) }}
-    {{- end }}
-    {{- $paths := .Values.paths }}
     {{- range .Values.hosts }}
     - host: {{ . }}
       http:
         paths:
-          {{- range $paths }}
+          {{- range $.Values.paths }}
           - pathType: ImplementationSpecific
             {{- if .path  }}
             path: {{ .path }}

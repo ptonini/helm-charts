@@ -2,9 +2,10 @@
 ---
 apiVersion: batch/v1
 kind: Job
-{{- include "k8s.metadata" . }}
+{{ include "k8s.metadata" . }}
 {{ include "k8s.batch.job.spec" . }}
 {{- end }}
+
 
 {{- define "k8s.batch.cronjob" }}
 ---
@@ -26,5 +27,5 @@ spec:
   {{- if .Values.activeDeadlineSeconds }}
   activeDeadlineSeconds: {{ .Values.activeDeadlineSeconds  }}
   {{- end }}
-  template: {{ include "k8s.core.pod" . | indent 4 }}
+  template: {{ include "k8s.core.pod.template" . | indent 4 }}
 {{- end }}

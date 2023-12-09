@@ -1,7 +1,7 @@
 {{- define "k8s.apps.workload" }}
 ---
 apiVersion: apps/v1
-kind: {{ coalesce .Values.appKind .Values.libk8s.workload.appKind }}
+kind: {{ coalesce .Values.kind .Values.libk8s.workload.kind }}
 {{- include "k8s.metadata" . }}
 spec:
   {{- if .Values.replicas }}
@@ -15,5 +15,5 @@ spec:
   {{- end }}
   selector:
     matchLabels: {{ include "k8s.factory.podSelectorLabel" . | indent 6 }}
-  template: {{ include "k8s.core.pod" . | indent 4 }}
+  template: {{ include "k8s.core.pod.template" . | indent 4 }}
 {{- end }}

@@ -12,9 +12,13 @@ metadata:
   annotations: {{- include "k8s.factory.mapToMapString" .Values.annotations | indent 4 }}
   {{- end }}
   labels:
-    app.kubernetes.io/name: {{ .Release.Name }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
-    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    {{- include "k8s.metadata.helmLabels" . | indent 4 }}
     {{- include "k8s.factory.mapToMapString" .Values.labels | indent 4 }}
+{{- end }}
+
+{{- define "k8s.metadata.helmLabels" }}
+app.kubernetes.io/name: {{ .Release.Name }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+app.kubernetes.io/managed-by: {{ .Release.Service }}
+helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
 {{- end }}

@@ -4,6 +4,6 @@ description: Kubernetes Generic Workload Template
 type: application
 version: 2.2.0
 dependencies:
-  - name: lib-default
-    version: 2.4.1
-    repository: https://ptonini.github.io/helm-charts
+  - name: libk8s
+    version: 0.0.0
+    repository: file://../libk8s

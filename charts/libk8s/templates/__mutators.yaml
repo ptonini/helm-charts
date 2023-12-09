@@ -1,0 +1,37 @@
+{{/* Remove labels and annotations and merge pod context */}}
+{{- define "k8s.contextMutator.mergePodToValues" -}}
+{{- $values := unset (unset (deepCopy .Values) "annotations") "labels" }}
+{{- $_ := set . "Values" (mergeOverwrite $values (coalesce .Values.pod dict)) }}
+{{- end }}
+
+
+{{/* Inject container in values if not explicitly declared */}}
+{{- define "k8s.contextMutator.injectContainer" -}}
+{{- if and (not .Values.containers) (not ((.Values).pod).containers) }}
+{{- $_ := set .Values "containers" (list (set (deepCopy .Values) "name" (include "k8s.factory.resourceName" .))) }}
+{{- end }}
+{{- end }}
+
+
+{{- define "k8s.contextMutator.populateCertAndMountToPod" }}
+{{- $_ := set .Values.certificate "secretName" (coalesce .Values.certificate.secretName (include "k8s.factory.resourceName" .)) }}
+{{- $_ = set .Values.certificate "issuer" (coalesce .Values.certificate.issuer .Values.libk8s.certificate.issuer) }}
+{{- $_ = set .Values.certificate "issuerKind" (coalesce .Values.certificate.issuerKind .Values.libk8s.certificate.issuerKind)  }}
+{{- $_ = set .Values.certificate "dnsNames" (list (printf "%s.%s.svc" (include "k8s.factory.resourceName" .) (include "k8s.factory.resourceNamespace" .)))  }}
+{{- $_ = set .Values "volumes" (append (default list .Values.volumes) (dict "name" "certificate" "secret" (dict "secretName" .Values.certificate.secretName ))) }}
+{{- $_ = set .Values "volumeMounts" (append (default list .Values.volumeMounts) (dict "name" "certificate" "mountPath" "/certs")) }}
+{{- end }}
+
+
+{{- define "k8s.contextMutator.annotateWebhookWithCaInjector" }}
+{{- if not .Values.webhook.annotations }}
+{{- $_ := set .Values.webhook "annotations" dict }}
+{{- end }}
+{{- $_ := set .Values.webhook.annotations "cert-manager.io/inject-ca-from" (printf "%s/%s" .Release.Namespace .Release.Name) }}
+{{- end }}
+
+
+{{- define "k8s.contextMutator.createIngressForService" }}
+{{- $_ := set .Values.ingress "libk8s" .Values.libk8s }}
+{{- $_ = set .Values.ingress "paths" (list (dict "service" (include "k8s.factory.resourceName" .) "port" (first .Values.service.ports).port)) }}
+{{- end }}

@@ -2,6 +2,7 @@
 {{- coalesce .Values.resourceName .Release.Name }}
 {{- end}}
 
+
 {{- define "k8s.factory.resourceNamespace" }}
 {{- coalesce .Values.resourceNamespace .Release.Namespace }}
 {{- end}}
@@ -27,14 +28,31 @@
 {{- end }}
 
 
+{{- define "k8s.factory.listToNameList" }}
+{{- range . }}
+- name: {{ . }}
+{{- end }}
+{{- end }}
+
+
+{{- define "k8s.factory.podSelectorLabelKey" }}
+{{- coalesce .Values.selectorLabel ((.Values).pod).selectorLabel .Values.libk8s.pod.selectorLabel }}
+{{- end }}
+
+
+{{- define "k8s.factory.podSelectorLabelValue" }}
+{{- coalesce .Values.selectorLabelValue ((.Values).pod).selectorLabelValue (include "k8s.factory.resourceName" .) }}
+{{- end }}
+
+
 {{- define "k8s.factory.podSelectorLabel" }}
-{{ coalesce .Values.selectorLabel ((.Values).pod).selectorLabel .Values.libk8s.pod.selectorLabel }}: {{ coalesce .Values.selectorLabelValue ((.Values).pod).selectorLabelValue .Values.resourceName .Release.Name }}
+{{ printf "%s: %s" (include "k8s.factory.podSelectorLabelKey" .) (include "k8s.factory.podSelectorLabelValue" .) }}
 {{- end }}
 
 
 {{- define "k8s.factory.serviceAccountName" }}
-{{- if hasKey .Values "serviceaccount" }}
-{{- coalesce  .Values.serviceaccount.resourceName .Values.resourceName .Release.Name }}
+{{- if kindIs "map" .Values.serviceAccount }}
+{{- coalesce .Values.serviceAccount.resourceName .Values.resourceName .Release.Name }}
 {{- else }}
 {{- coalesce .Values.serviceAccountName ((.Values).pod).serviceAccountName .Values.libk8s.pod.serviceAccountName }}
 {{- end }}
@@ -60,4 +78,23 @@
 
 {{- define "k8s.factory.bindingKind" }}
 {{- printf "%sBinding" (include "k8s.factory.roleKind" .) }}
+{{- end }}
+
+
+{{- define "k8s.factory.certificateName" }}
+{{- coalesce .Values.certificate (printf "%s-certificate" (include "k8s.factory.resourceName" .)) }}
+{{- end }}
+
+
+{{- define "k8s.factory.rbacRoles"}}
+{{- range (coalesce ((.Values).serviceAccount).roles list) }}
+{{- include "k8s.rbac.role" (dict "Chart" $.Chart "Release" $.Release "Values" (set . "libk8s" $.Values.libk8s)) }}
+{{- end }}
+{{- end }}
+
+
+{{- define "k8s.factory.rbackBindings" }}
+{{- range (coalesce ((.Values).serviceAccount).bindings list) }}
+{{- include "k8s.rbac.binding" (dict "Chart" $.Chart "Release" $.Release "Values" (set . "libk8s" $.Values.libk8s)) }}
+{{- end }}
 {{- end }}

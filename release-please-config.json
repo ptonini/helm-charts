@@ -3,18 +3,6 @@
   "commit-search-depth": 50,
   "sequential-calls": false,
   "packages": {
-    "charts/libk8s": {
-      "release-type": "helm",
-      "separate-pull-requests": true
-    },
-    "charts/lib-default": {
-      "release-type": "helm",
-      "separate-pull-requests": true
-    },
-    "charts/lib-cert-manager": {
-      "release-type": "helm",
-      "separate-pull-requests": true
-    },
     "charts/configmap": {
       "release-type": "helm"
     },
