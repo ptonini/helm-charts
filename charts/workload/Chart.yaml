@@ -2,7 +2,7 @@ apiVersion: v2
 name: workload
 description: Kubernetes Generic Workload Template
 type: application
-version: 2.2.0
+version: 3.0.0
 dependencies:
   - name: libk8s
     version: 0.0.0
