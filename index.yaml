@@ -290,6 +290,19 @@ entries:
     version: 1.0.0
   configmap:
   - apiVersion: v2
+    created: "2023-12-10T18:30:17.720614623Z"
+    dependencies:
+    - name: libk8s
+      repository: file://../libk8s
+      version: 0.0.0
+    description: ConfigMap
+    digest: 0f1f1a045178fd0418da46370eae69e7f30b186462353605ef509049565bc41b
+    name: configmap
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/configmap-v2.0.0/configmap-2.0.0.tgz
+    version: 2.0.0
+  - apiVersion: v2
     created: "2022-10-03T22:13:48.861705043Z"
     dependencies:
     - name: lib-default
@@ -1809,6 +1822,19 @@ entries:
     version: 1.0.0
   secret:
   - apiVersion: v2
+    created: "2023-12-10T18:30:17.906051595Z"
+    dependencies:
+    - name: libk8s
+      repository: file://../libk8s
+      version: 0.0.0
+    description: Secret
+    digest: af8a1579fd8e434204455fcf59a967741272d2bb39426ea86b03d4f98a033260
+    name: secret
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/secret-v2.0.0/secret-2.0.0.tgz
+    version: 2.0.0
+  - apiVersion: v2
     created: "2022-10-03T22:13:49.270530392Z"
     dependencies:
     - name: lib-default
@@ -1822,6 +1848,19 @@ entries:
     - https://github.com/ptonini/helm-charts/releases/download/secret-v1.0.0/secret-1.0.0.tgz
     version: 1.0.0
   service:
+  - apiVersion: v2
+    created: "2023-12-10T18:30:18.079271399Z"
+    dependencies:
+    - name: libk8s
+      repository: file://../libk8s
+      version: 0.0.0
+    description: Service
+    digest: bf0a3f55dce4e2d69cdb39d4daa3c1a18f205e51786be8b4be4808aed1cbbfda
+    name: service
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/service-v2.0.0/service-2.0.0.tgz
+    version: 2.0.0
   - apiVersion: v2
     created: "2023-10-10T21:49:57.165957316Z"
     dependencies:
@@ -2339,4 +2378,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-10T18:19:01.236705994Z"
+generated: "2023-12-10T18:30:18.079578652Z"
