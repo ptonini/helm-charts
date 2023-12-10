@@ -1863,6 +1863,19 @@ entries:
     version: 1.0.0
   serviceaccount:
   - apiVersion: v2
+    created: "2023-12-10T18:19:01.23631678Z"
+    dependencies:
+    - name: libk8s
+      repository: file://../libk8s
+      version: 0.0.0
+    description: Kubernetes service account
+    digest: ba3a243b3953fecc2e0032a5a118fd61cf65c32e9aa8399028e8da15165e9aa2
+    name: serviceaccount
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/serviceaccount-v2.0.0/serviceaccount-2.0.0.tgz
+    version: 2.0.0
+  - apiVersion: v2
     created: "2022-10-03T22:13:49.535752529Z"
     dependencies:
     - name: lib-default
@@ -2326,4 +2339,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-09T16:03:45.682264235Z"
+generated: "2023-12-10T18:19:01.236705994Z"
