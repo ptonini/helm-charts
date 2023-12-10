@@ -1,1 +1,1 @@
-{{- include "library.configmap" . }}
+{{- include "k8s.core.configmap" . }}

@@ -1,1 +1,1 @@
-{{- include "library.service" . }}
+{{- include "k8s.core.service" . }}

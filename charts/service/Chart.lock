@@ -1,6 +1,6 @@
 dependencies:
-- name: lib-default
-  repository: https://ptonini.github.io/helm-charts
-  version: 2.3.1
-digest: sha256:5e0344f330093c078e92c6e4df7527c2620da0de82642c3e739c790484090fcd
-generated: "2023-10-10T18:46:19.210017755-03:00"
+- name: libk8s
+  repository: file://../libk8s
+  version: 0.0.0
+digest: sha256:a7a527f5078acd33d7745ab7a3c666fd57b63a9eaf5fef2eb06478fe78366231
+generated: "2023-11-26T21:29:07.487193278-03:00"
