@@ -1,6 +1,1 @@
-cred_type: basic-auth
-username: guest
-ingress_class: kong
-password: ~
 annotations: {}
-

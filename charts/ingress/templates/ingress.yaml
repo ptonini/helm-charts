@@ -1,1 +1,1 @@
-{{- include "library.ingress" . }}
+{{- include "k8s.networking.ingress" . }}

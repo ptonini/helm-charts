@@ -4,6 +4,6 @@ description: Kong Consumer
 type: application
 version: 1.1.0
 dependencies:
-  - name: lib-default
-    version: 1.12.1
-    repository: https://ptonini.github.io/helm-charts
+  - name: libk8s
+    version: 0.0.0
+    repository: file://../libk8s

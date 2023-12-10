@@ -1,6 +1,6 @@
 apiVersion: rabbitmq.com/v1beta1
 kind: RabbitmqCluster
-{{- include "library.metadata" . }}
+{{- include "k8s.metadata" . }}
 spec:
   replicas: {{ .Values.replicas }}
   service: {{ .Values.service | toYaml | nindent 4 }}
