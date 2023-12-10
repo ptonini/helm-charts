@@ -7,7 +7,7 @@
   "charts/serviceaccount": "2.0.0",
   "charts/workload": "3.0.0",
   "charts/kong-consumer": "2.0.0",
-  "charts/kong-plugin": "2.0.0",
+  "charts/kong-plugin": "2.0.1",
   "charts/rabbitmq-cluster": "2.0.0",
   "charts/admission-controller": "1.2.1",
   "charts/pypicloud": "1.1.0",

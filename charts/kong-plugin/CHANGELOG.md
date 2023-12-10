@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/ptonini/helm-charts/compare/kong-plugin-v2.0.0...kong-plugin-v2.0.1) (2023-12-10)
+
+
+### Bug Fixes
+
+* added _helpers.yaml ([aaa8ef3](https://github.com/ptonini/helm-charts/commit/aaa8ef3b37a34d8301adb6f96bc1d7a08e1aeee5))
+
 ## [2.0.0](https://github.com/ptonini/helm-charts/compare/kong-plugin-v1.1.0...kong-plugin-v2.0.0) (2023-12-10)
 
 
