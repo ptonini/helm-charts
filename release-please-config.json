@@ -47,6 +47,9 @@
     },
     "charts/pull-secrets-creator": {
       "release-type": "helm"
+    },
+    "charts/ingress-bot": {
+      "release-type": "helm"
     }
   }
 }

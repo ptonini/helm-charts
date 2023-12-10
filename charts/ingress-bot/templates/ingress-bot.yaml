@@ -1,0 +1,5 @@
+{{- include "k8s.core.serviceAccount" (set (deepCopy .) "Values" (set .Values.serviceAccount "libk8s" .Values.libk8s)) }}
+{{- include "k8s.factory.rbacRoles" . }}
+{{- include "k8s.factory.rbackBindings" . }}
+
+{{- include "k8s.apps.workload" . }}

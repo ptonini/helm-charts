@@ -1,0 +1,25 @@
+image: ghcr.io/ptonini/ingress-bot:0.1.0
+serviceAccount:
+  bindings:
+    - scope: cluster
+  roles:
+    - rules:
+        - apiGroups:
+            - ""
+          resources:
+            - services
+          verbs:
+            - get
+            - list
+            - watch
+        - apiGroups:
+            - networking.k8s.io
+          resources:
+            - ingresses
+          verbs:
+            - get
+            - list
+            - create
+            - update
+            - delete
+      scope: cluster
