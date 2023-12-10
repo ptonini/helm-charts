@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/ptonini/helm-charts/compare/ingress-v1.2.4...ingress-v2.0.0) (2023-12-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* **serviceaccount:** major refactoring, replaced template library
+
+### Features
+
+* **serviceaccount:** major refactoring, replaced template library ([caf383c](https://github.com/ptonini/helm-charts/commit/caf383c01d575c1fcd2e21dafc7897abd43f5b92))
+
 ## [1.2.4](https://github.com/ptonini/helm-charts/compare/ingress-v1.2.3...ingress-v1.2.4) (2023-05-23)
 
 
