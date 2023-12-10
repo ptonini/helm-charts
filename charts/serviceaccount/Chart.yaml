@@ -1,9 +1,9 @@
 apiVersion: v2
 name: serviceaccount
-description: ServiceAccount
+description: Kubernetes service account
 version: 1.0.0
 type: application
 dependencies:
-  - name: lib-default
-    version: 1.0.0
-    repository: https://ptonini.github.io/helm-charts
+  - name: libk8s
+    version: 0.0.0
+    repository: file://../libk8s
