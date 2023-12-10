@@ -1,20 +1,34 @@
-{{- if .Values.certificate.certManager.enable }}
-{{- $_ := set .Values.webhook.annotations "cert-manager.io/inject-ca-from" (printf "%s/%s" .Release.Namespace .Release.Name) }}
-{{- $_ = set .Values.certificate "secretName" .Release.Name  }}
-{{- $_ = set .Values.certificate "issuer" .Values.certificate.certManager.issuer  }}
-{{- $_ = set .Values.certificate "issuerKind" .Values.certificate.certManager.issuerKind  }}
-{{- $_ = set .Values.certificate "dnsNames" (list (printf "%s.%s.svc" .Release.Name .Release.Namespace))  }}
-{{- include "library.cert-manager.certificate" . }}
+{{- if kindIs "map" .Values.autoscaler }}
+{{- include "k8s.autoscaling.horizontalPodAutoscaler" (set (deepCopy .) "Values" (set .Values.autoscaler "libk8s" .Values.libk8s)) }}
 {{- end }}
 
-{{- include "library.webhook" . }}
 
-{{- $_ := set .Values "volumes" (append .Values.volumes (dict "name" .Values.certificate.volume "secret" (dict "secretName" .Values.certificate.secretName ))) }}
-{{- $_ = set .Values "volumeMounts" (append .Values.volumeMounts (dict "name" .Values.certificate.volume "mountPath" .Values.certificate.mountPoint)) }}
-{{- include "library.workload" . }}
+{{- if kindIs "map" .Values.serviceAccount }}
+{{- include "k8s.core.serviceAccount" (set (deepCopy .) "Values" (set .Values.serviceAccount "libk8s" .Values.libk8s)) }}
+{{- include "k8s.factory.rbacRoles" . }}
+{{- include "k8s.factory.rbackBindings" . }}
+{{- end }}
 
-{{ include "library.service" . }}
 
-{{- if ((.Values.autoscaler).enabled) }}{{ include "library.horizontalpodautoscaler" . }}{{ end }}
+{{- if kindIs "map" .Values.certificate }}
+{{- include "k8s.mutator.annotateWebhookWithCaInjector" . }}
+{{- include "k8s.mutator.populateCertAndMountToPod" . }}
+{{- include "k8s.certManager.certificate" (set (deepCopy .) "Values" (set .Values.certificate "libk8s" .Values.libk8s)) }}
+{{- end }}
 
-{{- if .Values.serviceaccount.enabled }}{{ include "library.rbac.serviceaccount" . }}{{ end }}
+
+{{- if not .Values.service }}
+{{- $_ := set .Values "service" (dict "ports" (list (dict "port" 443 "targetPort" 8443))) }}
+{{- $probe := dict "httpGet" (dict "path" "/health" "port" 8443 "scheme" "HTTPS") "initialDelaySeconds" 3 }}
+{{- $_ = set .Values "readinessProbe" $probe }}
+{{- $_ = set .Values "livenessProbe" $probe }}
+{{- end }}
+
+
+{{- include "k8s.core.service" (set (deepCopy .) "Values" (set .Values.service "libk8s" .Values.libk8s)) }}
+
+
+{{- include "k8s.admissionRegistration.webhook" (set (deepCopy .) "Values" (set .Values.webhook "libk8s" .Values.libk8s)) }}
+
+
+{{- include "k8s.apps.workload" . }}

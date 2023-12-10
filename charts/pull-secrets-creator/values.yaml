@@ -1,0 +1,55 @@
+image: ghcr.io/ptonini/pull-secrets-creator:1.0.0
+replicas: 1
+volumes:
+  - name: certificate
+    secret:
+      secretName: pull-secrets-creator-certificate
+volumeMounts:
+  - name: certificate
+    mountPath: /certs
+readinessProbe: &probe
+ initialDelaySeconds: 3
+ httpGet:
+   path: /health
+   port: 8443
+   scheme: HTTPS
+livenessProbe: *probe
+
+certificate:
+  secretName: pull-secrets-creator-certificate
+  issuer: self-signed
+  issuerKind: ClusterIssuer
+
+service:
+  ports:
+    - port: 443
+      targetPort: 8443
+
+serviceAccount:
+  bindings:
+    - roleKind: ClusterRole
+      scope: cluster
+  roles:
+    - scope: cluster
+      rules:
+        - apiGroups:
+            - ""
+          resources:
+            - secrets
+          verbs:
+            - create
+            - get
+
+webhook:
+  annotations: {}
+  kind: ValidatingWebhookConfiguration
+  path: /validate
+  rules:
+    - apiGroups:
+        - ""
+      apiVersions:
+        - v1
+      operations:
+        - CREATE
+      resources:
+        - pods

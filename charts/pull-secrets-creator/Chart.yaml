@@ -1,8 +1,9 @@
 apiVersion: v2
-name: serviceaccount
-description: Kubernetes service account
-version: 1.0.0
+name: pull-secrets-creator
+description: Kubernetes imagePullSecrets creator
 type: application
+version: 0.0.0
+appVersion: 1.0.0
 dependencies:
   - name: libk8s
     version: 0.0.0

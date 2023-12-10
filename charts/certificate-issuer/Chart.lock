@@ -3,4 +3,4 @@ dependencies:
   repository: file://../libk8s
   version: 0.0.0
 digest: sha256:a7a527f5078acd33d7745ab7a3c666fd57b63a9eaf5fef2eb06478fe78366231
-generated: "2023-11-26T21:24:55.320104787-03:00"
+generated: "2023-11-26T22:24:26.777020657-03:00"

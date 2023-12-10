@@ -1,8 +1,8 @@
 apiVersion: v2
-name: serviceaccount
-description: Kubernetes service account
-version: 1.0.0
+name: certificate-issuer
+description: CertManager certificate issuer
 type: application
+version: 0.0.0
 dependencies:
   - name: libk8s
     version: 0.0.0

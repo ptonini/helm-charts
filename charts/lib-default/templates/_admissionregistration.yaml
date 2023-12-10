@@ -1,9 +1,9 @@
-{{- define "library.webhook" }}
+{{- define "library.admissionregistration.webhook" }}
 {{ $root := dict "Chart" .Chart "Release" .Release "Values" (mergeOverwrite (deepCopy .Values) (coalesce .Values.webhook dict)) }}
 {{ $_ := set $root.Values "scope" "cluster" }}
 ---
-kind: {{ .Values.webhook.kind }}
 apiVersion: admissionregistration.k8s.io/v1
+kind: {{ .Values.webhook.kind }}
 {{- include "library.metadata" $root }}
 webhooks:
   - name: {{ $root.Release.Name }}.{{ $root.Release.Namespace }}

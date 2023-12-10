@@ -19,9 +19,17 @@ spec:
 {{- end }}
 
 
+{{- define "library.horizontalpodautoscaler.metric" }}
+- type: Resource
+  resource:
+    name: {{ .name }}
+    target:
+      type: {{ coalesce .type "Utilization" }}
+      averageUtilization: {{ .averageUtilization }}
+{{- end }}
+
+
 {{- define "library.horizontalpodautoscaler" }}
-{{- $_ := set .Values.autoscaler "averageCpu" (coalesce .Values.autoscaler.averageCpu .Values.autoscaler.avr_cpu) }}
-{{- $_ = set .Values.autoscaler "averageMemory" (coalesce .Values.autoscaler.averageMemory .Values.autoscaler.avr_cpu) }}
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
@@ -33,21 +41,8 @@ spec:
     name: {{ include "library.factory.resource_name" . }}
   minReplicas: {{ .Values.replicas }}
   maxReplicas: {{ if gt .Values.replicas .Values.autoscaler.maxReplicas }}{{ .Values.replicas }}{{ else }}{{ .Values.autoscaler.maxReplicas }}{{ end }}
-  metrics: {{ if .Values.autoscaler.metrics }}{{ .Values.autoscaler.metrics | toYaml | nindent 4 }}{{ end }}
-    {{- if .Values.autoscaler.averageCpu }}
-    - type: Resource
-      resource:
-        name: cpu
-        target:
-          type: Utilization
-          averageUtilization: {{ .Values.autoscaler.averageCpu }}
-    {{- end }}
-    {{- if .Values.autoscaler.averageMemory }}
-    - type: Resource
-      resource:
-        name: memory
-        target:
-          type: Utilization
-          averageUtilization: {{ .Values.autoscaler.averageMemory }}
+  metrics:
+    {{- range .Values.autoscaler.metrics }}
+    {{ include "library.horizontalpodautoscaler.metric" . | indent 4 }}
     {{- end }}
 {{- end }}
