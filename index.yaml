@@ -166,6 +166,19 @@ entries:
     version: 1.0.0
   certificate:
   - apiVersion: v2
+    created: "2023-12-10T20:43:19.541146344Z"
+    dependencies:
+    - name: libk8s
+      repository: file://../libk8s
+      version: 0.0.0
+    description: Cert-Manager Certificate
+    digest: 7b8cc104aa939770d9a9906d301488d9740866d75a1226f78034e289ce838760
+    name: certificate
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/certificate-v2.0.0/certificate-2.0.0.tgz
+    version: 2.0.0
+  - apiVersion: v2
     created: "2022-10-28T14:54:37.171021527Z"
     dependencies:
     - name: lib-default
@@ -316,6 +329,19 @@ entries:
     - https://github.com/ptonini/helm-charts/releases/download/configmap-v1.0.0/configmap-1.0.0.tgz
     version: 1.0.0
   cronjob:
+  - apiVersion: v2
+    created: "2023-12-10T20:43:19.65895457Z"
+    dependencies:
+    - name: libk8s
+      repository: file://../libk8s
+      version: 0.0.0
+    description: Cronjob
+    digest: 146795afb64e452ad7686d8b72c61a193cbfb313e8ec86a0a22b16c45c283c0a
+    name: cronjob
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/cronjob-v2.0.0/cronjob-2.0.0.tgz
+    version: 2.0.0
   - apiVersion: v2
     created: "2022-11-18T22:50:17.422034695Z"
     dependencies:
@@ -2443,4 +2469,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-10T20:39:32.336894909Z"
+generated: "2023-12-10T20:43:19.659326752Z"
