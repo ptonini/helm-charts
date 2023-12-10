@@ -932,6 +932,19 @@ entries:
     version: 1.0.0
   ingress:
   - apiVersion: v2
+    created: "2023-12-10T19:08:26.976151096Z"
+    dependencies:
+    - name: libk8s
+      repository: file://../libk8s
+      version: 0.0.0
+    description: Ingress
+    digest: 626bd98f650a32122a666862d48b5a962260b8fc1278b1fe072f0cceaafcee53
+    name: ingress
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/ingress-v2.0.0/ingress-2.0.0.tgz
+    version: 2.0.0
+  - apiVersion: v2
     created: "2023-05-23T03:29:45.471845222Z"
     dependencies:
     - name: lib-default
@@ -1093,6 +1106,19 @@ entries:
     version: 1.0.0
   kong-consumer:
   - apiVersion: v2
+    created: "2023-12-10T19:08:27.102721878Z"
+    dependencies:
+    - name: libk8s
+      repository: file://../libk8s
+      version: 0.0.0
+    description: Kong Consumer
+    digest: 9aede963491cbed0b92dad0d51b4a5884b706fa3413a4c15d5f390c6a3df13da
+    name: kong-consumer
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/kong-consumer-v2.0.0/kong-consumer-2.0.0.tgz
+    version: 2.0.0
+  - apiVersion: v2
     created: "2023-05-07T05:35:24.301263483Z"
     dependencies:
     - name: lib-default
@@ -1139,6 +1165,19 @@ entries:
     - https://github.com/ptonini/helm-charts/releases/download/kong-ingress-v1.0.0/kong-ingress-1.0.0.tgz
     version: 1.0.0
   kong-plugin:
+  - apiVersion: v2
+    created: "2023-12-10T19:08:27.229237678Z"
+    dependencies:
+    - name: libk8s
+      repository: file://../libk8s
+      version: 0.0.0
+    description: Kong Plugin
+    digest: ae8965222795f39fb24cdce71b49216cf32319a5f38eb7e742b6219c8c342a28
+    name: kong-plugin
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/kong-plugin-v2.0.0/kong-plugin-2.0.0.tgz
+    version: 2.0.0
   - apiVersion: v2
     created: "2023-05-07T05:35:24.453991905Z"
     dependencies:
@@ -1782,6 +1821,19 @@ entries:
     version: 1.0.0
   rabbitmq-cluster:
   - apiVersion: v2
+    created: "2023-12-10T19:08:27.341678039Z"
+    dependencies:
+    - name: libk8s
+      repository: file://../libk8s
+      version: 0.0.0
+    description: RabbitMQ Cluster
+    digest: d7676dcba4af03c74f8b9a4859911f27eb1cc164d0663aece6dbe8e4ef31242a
+    name: rabbitmq-cluster
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/rabbitmq-cluster-v2.0.0/rabbitmq-cluster-2.0.0.tgz
+    version: 2.0.0
+  - apiVersion: v2
     created: "2023-03-03T18:58:12.37132996Z"
     dependencies:
     - name: lib-default
@@ -2378,4 +2430,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-10T18:30:18.079578652Z"
+generated: "2023-12-10T19:08:27.342034072Z"
