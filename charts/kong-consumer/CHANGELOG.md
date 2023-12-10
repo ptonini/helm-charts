@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/ptonini/helm-charts/compare/kong-consumer-v1.1.0...kong-consumer-v2.0.0) (2023-12-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* major refactoring, replaced template library
+
+### Features
+
+* major refactoring, replaced template library ([832af7f](https://github.com/ptonini/helm-charts/commit/832af7f84167fc2c622792eea65db15b93dc7ac4))
+
 ## [1.1.0](https://github.com/ptonini/helm-charts/compare/kong-consumer-v1.0.0...kong-consumer-v1.1.0) (2023-05-07)
 
 
