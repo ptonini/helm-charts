@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/ptonini/helm-charts/compare/service-v1.1.0...service-v2.0.0) (2023-12-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* major refactoring, replaced template library
+
+### Features
+
+* major refactoring, replaced template library ([f1c4b8a](https://github.com/ptonini/helm-charts/commit/f1c4b8a7a4c1f571b67b361f9da82a3e0f9e92c1))
+
 ## [1.1.0](https://github.com/ptonini/helm-charts/compare/service-v1.0.1...service-v1.1.0) (2023-10-10)
 
 

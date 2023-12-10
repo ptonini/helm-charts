@@ -1,9 +1,9 @@
 {
-  "charts/configmap": "1.0.0",
+  "charts/configmap": "2.0.0",
   "charts/cronjob": "1.1.2",
   "charts/ingress": "1.2.4",
-  "charts/secret": "1.0.0",
-  "charts/service": "1.1.0",
+  "charts/secret": "2.0.0",
+  "charts/service": "2.0.0",
   "charts/serviceaccount": "2.0.0",
   "charts/workload": "3.0.0",
   "charts/kong-consumer": "1.1.0",
