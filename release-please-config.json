@@ -41,6 +41,12 @@
     },
     "charts/certificate": {
       "release-type": "helm"
+    },
+    "charts/certificate-issuer": {
+      "release-type": "helm"
+    },
+    "charts/pull-secrets-creator": {
+      "release-type": "helm"
     }
   }
 }
