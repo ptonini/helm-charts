@@ -12,5 +12,7 @@
   "charts/admission-controller": "1.2.1",
   "charts/pypicloud": "1.1.0",
   "charts/certificate": "2.0.0",
-  "charts/eck-stack": "1.1.0"
+  "charts/eck-stack": "1.1.0",
+  "charts/certificate-issuer": "1.0.0",
+  "charts/pull-secrets-creator": "1.0.0"
 }
