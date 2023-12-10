@@ -1166,6 +1166,19 @@ entries:
     version: 1.0.0
   kong-plugin:
   - apiVersion: v2
+    created: "2023-12-10T20:39:32.33644643Z"
+    dependencies:
+    - name: libk8s
+      repository: file://../libk8s
+      version: 0.0.0
+    description: Kong Plugin
+    digest: cafe51d443c6b100bce964ae0f2e495e4d5290993a9735a8e591e53209d07db0
+    name: kong-plugin
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/kong-plugin-v2.0.1/kong-plugin-2.0.1.tgz
+    version: 2.0.1
+  - apiVersion: v2
     created: "2023-12-10T19:08:27.229237678Z"
     dependencies:
     - name: libk8s
@@ -2430,4 +2443,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-10T19:08:27.342034072Z"
+generated: "2023-12-10T20:39:32.336894909Z"
