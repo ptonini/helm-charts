@@ -1,6 +1,6 @@
 {
   "charts/configmap": "2.0.0",
-  "charts/cronjob": "1.1.2",
+  "charts/cronjob": "2.0.0",
   "charts/ingress": "2.0.0",
   "charts/secret": "2.0.0",
   "charts/service": "2.0.0",
@@ -11,6 +11,6 @@
   "charts/rabbitmq-cluster": "2.0.0",
   "charts/admission-controller": "1.2.1",
   "charts/pypicloud": "1.1.0",
-  "charts/certificate": "1.0.0",
+  "charts/certificate": "2.0.0",
   "charts/eck-stack": "1.1.0"
 }
