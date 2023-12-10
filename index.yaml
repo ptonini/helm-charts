@@ -194,6 +194,20 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/certificate-v1.0.0/certificate-1.0.0.tgz
     version: 1.0.0
+  certificate-issuer:
+  - apiVersion: v2
+    created: "2023-12-10T23:21:08.256282752Z"
+    dependencies:
+    - name: libk8s
+      repository: file://../libk8s
+      version: 0.0.0
+    description: CertManager certificate issuer
+    digest: a24e6a99ac83858b80dd8d231e57af622d5249d8819bf21539f8ca1ad3da4046
+    name: certificate-issuer
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/certificate-issuer-v1.0.0/certificate-issuer-1.0.0.tgz
+    version: 1.0.0
   chartmuseum:
   - apiVersion: v2
     created: "2023-04-14T03:18:35.836002945Z"
@@ -1751,6 +1765,21 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/psono-v1.0.0/psono-1.0.0.tgz
     version: 1.0.0
+  pull-secrets-creator:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-12-10T23:21:08.391918397Z"
+    dependencies:
+    - name: libk8s
+      repository: file://../libk8s
+      version: 0.0.0
+    description: Kubernetes imagePullSecrets creator
+    digest: 948874a6a3c8860db9b8f6a04dfd9ed36400ac070db700f40adda1314a64d460
+    name: pull-secrets-creator
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/pull-secrets-creator-v1.0.0/pull-secrets-creator-1.0.0.tgz
+    version: 1.0.0
   pypicloud:
   - apiVersion: v2
     created: "2022-10-21T16:51:42.407936501Z"
@@ -2469,4 +2498,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-10T20:43:19.659326752Z"
+generated: "2023-12-10T23:21:08.392178231Z"
