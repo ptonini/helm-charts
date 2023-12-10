@@ -1,8 +1,0 @@
-apiVersion: v2
-name: lib-cert-manager
-version: 1.1.0
-type: library
-dependencies:
-  - name: lib-default
-    version: 1.7.2
-    repository: https://ptonini.github.io/helm-charts

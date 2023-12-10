@@ -1,9 +1,0 @@
-dependencies:
-- name: lib-default
-  repository: https://ptonini.github.io/helm-charts
-  version: 1.7.2
-- name: lib-cert-manager
-  repository: https://ptonini.github.io/helm-charts
-  version: 1.1.0
-digest: sha256:fbd9dcac46d4bf606c10815c2aba2c5cbcf0e21496b200e2416aae5079748714
-generated: "2023-05-07T02:16:28.646106506-03:00"
