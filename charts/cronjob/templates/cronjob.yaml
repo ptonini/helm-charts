@@ -1,5 +1,7 @@
-{{- include "library.cronjob" . }}
-
-{{- if .Values.serviceaccount.enabled }}
-{{- include "library.rbac.serviceaccount" . }}
+{{- if kindIs "map" .Values.serviceAccount }}
+{{- include "k8s.core.serviceAccount" (set (deepCopy .) "Values" (set .Values.serviceAccount "libk8s" .Values.libk8s)) }}
+{{- include "k8s.factory.rbacRoles" . }}
+{{- include "k8s.factory.rbackBindings" . }}
 {{- end }}
+
+{{- include "k8s.batch.cronjob" . }}

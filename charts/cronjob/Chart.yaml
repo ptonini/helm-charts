@@ -4,6 +4,6 @@ description: Cronjob
 type: application
 version: 1.1.2
 dependencies:
-  - name: lib-default
-    version: 1.7.5
-    repository: https://ptonini.github.io/helm-charts
+  - name: libk8s
+    version: 0.0.0
+    repository: file://../libk8s

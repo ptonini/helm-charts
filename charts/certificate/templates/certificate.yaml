@@ -1,2 +1,1 @@
-{{ $_ := set .Values "secretName" (coalesce .Values.secretName .Release.Name) }}
-{{- include "library.cert-manager.certificate" . }}
+{{- include "k8s.certManager.certificate" . }}

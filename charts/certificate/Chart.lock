@@ -1,9 +1,6 @@
 dependencies:
-- name: lib-default
-  repository: https://ptonini.github.io/helm-charts
-  version: 1.7.4
-- name: lib-cert-manager
-  repository: https://ptonini.github.io/helm-charts
-  version: 1.1.0
-digest: sha256:d7e871c3a64d072b63fad807f5e58bea052d06d05358076548952068682ee8df
-generated: "2023-05-07T02:16:51.499621823-03:00"
+- name: libk8s
+  repository: file://../libk8s
+  version: 0.0.0
+digest: sha256:a7a527f5078acd33d7745ab7a3c666fd57b63a9eaf5fef2eb06478fe78366231
+generated: "2023-11-26T22:24:26.777020657-03:00"
