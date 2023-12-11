@@ -3,6 +3,7 @@ name: ingress-bot
 description: Kubernetes Ingress Manager Bot
 type: application
 version: 1.0.0
+appVersion: 0.1.0
 dependencies:
   - name: libk8s
     version: 0.0.0

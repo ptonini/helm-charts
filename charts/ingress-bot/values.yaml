@@ -1,4 +1,5 @@
 image: ghcr.io/ptonini/ingress-bot:0.1.0
+
 serviceAccount:
   bindings:
     - scope: cluster
