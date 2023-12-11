@@ -1080,6 +1080,20 @@ entries:
     version: 1.0.0
   ingress-bot:
   - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2023-12-11T00:18:43.221934188Z"
+    dependencies:
+    - name: libk8s
+      repository: file://../libk8s
+      version: 0.0.0
+    description: Kubernetes Ingress Manager Bot
+    digest: a35975ddaa87c523d931fab5009e7da309ba276d481c387470c7f5c28cf28ba2
+    name: ingress-bot
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/ingress-bot-v2.0.0/ingress-bot-2.0.0.tgz
+    version: 2.0.0
+  - apiVersion: v2
     created: "2023-04-19T00:28:23.456750226Z"
     dependencies:
     - name: lib-default
@@ -2498,4 +2512,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-10T23:21:08.392178231Z"
+generated: "2023-12-11T00:18:43.222764482Z"
