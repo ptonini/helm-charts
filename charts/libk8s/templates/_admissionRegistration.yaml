@@ -5,7 +5,7 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: {{ coalesce .Values.kind .Values.libk8s.webhook.kind }}
 {{- include "k8s.metadata" . }}
 webhooks:
-  - name: {{ include "k8s.factory.resourceName" . }}.{{ include "k8s.factory.resourceNamespace" . }}
+  - name: {{ include "k8s.factory.resourceName" . }}.{{ include "k8s.factory.resourceNamespace" . }}.svc
     matchPolicy: {{ coalesce .Values.matchPolicy .Values.libk8s.webhook.matchPolicy }}
     failurePolicy: {{ coalesce .Values.failurePolicy .Values.libk8s.webhook.failurePolicy }}
     objectSelector:
