@@ -1782,6 +1782,20 @@ entries:
   pull-secrets-creator:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-12-13T00:25:11.499488446Z"
+    dependencies:
+    - name: libk8s
+      repository: file://../libk8s
+      version: 0.0.0
+    description: Kubernetes imagePullSecrets creator
+    digest: d405b30576659acb1ef56b56c2ce5ebd9b7b3747e299763ca6349844051af4b7
+    name: pull-secrets-creator
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/pull-secrets-creator-v1.0.1/pull-secrets-creator-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-12-10T23:21:08.391918397Z"
     dependencies:
     - name: libk8s
@@ -2512,4 +2526,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-11T00:18:43.222764482Z"
+generated: "2023-12-13T00:25:11.499779076Z"
