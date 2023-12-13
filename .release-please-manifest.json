@@ -14,6 +14,6 @@
   "charts/certificate": "2.0.0",
   "charts/eck-stack": "1.1.0",
   "charts/certificate-issuer": "1.0.0",
-  "charts/pull-secrets-creator": "1.0.0",
+  "charts/pull-secrets-creator": "1.0.1",
   "charts/ingress-bot": "2.0.0"
 }
