@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/ptonini/helm-charts/compare/ingress-bot-v2.0.0...ingress-bot-v2.1.0) (2023-12-15)
+
+
+### Features
+
+* added ingressAnnotations value ([13ec452](https://github.com/ptonini/helm-charts/commit/13ec452162e2262558e46ae078813255eb8b41f1))
+
 ## [2.0.0](https://github.com/ptonini/helm-charts/compare/ingress-bot-v1.0.0...ingress-bot-v2.0.0) (2023-12-11)
 
 
