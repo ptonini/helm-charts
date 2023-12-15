@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ptonini/helm-charts/compare/pull-secrets-creator-v1.0.1...pull-secrets-creator-v1.1.0) (2023-12-15)
+
+
+### Features
+
+* added secrets value ([3a60937](https://github.com/ptonini/helm-charts/commit/3a60937855f7686d56fff67f510303b012d4c612))
+
 ## [1.0.1](https://github.com/ptonini/helm-charts/compare/pull-secrets-creator-v1.0.0...pull-secrets-creator-v1.0.1) (2023-12-13)
 
 
