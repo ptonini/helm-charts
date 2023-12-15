@@ -1081,6 +1081,20 @@ entries:
   ingress-bot:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2023-12-15T16:34:06.647320895Z"
+    dependencies:
+    - name: libk8s
+      repository: file://../libk8s
+      version: 0.0.0
+    description: Kubernetes Ingress Manager Bot
+    digest: 17790d556987e2844834d07bd7ef588c01aa2beb52ef1c10677fba1d7b18849c
+    name: ingress-bot
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/ingress-bot-v2.1.0/ingress-bot-2.1.0.tgz
+    version: 2.1.0
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2023-12-11T00:18:43.221934188Z"
     dependencies:
     - name: libk8s
@@ -1780,6 +1794,20 @@ entries:
     - https://github.com/ptonini/helm-charts/releases/download/psono-v1.0.0/psono-1.0.0.tgz
     version: 1.0.0
   pull-secrets-creator:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-12-15T16:34:06.800914796Z"
+    dependencies:
+    - name: libk8s
+      repository: file://../libk8s
+      version: 0.0.0
+    description: Kubernetes imagePullSecrets creator
+    digest: 94fadf3a494ccbb9a4642dfc27532e79360cbfafa6ac9519b1c3ad0f2dc3f5a7
+    name: pull-secrets-creator
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/pull-secrets-creator-v1.1.0/pull-secrets-creator-1.1.0.tgz
+    version: 1.1.0
   - apiVersion: v2
     appVersion: 1.0.0
     created: "2023-12-13T00:25:11.499488446Z"
@@ -2526,4 +2554,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-13T00:25:11.499779076Z"
+generated: "2023-12-15T16:34:06.801299463Z"
