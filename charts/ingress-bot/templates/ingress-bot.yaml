@@ -1,3 +1,7 @@
+{{- if .Values.ingressAnnotations }}
+{{$_ := set .Values.env "INGRESS_ANNOTATIONS" (toJson .Values.ingressAnnotations) }}
+{{- end }}
+
 {{- include "k8s.core.serviceAccount" (set (deepCopy .) "Values" (set .Values.serviceAccount "libk8s" .Values.libk8s)) }}
 {{- include "k8s.factory.rbacRoles" . }}
 {{- include "k8s.factory.rbackBindings" . }}

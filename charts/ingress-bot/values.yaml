@@ -1,4 +1,9 @@
+ingressAnnotations:
+  ingress.kubernetes.io/force-ssl-redirect: "true"
+  konghq.com/strip-path: "true"
+
 image: ghcr.io/ptonini/ingress-bot:0.1.0
+env: {}
 
 serviceAccount:
   bindings:
