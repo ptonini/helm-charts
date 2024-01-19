@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/ptonini/helm-charts/compare/workload-v3.0.0...workload-v3.0.1) (2024-01-19)
+
+
+### Bug Fixes
+
+* fixed k8s.contextMutator.createIngressForService template call ([288064c](https://github.com/ptonini/helm-charts/commit/288064c09806890e89dda2614f772a517e20b630))
+
 ## [3.0.0](https://github.com/ptonini/helm-charts/compare/workload-v2.2.0...workload-v3.0.0) (2023-12-09)
 
 
