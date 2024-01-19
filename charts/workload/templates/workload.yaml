@@ -16,7 +16,7 @@
 
 
 {{- if kindIs "map" .Values.ingress }}
-{{- include "k8s.mutator.createIngressForService" . }}
+{{- include "k8s.contextMutator.createIngressForService" . }}
 {{- include "k8s.networking.ingress" (set (deepCopy .) "Values" .Values.ingress) }}
 {{- end }}
 
