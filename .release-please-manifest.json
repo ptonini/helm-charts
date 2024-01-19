@@ -5,7 +5,7 @@
   "charts/secret": "2.0.0",
   "charts/service": "2.0.0",
   "charts/serviceaccount": "2.0.0",
-  "charts/workload": "3.0.0",
+  "charts/workload": "3.0.1",
   "charts/kong-consumer": "2.0.0",
   "charts/kong-plugin": "2.0.1",
   "charts/rabbitmq-cluster": "2.0.0",
