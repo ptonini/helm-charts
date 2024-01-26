@@ -1945,6 +1945,19 @@ entries:
     version: 1.0.0
   rabbitmq-cluster:
   - apiVersion: v2
+    created: "2024-01-26T16:13:35.045912125Z"
+    dependencies:
+    - name: libk8s
+      repository: file://../libk8s
+      version: 0.0.0
+    description: RabbitMQ Cluster
+    digest: 424652cab1143e61362cc2cb9f4741eade523b90261405fe65ffee464ad553a3
+    name: rabbitmq-cluster
+    type: application
+    urls:
+    - https://github.com/ptonini/helm-charts/releases/download/rabbitmq-cluster-v2.0.1/rabbitmq-cluster-2.0.1.tgz
+    version: 2.0.1
+  - apiVersion: v2
     created: "2023-12-10T19:08:27.341678039Z"
     dependencies:
     - name: libk8s
@@ -2567,4 +2580,4 @@ entries:
     urls:
     - https://github.com/ptonini/helm-charts/releases/download/workload-v1.0.0/workload-1.0.0.tgz
     version: 1.0.0
-generated: "2024-01-19T00:25:48.77025639Z"
+generated: "2024-01-26T16:13:35.046273863Z"
