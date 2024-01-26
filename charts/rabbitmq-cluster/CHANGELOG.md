@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/ptonini/helm-charts/compare/rabbitmq-cluster-v2.0.0...rabbitmq-cluster-v2.0.1) (2024-01-26)
+
+
+### Bug Fixes
+
+* fixed rabbit.additionalConfig indentation ([5cb21b5](https://github.com/ptonini/helm-charts/commit/5cb21b5e23a44132da54cce1ab455c804299cb8b))
+
 ## [2.0.0](https://github.com/ptonini/helm-charts/compare/rabbitmq-cluster-v1.1.0...rabbitmq-cluster-v2.0.0) (2023-12-10)
 
 

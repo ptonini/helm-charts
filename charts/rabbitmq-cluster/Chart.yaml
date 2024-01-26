@@ -2,7 +2,7 @@ apiVersion: v2
 name: rabbitmq-cluster
 description: RabbitMQ Cluster
 type: application
-version: 2.0.0
+version: 2.0.1
 dependencies:
   - name: libk8s
     version: 0.0.0
