@@ -8,7 +8,7 @@ spec:
   resources: {{ .Values.resources | toYaml | nindent 4 }}
   rabbitmq:
     additionalPlugins: {{ .Values.additionalPlugins | toYaml | nindent 6 }}
-    additionalConfig: {{ .Values.additionalConfig }}
+    additionalConfig: {{- .Values.additionalConfig | toYaml | indent 4 }}
     {{- if .Values.envConfig }}
     envConfig: {{ .Values.envConfig }}
     {{- end }}
